@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 const DefaultStyledLabel = styled.label`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
     display: block;
     margin-top: 1rem;
+    font-weight: 600;
+    color:var(--color-font);
 `
 const StyledLabel = styled(DefaultStyledLabel)(props=>props.style);
 
