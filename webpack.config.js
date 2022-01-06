@@ -2,7 +2,7 @@ const path = require('path');
 // importuję bibliotękę [path] z [node.js]
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // importuję plugin [html-webpack-plugin]
-const CssWebpackPlugin = require('mini-css-extract-plugin');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // importuję plugin [clean-webpack-plugin]
 module.exports = function(env = {}) {
@@ -123,9 +123,6 @@ module.exports = function(env = {}) {
                 // wskazuje plik źródłowy
                 filename: 'index.html'
                 // określan nazwę dla pliku
-            }),
-            new CssWebpackPlugin({
-                filename: '[name].[hash].css'
             }),
             new CleanWebpackPlugin(),
             // uruchamiam czyszczenie katalogu [build]
