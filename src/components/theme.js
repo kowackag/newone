@@ -5,7 +5,8 @@ export default {
             colorBody: '#ECEEF9',
             colorShadowDark: '#a3a4b1',
             colorShadowLight: '#fff',
-            colorFont: '#560fdf',
+            colorFont: '#420caa',
+            colorContrast:'#d81bb8',
         }, 
         dark: {
             colorBgc: '#3E4247',

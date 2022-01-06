@@ -23,7 +23,7 @@ const DefaultStyledField = styled.input`
     &::after {
         display: inline-block;
         padding-left: 0.5rem;
-        content: '${props=>props.unit}';
+        content: 'kg';
     }
 `
 const StyledField = styled(DefaultStyledField)(props=>props.style);
