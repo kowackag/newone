@@ -1,8 +1,8 @@
 import styled, {css} from 'styled-components';
 
-const DefaultStyledInput = styled.form`
+const DefaultStyledFirstStage = styled.form`
 
 `
-const StyledInput = styled(DefaultStyledInput)(props=>props.style);
+const StyledFirstStage = styled(DefaultStyledFirstStage)(props=>props.style);
 
-export default StyledInput;
+export default StyledFirstStage;

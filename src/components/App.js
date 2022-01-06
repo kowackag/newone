@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider} from 'styled-components';
 import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
-
+import SecondStage from './SecondStage/SecondStage'
 import BMI from './BMI/BMI';
 
 const style = {
@@ -21,7 +21,7 @@ const App = () => {
             <section className="FirstStage" style ={style}> 
                 <h2 style = {style2}>Konfigurator diety</h2>
                 <FirstStage/>
-                {/* <SecondStage/> */}
+                <SecondStage/>
             </section>
             <BMI/>
         </ThemeProvider>

@@ -17,7 +17,6 @@ const FirstStage = () => {
             <Label>Data urodzenia</Label> 
             <Input type="date"/>
             <div>
-                <Button active = {false}>Cofnij</Button>
                 <Button active = {true}>Dalej</Button>
             </div>
         </StyledFirstStage>
