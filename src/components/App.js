@@ -2,8 +2,8 @@ import React from 'react';
 import { ThemeProvider} from 'styled-components';
 import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
-import SecondStage from './SecondStage/SecondStage'
-import BMI from './BMI/BMI';
+import SecondStage from './SecondStage/SecondStage';
+import ResetStyle from './../styled/Resel';
 
 const style = {
     margin:'20px',
@@ -19,11 +19,12 @@ const App = () => {
     return (
         <ThemeProvider theme ={themeSettings.variant.light}> 
             <section className="FirstStage" style ={style}> 
+                <ResetStyle/>
                 <h2 style = {style2}>Konfigurator diety</h2>
-                <FirstStage/>
-                <SecondStage/>
+                <FirstStage active={true}/>
+                <SecondStage active={false}/>
+                
             </section>
-            <BMI/>
         </ThemeProvider>
     )
 }

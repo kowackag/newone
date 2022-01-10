@@ -1,22 +1,17 @@
 import React from 'react';
 import StyledFirstStage from './FirstStage.styled';
 import Button from './../Button/Button';
-import Input from './../Input/Input';
-import Label from './../Label/Label';
-import Dropdown from './../Dropdown/Dropdown';
+import Parameters from './../Parameters/Parameters'
+import Activity from './../Activity/Activity'
 
 const FirstStage = () => {
     return( 
         <StyledFirstStage>
-            <Label>Płeć</Label> 
-            <Dropdown></Dropdown>
-            <Label>Masa ciała</Label> 
-            <Input type="number" unit="kg"/>
-            <Label>Wzrost</Label> 
-            <Input type="number" unit="cm"/>
-            <Label>Data urodzenia</Label> 
-            <Input type="date"/>
-            <div>
+            <div className="flex-wrapper">
+                <Parameters/>
+                <Activity/>
+            </div>
+            <div className="buttons"> 
                 <Button active = {true}>Dalej</Button>
             </div>
         </StyledFirstStage>

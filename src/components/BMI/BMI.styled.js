@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const DefaultStyledBMI = styled.section`
     --color-font: ${props=>props.theme.colorFont};
@@ -20,7 +20,6 @@ const DefaultStyledBMI = styled.section`
         font-size: 3rem;
         font-weight: 200;
     }
-
 
     & .description {
         font-size: 2rem;
