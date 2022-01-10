@@ -3,9 +3,7 @@ import StyledButton from './Button.styled';
 
 const Button = (props) => {
     return( 
-        <StyledButton>
-           {props.children}
-        </StyledButton>
+        <StyledButton type ={props.type} value = {props.value}/>
     )
 }
 

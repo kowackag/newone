@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 
-const DefaultStyledFirstStage = styled.div`
+const DefaultStyledFirstStage = styled.form`
     --color-alfa: ${props=>props.theme.colorBgc};
     --color-beta: ${props=>props.theme.colorShadowDark};
     --color-gamma: ${props=>props.theme.colorShadowLight};

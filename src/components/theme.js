@@ -2,7 +2,6 @@ export default {
     variant: { 
         light: {
             colorBgc: '#ECEEF9',
-            colorBody: '#ECEEF9',
             colorShadowDark: '#a3a4b1',
             colorShadowLight: '#fff',
             colorFont: '#420caa',
