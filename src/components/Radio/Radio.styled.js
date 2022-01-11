@@ -1,16 +1,17 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-const DefaultStyledRadio = styled.div`
+const DefaultStyledRadio = styled.label`
     --color-alfa: ${props=>props.theme.colorBgc};
     --color-beta: ${props=>props.theme.colorShadowDark};
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast:${props=>props.theme.colorContrast};
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    width: 300px;
+    
+    width: 95%;
     margin-bottom:1.5rem;
+    position: relative;
+    padding: .4rem 1rem;
+    cursor: pointer;  
     border-radius: .4rem;
     box-shadow: 6px 6px 16px var(--color-beta), -6px -6px 16px var(--color-gamma);
     background-color: var(--color-alfa);
@@ -31,12 +32,12 @@ const DefaultStyledRadio = styled.div`
         padding-left: 26px; 
     }
 
-    & label {
+  
         width: 90%;
         position: relative;
         padding: .4rem 1rem;
         cursor: pointer;  
-    }
+    
 
     & .activity__name {
         font-size: 1rem;
@@ -48,36 +49,21 @@ const DefaultStyledRadio = styled.div`
         margin: 0;
     }
 
-    & label::after {
+    & ::after {
         box-sizing: border-box;
         position: absolute;
         top: 20px;
-        right: -20px;
+        right: 20px;
         display: inline-block;
         width: 16px;
         height: 16px;
         border-radius: 8px;
         box-shadow: 0px 0px 4px var(--color-beta), -2px -2px 4px var(--color-gamma);
-        
-        // background-color: var(--color-contrast);
-        // border: 4px solid var(--color-alfa);
-        // box-shadow: 0px 0px 4px var(--color-contrast);
-
         content: '';
+        background-color: ${props=>props.active && css`var(--color-contrast)`};
+        border: ${props=>props.active && css`4px solid var(--color-alfa)`};
+        box-shadow: ${props=>props.active && css`0px 0px 4px var(--color-contrast)`};
     }
-
-    & label::after:checked {
-        position: absolute;
-        top: 18px;
-        right: 16px;
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 4px var(--color-beta), -2px -2px 4px var(--color-gamma);
-        background-color: red;
-        content: '';
-      }
 
 `
 

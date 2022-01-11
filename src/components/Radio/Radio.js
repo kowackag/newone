@@ -1,12 +1,13 @@
 import React from 'react';
 import StyledRadio from './Radio.styled';
-import Label from './../Label/Label'
 
 const Radio = (props) => {
+    const {name, value, active, onClick} = props;
+    console.log(value, active, typeof active)
     return( 
-        <StyledRadio> 
-            <label>{props.children}</label>
-            <input id="radio" type="radio"></input>
+        <StyledRadio active={active}> 
+            {props.children}
+            <input name={name} active={active} value={value} type="radio" onClick={onClick}></input>
         </StyledRadio>
     )
 }

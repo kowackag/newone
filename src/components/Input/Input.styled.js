@@ -7,18 +7,20 @@ const DefaultStyledInput = styled.div`
     --color-font: ${props=>props.theme.colorFont};
     display: flex;
     justify-content: space-between;
-    width: 300px;
+    
     border-radius: .4rem;
     box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 10px var(--color-gamma);
     background-color: #ECEEF9;
     color: var(--color-font);
 
     & span {
+        display:inline-block;
         padding: .4rem 1rem; 
-    }
+    } 
+
     & input {
         padding: .4rem 1rem;
-        // width: 50vw;
+        width: 95%;
         flex-grow: 2;
         outline: none;
         border: none;
@@ -31,15 +33,11 @@ const DefaultStyledInput = styled.div`
         border-bottom-right-radius: ${props=>
             !props.unit && css`.4rem`}; 
     }
-
-    & input:focus {
-    background-color:rgb(246,247,252);
-    box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 30px var(--color-gamma);
-    }
-
     
-
-
+    & input:focus {
+        background-color:rgb(246,247,252);
+        box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 30px var(--color-gamma);
+    }
 `
 const StyledInput = styled(DefaultStyledInput)(props=>props.style);
 

@@ -1,10 +1,12 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const DefaultStyleSecondStage = styled.div`
     --color-alfa: ${props=>props.theme.colorBgc};
     --color-beta: ${props=>props.theme.colorShadowDark};
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
+
+    display: ${props=> !props.active && css`none`};
 
     & .flex-wrapper {
         display: flex;

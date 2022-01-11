@@ -6,12 +6,12 @@ const DefaultStyledActivity = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
     color: var(--color-font);
+    width: 45%;
     
     & h4 {
         font-size:1.2rem;
         margin-bottom:1.5rem;
     }
-
 `
 const StyledFirstActivity = styled(DefaultStyledActivity)(props=>props.style);
 

@@ -6,9 +6,9 @@ import Label from './../Label/Label';
 import Option from './../Option/Option';
 import BMI from './../BMI/BMI';
 
-const SecondStage = () => {
+const SecondStage = (props) => {
     return( 
-        <StyledSecondStage>
+        <StyledSecondStage active={props.active}>
             <div className="flex-wrapper">
                 <div>
                     <h4>Cel diety</h4>

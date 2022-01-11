@@ -3,10 +3,10 @@ import StyledFirstStage from './FirstStage.styled';
 import Button from './../Button/Button';
 import Parameters from './../Parameters/Parameters'
 import Activity from './../Activity/Activity';
-import {validateData} from './../../validateData'
+import {validateData} from './../../validateData';
+import {v4 as uuid} from 'uuid';
 
-const FirstStage = () => {
-
+const FirstStage = (props) => {
     const init = {
         gender: '',
         weight: 0,
@@ -16,11 +16,13 @@ const FirstStage = () => {
     }
 
     const reducer = (state, action) => {
+        const {name, value} = action.element;
         switch (action.type) {
             case 'reset': 
                 return init;
             case 'change':
-                const {name, value} = action.element;
+                return {...state, [name]:value};
+            case 'click':
                 return {...state, [name]:value};
             default:
                 return state;
@@ -28,28 +30,37 @@ const FirstStage = () => {
     }
 
     const [state, dispatch] = useReducer(reducer, init);
-    const {gender, weight, height, born, activity} = state;
+    const {activity} = state;
     const [err, setErr] = useState([])
 
     const handleForm =(e) => {
         e.preventDefault();
+        console.log(state);
         const errors = validateData(state);
         if (errors.length === 0) {
-
-        } else {console.log(errors)}
+           const {setStage} = props; 
+           setStage('second-stage');      } 
+        const copyErrors = errors.map(error=>{
+            return {text: error, id: uuid()}});
+        setErr(copyErrors);
     }
 
-
-
     return( 
-        <StyledFirstStage onSubmit={(e)=> handleForm(e)}>
-            <div className="flex-wrapper">
-                <Parameters param={state} onChange={e=>dispatch({type:'change', element: e.target })}/>
-                <Activity activity={activity}/>
-            </div>
-            <div className="buttons"> 
-                <Button active = {true} value="Dalej" type="submit"/>
-            </div>
+        <StyledFirstStage active={props.active}>
+            <form onSubmit={(e)=> handleForm(e)}> 
+                <div className="flex-wrapper">
+                    <Parameters param={state} onChange={e=>dispatch({type:'change', element: e.target })}/>
+                    <Activity activity={activity} onClick={e=>dispatch({type:'click', element: e.target})}/>
+                </div>
+                <div className="buttons"> 
+                    <Button active = {true} value="Dalej" type="submit"/>
+                </div>
+            </form>{
+                err.length > 0 && <> 
+                <section className="errors">
+                    <h4 className="errors__title">Wprowadzono błędne dane:</h4>
+                    <ul>{err.map(({text, id})=><li className="errors__item" key={id}>{text}</li>)}</ul> 
+                </section></>}
         </StyledFirstStage>
     )
 }

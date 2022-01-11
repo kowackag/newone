@@ -7,13 +7,15 @@ import ResetStyle from './../styled/Resel';
 import StyledApp from './../components/App.styled';
 
 const App = () => {
+    const [stage, setStage] = useState('first-stage');
+    console.log("first-stage"===stage);
     return (
         <ThemeProvider theme ={themeSettings.variant.light}> 
             <StyledApp className="diet-app"> 
                 <ResetStyle/>
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage active={true}/>
-                <SecondStage active={false}/>
+                <FirstStage name="first-stage" active={"first-stage"===stage} setStage={setStage}/>
+                <SecondStage name="second-stage" active={"second-stage"===stage} setStage={setStage}/>
             </StyledApp>
         </ThemeProvider>
     )
