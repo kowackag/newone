@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
-const DefaultStyledOption = styled.div`
+const DefaultStyledOption = styled.label`
     --color-alfa: ${props=>props.theme.colorBgc};
     --color-beta: ${props=>props.theme.colorShadowDark};
     --color-gamma: ${props=>props.theme.colorShadowLight};
@@ -8,21 +8,19 @@ const DefaultStyledOption = styled.div`
     --color-contrast:${props=>props.theme.colorContrast};
     display: block;
     padding: .4rem 1rem;
-    width: 300px;
-    margin-bottom: 1rem;
+    width: 95%;
+    margin-bottom: 1.5rem;
     border-radius: .4rem;
-    box-shadow: 6px 6px 16px var(--color-beta), -6px -6px 16px var(--color-gamma);
-    background-color: var(--color-alfa);
-    color: var(--color-font);
+    box-shadow: ${props =>!props.active ? css`6px 6px 16px var(--color-beta), -6px -6px 16px var(--color-gamma)` : css`2px 2px 6px #c37eb8,
+    -2px -2px 6px #ffaaf8`};
+    background-color: ${props=>!props.active ? css`var(--color-alfa)`:css`#dc5ec7`};
+    color: ${props=>!props.active ? css`var(--color-font)`: css`var(--color-alfa)`};
     font-weight: 400;
 
-    &:hover {
-        outline: none;
-        background-color: #dc5ec7;
-        color: var(--color-alfa);
-        box-shadow: 2px 2px 6px #c37eb8,
-        -2px -2px 6px #ffaaf8;
+    & input[type=radio] {
+        display: none;
     }
+    cursor: pointer;
 `
 
 

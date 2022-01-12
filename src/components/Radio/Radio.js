@@ -3,7 +3,6 @@ import StyledRadio from './Radio.styled';
 
 const Radio = (props) => {
     const {name, value, active, onClick} = props;
-    console.log(value, active, typeof active)
     return( 
         <StyledRadio active={active}> 
             {props.children}

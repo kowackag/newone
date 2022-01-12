@@ -6,14 +6,16 @@ const DefaultStyledApp = styled.section`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast:${props=>props.theme.colorContrast};
-
-    color: var(--color-font);
-    margin:50px;
+  
+    margin:50px auto;
     padding: 50px;
-    background-color: var(--color-alfa);
+    max-width: 900px;
     border: 3px inset var(--color-font);
-    
+    background-color: var(--color-alfa);
+    color: var(--color-font);
+
     & .diet-app__title {
+        margin-bottom: 2rem;
         color: var(--color-contrast);
     }
 `

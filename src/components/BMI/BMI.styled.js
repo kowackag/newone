@@ -3,13 +3,12 @@ import styled from 'styled-components';
 const DefaultStyledBMI = styled.section`
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast:${props=>props.theme.colorContrast};
-    
+    width:45%;
     color: var(--color-font);
     font-weight: 400;
 
-    & h3 {
-        font-size: 1.4rem;
-        font-weight: 400;
+    & h4 {
+        font-size: 1.2rem;
     }
 
     & .bmi, .description {
@@ -22,7 +21,7 @@ const DefaultStyledBMI = styled.section`
     }
 
     & .description {
-        font-size: 2rem;
+        font-size: 1.8rem;
         font-weight: 600;
     }
 

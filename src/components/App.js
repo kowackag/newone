@@ -8,7 +8,7 @@ import StyledApp from './../components/App.styled';
 
 const App = () => {
     const [stage, setStage] = useState('first-stage');
-    console.log("first-stage"===stage);
+    console.log(stage);
     return (
         <ThemeProvider theme ={themeSettings.variant.light}> 
             <StyledApp className="diet-app"> 

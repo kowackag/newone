@@ -19,7 +19,7 @@ const DefaultStyledButton = styled.input`
     text-align: center;
     &:hover, &:focus {
         outline: none;
-        background-color: #6c37d7;
+        background-color: var(--color-font);
         color: var(--color-alfa);
         box-shadow: 4px 4px 10px #6c5a91,-4px -4px 10px #c0a0ff;
     }

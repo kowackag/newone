@@ -1,10 +1,10 @@
 import React from 'react';
 import StyledBMI from './BMI.styled';
 
-const BMI = () => {
+const BMI = ({className}) => {
     return( 
-        <StyledBMI>
-            <h3 className="title">Twój wskaźnik masy ciała wynosi:</h3>
+        <StyledBMI className={className}>
+            <h4 className="title">Twój wskaźnik masy ciała wynosi:</h4>
             <p className="bmi">33,5</p>
             <p className="info">Twoje BMI wskazuje na:</p>
             <p className="description">nadwaga</p>

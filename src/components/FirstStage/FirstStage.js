@@ -1,9 +1,9 @@
-import React, {useReducer, useContext, useState} from 'react';
+import React, {useReducer, useState} from 'react';
 import StyledFirstStage from './FirstStage.styled';
 import Button from './../Button/Button';
 import Parameters from './../Parameters/Parameters'
 import Activity from './../Activity/Activity';
-import {validateData} from './../../validateData';
+import {validateDataFirstStage} from './../../validateData';
 import {v4 as uuid} from 'uuid';
 
 const FirstStage = (props) => {
@@ -35,8 +35,7 @@ const FirstStage = (props) => {
 
     const handleForm =(e) => {
         e.preventDefault();
-        console.log(state);
-        const errors = validateData(state);
+        const errors = validateDataFirstStage(state);
         if (errors.length === 0) {
            const {setStage} = props; 
            setStage('second-stage');      } 
@@ -55,7 +54,7 @@ const FirstStage = (props) => {
                 <div className="buttons"> 
                     <Button active = {true} value="Dalej" type="submit"/>
                 </div>
-            </form>{
+            </form>{ 
                 err.length > 0 && <> 
                 <section className="errors">
                     <h4 className="errors__title">Wprowadzono błędne dane:</h4>

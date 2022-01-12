@@ -7,7 +7,7 @@ const DefaultStyledRadio = styled.label`
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast:${props=>props.theme.colorContrast};
     
-    width: 95%;
+    width: 100%;
     margin-bottom:1.5rem;
     position: relative;
     padding: .4rem 1rem;
@@ -30,14 +30,7 @@ const DefaultStyledRadio = styled.label`
     & input[type=radio] + label {
         position: relative;
         padding-left: 26px; 
-    }
-
-  
-        width: 90%;
-        position: relative;
-        padding: .4rem 1rem;
-        cursor: pointer;  
-    
+    } 
 
     & .activity__name {
         font-size: 1rem;
