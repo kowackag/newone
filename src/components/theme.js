@@ -1,8 +1,8 @@
 export default {
     variant: { 
         light: {
-            colorBgc: '#ECEEF9',
-            colorShadowDark: '#a3a4b1',
+            colorBgc: '#eef2fc',
+            colorShadowDark: '#c3c9d0',
             colorShadowLight: '#fff',
             colorFont: '#420caa',
             colorContrast:'#d81bb8',

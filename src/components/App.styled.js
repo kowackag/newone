@@ -10,7 +10,8 @@ const DefaultStyledApp = styled.section`
     margin:50px auto;
     padding: 50px;
     max-width: 900px;
-    border: 3px inset var(--color-font);
+    // border: 3px inset var(--color-font);
+    box-shadow:8px 8px 20px #ccd1d8, 8px 8px 20px #ccd1d8;
     background-color: var(--color-alfa);
     color: var(--color-font);
 

@@ -3,19 +3,31 @@ import { ThemeProvider} from 'styled-components';
 import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
+import ThirdStage from './ThirdStage/ThirdStage';
 import ResetStyle from './../styled/Resel';
 import StyledApp from './../components/App.styled';
 
 const App = () => {
+    const init = {
+        firstStage: {},
+        secondStage: {},
+        thirdStage: {},
+        personal: {}
+    }
+
     const [stage, setStage] = useState('first-stage');
-    console.log(stage);
+    const [form, setForm] = useState({})
+    const [bmi, setBMI] = useState();
+    console.log('form');
+    console.log(form);
     return (
         <ThemeProvider theme ={themeSettings.variant.light}> 
             <StyledApp className="diet-app"> 
                 <ResetStyle/>
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage name="first-stage" active={"first-stage"===stage} setStage={setStage}/>
-                <SecondStage name="second-stage" active={"second-stage"===stage} setStage={setStage}/>
+                <FirstStage name="first-stage" active={"first-stage"===stage} setStage={setStage} setBMI={setBMI} setForm={setForm}/>
+                <SecondStage name="second-stage" active={"second-stage"===stage} setStage={setStage} setForm={setForm} bmi={bmi}/>
+                <ThirdStage name="third-stage" active={"third-stage"===stage} setStage={setStage} setForm={setForm} bmi={bmi}/>
             </StyledApp>
         </ThemeProvider>
     )

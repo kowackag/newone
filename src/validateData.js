@@ -15,6 +15,5 @@ const validateDataSecondStage =({weight, goal}) => {
     if (!goal) errors.push('Uzupełnij cel diety')
     return errors;
 }
-
-
+78
 export {validateDataFirstStage, validateDataSecondStage};

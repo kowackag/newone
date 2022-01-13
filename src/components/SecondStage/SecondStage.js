@@ -36,7 +36,10 @@ const SecondStage = (props) => {
         e.preventDefault();
         const errors = validateDataSecondStage(state);
         if (errors.length === 0) {
-            const {setStage} = props; 
+            const {setStage, setForm} = props; 
+            setForm(prevState=> {
+                return {...prevState, ...state}
+            });
             setStage('third-stage');      } 
          const copyErrors = errors.map(error=>{
              return {text: error, id: uuid()}});
@@ -60,12 +63,12 @@ const SecondStage = (props) => {
                     <Label>Docelowa masa ciała</Label> 
                     <Input type="number" unit="kg" name="weight" value={weight} onChange={e=>dispatch({type:'change', element: e.target})}/>
                 </div>
-                <BMI className="BMI"/>
+                <BMI className="BMI" bmi={props.bmi}/>
                 <div className="form__buttons buttons ">
-                    <Button value="Wstecz" type="click"/>
-                    <Button value="Dalej" type="submit"/>
+                    <Button value="Wstecz" name="back" />
+                    <Button value="Dalej" name="next" type="submit"/>
                 </div>
-            </form>{err.length > 0 && <> 
+            </form>{err.length > 0 && <>
                 <section className="errors">
                     <h4 className="errors__title">Wprowadzono błędne dane:</h4>
                     <ul>{err.map(({text, id})=><li className="errors__item" key={id}>{text}</li>)}</ul> 

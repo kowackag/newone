@@ -37,11 +37,23 @@ const FirstStage = (props) => {
         e.preventDefault();
         const errors = validateDataFirstStage(state);
         if (errors.length === 0) {
-           const {setStage} = props; 
-           setStage('second-stage');      } 
+            const {weight, height} = state;
+            const bmi = countBMI(Number(weight), Number(height)/100);
+            const {setStage, setBMI, setForm} = props; 
+            setBMI(bmi);
+            setForm(prevState=> {
+               return {...prevState, ...state}
+            });
+            setStage('second-stage');      
+        } 
         const copyErrors = errors.map(error=>{
             return {text: error, id: uuid()}});
         setErr(copyErrors);
+    }
+
+    const countBMI = (weight, height) => {
+        const bmi = (weight/Math.pow(height,2)).toFixed(1);
+        return bmi;
     }
 
     return( 
