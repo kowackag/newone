@@ -27,7 +27,7 @@ const validateDataFirstStage =({weight, height, gender, born, activity}) => {
 }
 
 const validateDataSecondStage =({weight, goal}) => {
-    const errors = {};
+    let errors = {};
     if (Number(weight) < 20) {
         const copyErrors = {weight: 'Błędnie podana waga'};
         errors = {...errors, ...copyErrors};
@@ -40,7 +40,7 @@ const validateDataSecondStage =({weight, goal}) => {
 }
 
 const validateDataThirtStage =({weight, goal}) => {
-    const errors = {};
+    let errors = {};
     if (Number(weight) < 20) {
         const copyErrors = {weight: 'Błędnie podana waga'};
         errors = {...errors, ...copyErrors};

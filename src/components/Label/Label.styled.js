@@ -8,6 +8,11 @@ const DefaultStyledLabel = styled.label`
     font-size: 1.4rem;
     font-weight: 600;
     color:var(--color-font);
+
+    :first-of-type {
+        margin-top: 0;
+    }
+
 `
 const StyledLabel = styled(DefaultStyledLabel)(props=>props.style);
 

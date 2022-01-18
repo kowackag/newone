@@ -11,13 +11,14 @@ const DefaultStyledBMI = styled.section`
         color: rgb(var(--color-contrast));
     }
 
-    & .bmi {
-        font-size: 3.2rem;
+    & .bmi-value {
+        font-size: 5rem;
         font-weight: 200;
     }
 
     & .bmi-description {
-        font-size: 1.6rem;
+        margin-top:2rem;
+        font-size: 1.8rem;
         font-weight: 600;
     }
 

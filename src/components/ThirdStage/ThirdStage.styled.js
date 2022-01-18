@@ -30,16 +30,6 @@ const DefaultStyleThirdStage = styled.div`
         justify-content:center;
         margin: 2rem;
     }
-    
-    & .errors {
-        font-size:.8rem;
-        font-style: italic;
-    }
-
-    & .errors__title {
-        font-size:1rem;
-    }
-    
 `
 
 const StyledThirdStage = styled(DefaultStyleThirdStage)(props=>props.style)

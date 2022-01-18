@@ -4,7 +4,6 @@ import Button from './../Button/Button';
 import Parameters from './Parameters/Parameters'
 import Activity from './Activity/Activity';
 import {validateDataFirstStage} from './../../validateData';
-import {v4 as uuid} from 'uuid';
 
 const FirstStage = (props) => {
     const init = {
@@ -36,7 +35,8 @@ const FirstStage = (props) => {
     const handleForm =(e) => {
         e.preventDefault();
         const errors = validateDataFirstStage(state);
-        if (errors===false) {
+        setErr({...errors});
+        if (Object.keys(errors).length === 0) {
             const {weight, height} = state;
             const bmi = countBMI(Number(weight), Number(height)/100);
             const {setStage, setBMI, setForm} = props; 
@@ -46,12 +46,6 @@ const FirstStage = (props) => {
             });
             setStage('second-stage');      
         } 
-        // const copyErrors = errors.map(error=>{
-        //     return {text: error, id: uuid()}});
-        setErr(prevState => {
-            return {...prevState, ...errors}
-        });
-        console.log(err);
     }
 
     const countBMI = (weight, height) => {
@@ -70,12 +64,6 @@ const FirstStage = (props) => {
                     <Button active = {true} value="Dalej" type="submit"/>
                 </div>
             </form>
-            {/* { 
-                err.length > 0 && <> 
-                <section className="errors">
-                    <h4 className="errors__title">Wprowadzono błędne dane:</h4>
-                    <ul>{err.map(({text, id})=><li className="errors__item" key={id}>{text}</li>)}</ul> 
-                </section></>} */}
         </StyledFirstStage>
     )
 }

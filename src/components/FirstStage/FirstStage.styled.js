@@ -13,7 +13,7 @@ const DefaultStyledFirstStage = styled.div`
     & .flex-wrapper {
         display: flex;
         justify-content: space-between;
-        align-items:center;
+        // align-items:center;
     }
 
     & .buttons {

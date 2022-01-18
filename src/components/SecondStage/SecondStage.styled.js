@@ -6,11 +6,12 @@ const DefaultStyleSecondStage = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
 
-    // display: ${props=> !props.active && css`none`};
+    display: ${props=> !props.active && css`none`};
     color: rgb(var(--color-font));
 
     & .goal-header {
         font-size: 1.4rem;
+        margin-top:1rem;
     }
 
     & .form {
