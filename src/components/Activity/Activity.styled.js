@@ -8,9 +8,16 @@ const DefaultStyledActivity = styled.div`
     color: var(--color-font);
     width: 45%;
     
-    & h4 {
+    & .activity__title {
         font-size:1.2rem;
-        margin-bottom:1.5rem;
+        margin-top:1.5rem;
+    }
+
+    & .errors {
+        position: fixed;
+        color: #e01010;
+        font-size:.8rem;
+        font-style: italic;
     }
 `
 const StyledFirstActivity = styled(DefaultStyledActivity)(props=>props.style);

@@ -7,7 +7,6 @@ const DefaultStyledInput = styled.div`
     --color-font: ${props=>props.theme.colorFont};
     display: flex;
     justify-content: space-between;
-    
     border-radius: .4rem;
     box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 10px var(--color-gamma);
     background-color: #ECEEF9;

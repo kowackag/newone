@@ -21,9 +21,10 @@ const App = () => {
     console.log('form');
     console.log(form);
     return (
+        
         <ThemeProvider theme ={themeSettings.variant.light}> 
+            <ResetStyle/>
             <StyledApp className="diet-app"> 
-                <ResetStyle/>
                 <h2 className="diet-app__title">Konfigurator diety</h2>
                 <FirstStage name="first-stage" active={"first-stage"===stage} setStage={setStage} setBMI={setBMI} setForm={setForm}/>
                 <SecondStage name="second-stage" active={"second-stage"===stage} setStage={setStage} setForm={setForm} bmi={bmi}/>

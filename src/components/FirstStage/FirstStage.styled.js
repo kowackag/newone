@@ -21,10 +21,7 @@ const DefaultStyledFirstStage = styled.div`
         margin-bottom: 1rem;
     }
 
-    & .errors {
-        font-size:.8rem;
-        font-style: italic;
-    }
+   
 
     & .errors__title {
         font-size:1rem;

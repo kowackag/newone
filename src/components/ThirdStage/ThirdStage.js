@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
 import StyledThirdStage from './ThirdStage.styled';
-import Option from './../Option/Option';
 import Radio from './../Radio/Radio';
 import Button from './../Button/Button';
 
@@ -9,6 +8,22 @@ const ThirdStage = (props) => {
         goal: '',
         lactosy: ''
     }
+
+
+const [state, setState] = useState();
+
+const handleForm = (e) => {
+    e.preventDefault(); 
+
+
+console.log(state);
+}
+
+
+
+
+
+
 const {goal} = init;
     return (
        <StyledThirdStage active={props.active}>
@@ -22,7 +37,7 @@ const {goal} = init;
                         <p className ="activity__name">Dieta Wegetariańska</p>
                         <p className ="activity__description">Pyszna dieta wegetariańska zgodna z zaleceniami światowej organizacji zdrowia.</p>
                     </Radio>
-                    <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>dispatch({type:'click', element: e.target})}>
+                    <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>setState(e.target.value)}>
                         <p className ="activity__name">Dieta ketogeniczna</p>
                         <p className ="activity__description"> Zwiększenie udziału tłuszczu, ograniczenie węglowodanów przy jednoczesnym umiarkowanym spożyciu białka.</p>
                     </Radio>

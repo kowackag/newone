@@ -8,7 +8,7 @@ const DefaultStyledRadio = styled.label`
     --color-contrast:${props=>props.theme.colorContrast};
     
     width: 100%;
-    margin-bottom:1.5rem;
+    margin-top:1.5rem;
     position: relative;
     padding: .4rem 1rem;
     cursor: pointer;  

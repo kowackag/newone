@@ -31,12 +31,12 @@ const FirstStage = (props) => {
 
     const [state, dispatch] = useReducer(reducer, init);
     const {activity} = state;
-    const [err, setErr] = useState([])
+    const [err, setErr] = useState({})
 
     const handleForm =(e) => {
         e.preventDefault();
         const errors = validateDataFirstStage(state);
-        if (errors.length === 0) {
+        if (errors===false) {
             const {weight, height} = state;
             const bmi = countBMI(Number(weight), Number(height)/100);
             const {setStage, setBMI, setForm} = props; 
@@ -46,9 +46,12 @@ const FirstStage = (props) => {
             });
             setStage('second-stage');      
         } 
-        const copyErrors = errors.map(error=>{
-            return {text: error, id: uuid()}});
-        setErr(copyErrors);
+        // const copyErrors = errors.map(error=>{
+        //     return {text: error, id: uuid()}});
+        setErr(prevState => {
+            return {...prevState, ...errors}
+        });
+        console.log(err);
     }
 
     const countBMI = (weight, height) => {
@@ -60,18 +63,19 @@ const FirstStage = (props) => {
         <StyledFirstStage active={props.active}>
             <form onSubmit={(e)=> handleForm(e)}> 
                 <div className="flex-wrapper">
-                    <Parameters param={state} onChange={e=>dispatch({type:'change', element: e.target })}/>
-                    <Activity activity={activity} onClick={e=>dispatch({type:'click', element: e.target})}/>
+                    <Parameters param={state} errors ={err} onChange={e=>dispatch({type:'change', element: e.target })}/>
+                    <Activity activity={activity} errors ={err.activity} onClick={e=>dispatch({type:'click', element: e.target})}/>
                 </div>
                 <div className="buttons"> 
                     <Button active = {true} value="Dalej" type="submit"/>
                 </div>
-            </form>{ 
+            </form>
+            {/* { 
                 err.length > 0 && <> 
                 <section className="errors">
                     <h4 className="errors__title">Wprowadzono błędne dane:</h4>
                     <ul>{err.map(({text, id})=><li className="errors__item" key={id}>{text}</li>)}</ul> 
-                </section></>}
+                </section></>} */}
         </StyledFirstStage>
     )
 }

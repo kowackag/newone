@@ -16,7 +16,7 @@ const DefaultStyledApp = styled.section`
     color: var(--color-font);
 
     & .diet-app__title {
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         color: var(--color-contrast);
     }
 `
