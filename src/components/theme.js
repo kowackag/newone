@@ -1,11 +1,12 @@
 export default {
     variant: { 
         light: {
-            colorBgc: '#eef2fc',
-            colorShadowDark: '#c3c9d0',
-            colorShadowLight: '#fff',
-            colorFont: '#420caa',
-            colorContrast:'#d81bb8',
+            colorBody: '238, 245, 252',
+            colorBgc: '243, 248, 254',
+            colorShadowDark: '215 224 234',
+            colorShadowLight: '251, 253, 255',
+            colorFont: '25, 0, 180',
+            colorContrast:'216, 27, 110',
         }, 
         dark: {
             colorBgc: '#3E4247',

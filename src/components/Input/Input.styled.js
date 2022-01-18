@@ -7,35 +7,39 @@ const DefaultStyledInput = styled.div`
     --color-font: ${props=>props.theme.colorFont};
     display: flex;
     justify-content: space-between;
-    border-radius: .4rem;
-    box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 10px var(--color-gamma);
-    background-color: #ECEEF9;
-    color: var(--color-font);
+    border-radius: .8rem;
+    box-shadow: inset 4px 4px 6px rgb(var(--color-beta)), inset -4px -4px 6px rgb(var(--color-gamma));
+    background-color: rgb(var(--color-alfa));
+    font-size: 1.2rem;
 
-    & span {
+    & .form__unit {
         display:inline-block;
-        padding: .4rem 1rem; 
+        padding: .8rem 1rem;  
+        color: rgba(var(--color-font), .8)
     } 
 
-    & input {
-        padding: .4rem 1rem;
-        width: 95%;
+    & .form__value {
+        display:inline-block;
+        padding: .6rem 1rem;
+        width: 90%;
         flex-grow: 2;
         outline: none;
         border: none;
-        border-top-left-radius: .4rem;
-        border-bottom-left-radius: .4rem; 
+        border-top-left-radius: .8rem;
+        border-bottom-left-radius: .8rem; 
         background-color: transparent;
-        color: var(--color-font);
+        color: rgb(var(--color-font));
+        color: rgba(var(--color-font),.8);
         border-top-right-radius: ${props=>
-            !props.unit && css`.4rem`};
+            !props.unit && css`.8rem`};
         border-bottom-right-radius: ${props=>
-            !props.unit && css`.4rem`}; 
+            !props.unit && css`.8rem`}; 
+        font-size: 1.4rem;
     }
     
-    & input:focus {
-        background-color:rgb(246,247,252);
-        box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 30px var(--color-gamma);
+    & .form__value:focus {
+        background-color: rgba(var(--color-gamma));
+        box-shadow: inset 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));
     }
 `
 const StyledInput = styled(DefaultStyledInput)(props=>props.style);

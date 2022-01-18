@@ -4,6 +4,7 @@ import Button from './../Button/Button';
 import Input from './../Input/Input';
 import Label from './../Label/Label';
 import Option from './../Option/Option';
+import Radio from './../Radio/Radio'
 import BMI from './../BMI/BMI';
 import {validateDataSecondStage} from './../../validateData';
 import {v4 as uuid} from 'uuid';
@@ -54,12 +55,12 @@ const SecondStage = (props) => {
 
     return( 
         <StyledSecondStage active={props.active}>
-            <h4 className="header">Cel diety</h4>
+            <h4 className="goal-header">Cel diety</h4>
             <form className="form" onSubmit = {(e)=> handleForm(e)} >
                 <div className="form__option">
-                    <Option active={goal==="stable"} name="goal" value="stable" onClick={e=>dispatch({type:'click', element: e.target})}>Utrzymanie masy ciała</Option>
-                    <Option active={goal==="reduction"}name="goal" value="reduction" onClick={e=>dispatch({type:'click', element: e.target})}>Redukcja masy ciała</Option>
-                    <Option active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>dispatch({type:'click', element: e.target})}>Wzrost masy mięśniowej</Option>
+                    <Radio active={goal==="stable"} name="goal" value="stable" onClick={e=>dispatch({type:'click', element: e.target})}><p>Utrzymanie masy ciała</p></Radio>
+                    <Radio active={goal==="reduction"}name="goal" value="reduction" onClick={e=>dispatch({type:'click', element: e.target})}><p>Redukcja masy ciała</p></Radio>
+                    <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>dispatch({type:'click', element: e.target})}><p>Wzrost masy mięśniowej</p></Radio>
                     <Label>Docelowa masa ciała</Label> 
                     <Input type="number" unit="kg" name="weight" value={weight} onChange={e=>dispatch({type:'change', element: e.target})}/>
                 </div>

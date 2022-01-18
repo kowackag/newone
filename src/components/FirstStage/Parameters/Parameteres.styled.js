@@ -6,7 +6,7 @@ const DefaultStyledParameters = styled.div`
     & .errors {
         position: fixed;
         color: #e01010;
-        font-size:.8rem;
+        font-size: .9rem;
         font-style: italic;
     }
 `

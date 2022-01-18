@@ -6,12 +6,11 @@ const DefaultStyleSecondStage = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
 
-    display: ${props=> !props.active && css`none`};
-    color: var(--color-font);
+    // display: ${props=> !props.active && css`none`};
+    color: rgb(var(--color-font));
 
-    & .header {
-        font-size:1.2rem;
-        margin-bottom:1.5rem;
+    & .goal-header {
+        font-size: 1.4rem;
     }
 
     & .form {
@@ -29,17 +28,7 @@ const DefaultStyleSecondStage = styled.div`
         display: flex;
         justify-content:center;
         margin: 2rem;
-    }
-    
-    & .errors {
-        font-size:.8rem;
-        font-style: italic;
-    }
-
-    & .errors__title {
-        font-size:1rem;
-    }
-    
+    }    
 `
 
 const StyledSecondStage = styled(DefaultStyleSecondStage)(props=>props.style)

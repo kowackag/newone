@@ -9,14 +9,14 @@ const DefaultStyledActivity = styled.div`
     width: 45%;
     
     & .activity__title {
-        font-size:1.2rem;
+        font-size: 1.6rem;
         margin-top:1rem;
     }
 
     & .errors {
         position: fixed;
         color: #e01010;
-        font-size:.8rem;
+        font-size:.9rem;
         font-style: italic;
     }
 `

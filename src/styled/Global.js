@@ -34,7 +34,8 @@ const GlobbalStyle = createGlobalStyle`
 
     body {
         font-family: Roboto, Verdana, sans-serif;
-        font-size:1.6rem;
+        font-size: 1.6rem;
+        line-height:1.5;
     }
 `
 
