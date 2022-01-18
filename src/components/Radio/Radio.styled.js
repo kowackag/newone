@@ -19,34 +19,12 @@ const DefaultStyledRadio = styled.label`
     font-weight: 400;
     box-sizing: border-box;
 
-    &:hover {
-        pointer:cursor;
-    }
-
-    & input[type=radio] {
-        display: none;
-    }
-
-    & input[type=radio] + label {
-        position: relative;
-        padding-left: 26px; 
-    } 
-
-    & .activity__name {
-        font-size: 1rem;
-        margin: 0;
-    }
-
-    & .activity__description {
-        font-size: 0.8rem;
-        margin: 0;
-    }
-
     & ::after {
         box-sizing: border-box;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 50%;
+        right: 6%;
+        transform: translateY(-50%);
         display: inline-block;
         width: 16px;
         height: 16px;
@@ -56,6 +34,25 @@ const DefaultStyledRadio = styled.label`
         background-color: ${props=>props.active && css`var(--color-contrast)`};
         border: ${props=>props.active && css`4px solid var(--color-alfa)`};
         box-shadow: ${props=>props.active && css`0px 0px 4px var(--color-contrast)`};
+    }
+
+    &:hover {
+        pointer:cursor;
+    }
+
+    & input[type=radio] {
+        display: none;
+    }
+
+    & .activity__name {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    & .activity__description {
+        max-width:90%;
+        font-size: 0.8rem;
+        margin: 0;
     }
 
 `

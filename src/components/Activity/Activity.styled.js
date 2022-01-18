@@ -10,7 +10,7 @@ const DefaultStyledActivity = styled.div`
     
     & .activity__title {
         font-size:1.2rem;
-        margin-top:1.5rem;
+        margin-top:1rem;
     }
 
     & .errors {

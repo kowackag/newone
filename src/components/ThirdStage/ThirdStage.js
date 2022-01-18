@@ -39,7 +39,7 @@ const {goal} = init;
                     </Radio>
                     <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>setState(e.target.value)}>
                         <p className ="activity__name">Dieta ketogeniczna</p>
-                        <p className ="activity__description"> Zwiększenie udziału tłuszczu, ograniczenie węglowodanów przy jednoczesnym umiarkowanym spożyciu białka.</p>
+                        <p className ="activity__description"> Zwiększenie ilości tłuszczu, ograniczenie węglowodanów oraz umiarkowane spożycie białka.</p>
                     </Radio>
                     <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={e=>dispatch({type:'click', element: e.target})}>
                         <p className ="activity__name">Dieta wysokobiałkowa</p>
