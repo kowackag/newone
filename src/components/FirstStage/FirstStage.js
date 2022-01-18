@@ -1,8 +1,8 @@
 import React, {useReducer, useState} from 'react';
 import StyledFirstStage from './FirstStage.styled';
 import Button from './../Button/Button';
-import Parameters from './../Parameters/Parameters'
-import Activity from './../Activity/Activity';
+import Parameters from './Parameters/Parameters'
+import Activity from './Activity/Activity';
 import {validateDataFirstStage} from './../../validateData';
 import {v4 as uuid} from 'uuid';
 

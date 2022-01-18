@@ -4,7 +4,8 @@ import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
 import ThirdStage from './ThirdStage/ThirdStage';
-import ResetStyle from './../styled/Resel';
+import ResetStyle from '../styled/Reset';
+import GlobalStyle from '../styled/Global';
 import StyledApp from './../components/App.styled';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         
         <ThemeProvider theme ={themeSettings.variant.light}> 
             <ResetStyle/>
+            <GlobalStyle/>
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
                 <FirstStage name="first-stage" active={"first-stage"===stage} setStage={setStage} setBMI={setBMI} setForm={setForm}/>
