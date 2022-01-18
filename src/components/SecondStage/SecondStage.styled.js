@@ -30,6 +30,13 @@ const DefaultStyleSecondStage = styled.div`
         justify-content:center;
         margin: 2rem;
     }    
+
+    & .errors {
+        position: fixed;
+        color: #e01010;
+        font-size: .9rem;
+        font-style: italic;
+    }
 `
 
 const StyledSecondStage = styled(DefaultStyleSecondStage)(props=>props.style)
