@@ -1,12 +1,13 @@
 import React from 'react';
 import StyledCheckbox from './Checkbox.styled';
 
-
-const Checkbox = () => {
+const Checkbox = (props) => {
+    const {name, onClick} = props;
+    
     return( 
-        <StyledCheckbox>
-            <Label></Label>
-            <input type="checkbox" value="" checked/>
+        <StyledCheckbox checked={true}>
+            <input id={name} type="checkbox" name={name} onClick={onClick}/>
+            <label htmlFor={name}/>
         </StyledCheckbox>
     )
 }

@@ -1,3 +1,13 @@
+
+const validateData = (stage, data) => {
+    if (stage===1) return validateDataFirstStage(data);
+    if (stage===2) return validateDataSecondStage(data);
+    if (stage===3) return validateDataThirdStage(data);
+    if (stage===4) return validateDataLastStage(data);
+}
+    
+
+
 const validateDataFirstStage =({weight, height, gender, born, activity}) => {
     let errors = {};
     if (gender=='') {
@@ -21,36 +31,48 @@ const validateDataFirstStage =({weight, height, gender, born, activity}) => {
         const copyErrors = {activity: 'Uzupełnij rodzaj aktywności'};
         errors = {...errors, ...copyErrors};
     }
-    console.log(errors)
 
     return errors;
 }
 
-const validateDataSecondStage =({weight, goal}) => {
+const validateDataSecondStage =({targetWeight, goal, weight}) => {
     let errors = {};
-    if (Number(weight) < 20) {
-        const copyErrors = {weight: 'Błędnie podana waga'};
-        errors = {...errors, ...copyErrors};
-    }
     if (!goal) {
         const copyErrors = {goal: 'Uzupełnij cel diety'};
         errors = {...errors, ...copyErrors};
     }
-    return errors;
-}
-
-const validateDataThirtStage =({weight, goal}) => {
-    let errors = {};
-    if (Number(weight) < 20) {
+    if (goal!=='stable' && Number(targetWeight) < 20) {
         const copyErrors = {weight: 'Błędnie podana waga'};
         errors = {...errors, ...copyErrors};
     }
-    if (!goal) {
-        const copyErrors = {goal: 'Uzupełnij cel diety'};
+    if (goal==='muscle-mass' && Number(targetWeight) <= Number(weight) ) {
+        const copyErrors = {weight: 'Waga docelowa musi byc większa od obecnej'};
+        errors = {...errors, ...copyErrors};
+    }
+    if (goal==='reduction' && Number(targetWeight) >= Number(weight) ) {
+        const copyErrors = {weight: 'Waga docelowa musi być mniejsza od obecnej'};
+        errors = {...errors, ...copyErrors};
+    }
+    return errors;
+}
+
+const validateDataThirdStage =({diet}) => {
+    let errors = {};
+    if (!diet) {
+        const copyErrors = {diet: 'Wybierz rodzaj diety'};
+        errors = {...errors, ...copyErrors};
+    }
+    return errors;
+}
+
+const validateDataLastStage =({diet}) => {
+    let errors = {};
+    if (!diet) {
+        const copyErrors = {goal: 'Wybierz rodzaj diety'};
         errors = {...errors, ...copyErrors};
     }
     return errors;
 }
 
 
-export {validateDataFirstStage, validateDataSecondStage, validateDataThirtStage};
+export default validateData;

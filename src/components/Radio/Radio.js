@@ -6,7 +6,7 @@ const Radio = (props) => {
     return( 
         <StyledRadio active={active}> 
             {props.children}
-            <input name={name} active={active} value={value} type="radio" onClick={onClick}></input>
+            <input name={name} value={value} type="radio" onClick={onClick}></input>
         </StyledRadio>
     )
 }

@@ -17,7 +17,7 @@ const DefaultStyledRadio = styled.label`
     box-shadow: 6px 6px 10px rgb(var(--color-beta)), -6px -6px 8px rgb(var(--color-gamma));
     background-color: rgb(var(--color-alfa));
     color: var(--color-font);
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 
     & ::after {
         box-sizing: border-box;
@@ -45,12 +45,10 @@ const DefaultStyledRadio = styled.label`
         display: none;
     }
 
-    & .activity__name {
-        font-size: 1.3rem;
-
+    & .radio__name {
+        font-weight: bold;
     }
-
-    & .activity__description {
+    & .radio__description {
         max-width: 90%;
         font-size: 1rem;
         color: rgba(var(--color-font), 0.5)

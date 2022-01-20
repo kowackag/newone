@@ -9,9 +9,9 @@ const DefaultStyleThirdStage = styled.div`
     display: ${props=> !props.active && css`none`};
     color: var(--color-font);
 
-    & .header {
-        font-size:1.2rem;
-        margin-bottom:1.5rem;
+    & .exclusion__title {
+        font-size: 1.4rem;
+        margin:2rem 0;
     }
 
     & .form {
@@ -20,7 +20,7 @@ const DefaultStyleThirdStage = styled.div`
         flex-wrap: wrap;
     }
 
-    & .form__option {
+    & .form__diet, .form__exclusion {
         width: 45%;
     }
 
@@ -30,6 +30,21 @@ const DefaultStyleThirdStage = styled.div`
         justify-content:center;
         margin: 2rem;
     }
+
+    & .box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    & .errors {
+        position: fixed;
+        color: #e01010;
+        font-size: .9rem;
+        font-style: italic;
+    }
+
 `
 
 const StyledThirdStage = styled(DefaultStyleThirdStage)(props=>props.style)

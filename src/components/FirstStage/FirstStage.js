@@ -1,11 +1,11 @@
-import React, {useReducer, useState} from 'react';
+import React from 'react';
 import StyledFirstStage from './FirstStage.styled';
 import Button from './../Button/Button';
 import Parameters from './Parameters/Parameters'
 import Activity from './Activity/Activity';
 
 const FirstStage = ({state, errors, onChange, onSubmit, active, onClick}) => {
-     return( 
+    return( 
         <StyledFirstStage active={active}>
             <form onSubmit={onSubmit}> 
                 <div className="flex-wrapper">
@@ -13,9 +13,10 @@ const FirstStage = ({state, errors, onChange, onSubmit, active, onClick}) => {
                     <Activity activity={state.activity} errors ={errors.activity} onClick={onClick}/>
                 </div>
                 <div className="buttons"> 
-                    <Button active = {true} value="Dalej" type="submit"/>
+                    <Button value="Dalej" type="submit"/>
                 </div>
             </form>
+            
         </StyledFirstStage>
     )
 }

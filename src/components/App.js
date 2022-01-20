@@ -7,37 +7,53 @@ import ThirdStage from './ThirdStage/ThirdStage';
 import ResetStyle from '../styled/Reset';
 import GlobalStyle from '../styled/Global';
 import StyledApp from './../components/App.styled';
-import {validateDataFirstStage} from './../validateData';
+import validateData from './../validateData';
 
-const App = (props) => {
+const App = () => {
     const init = { 
         gender: '',
         weight: 0,
         height: 0,
         born: '',
-        activity: ''
+        activity: '',
+        goal: '',
+        targetWeight: 0,
+        diet: '',
+        lactosy: false,
+        gluten: false,
+        excluded1: '',
+        excluded2: '',
     };
 
     const reducer = (state, action) => {
-        const {name, value} = action.element;
+        const {name, value, checked, type} = action.element;
+        console.log(action.element);
+        console.log(name.checked);
+        console.log(type);
         switch (action.type) {
             case 'reset': 
                 return init;
             case 'change':
-                return {...state, [name]:value};
+                let copyValue = type=='checkbox' ? checked : value;
+                return {...state, [name]:copyValue};
+            case 'add':
+                return {...state, [name]:[value]};
             case 'click':
-                return {...state, [name]:value};
+                let copyValue2 = type=='checkbox' ? checked : value;
+                return {...state, [name]:copyValue2};
             default:
                 return state;
         }
     }
 
     const [state, dispatch] = useReducer(reducer, init);
-    const [stage, setStage] = useState('first-stage');
+    const [stage, setStage] = useState(1);
     const [form, setForm] = useState({})
     const [bmi, setBMI] = useState();
-    const [err, setErr] = useState({})
+    const [err, setErr] = useState({});
 
+    // --
+    // const [ing1,ing2] = state.excluded;
 
     const countBMI = (weight, height) => {
         const bmi = (weight/Math.pow(height,2)).toFixed(1);
@@ -46,7 +62,7 @@ const App = (props) => {
 
     const handleForm =(e) => {
         e.preventDefault();
-        const errors = validateDataFirstStage(state);
+        const errors = validateData(stage, state);
         setErr({...errors});
         if (Object.keys(errors).length === 0) {
             const {weight, height} = state;
@@ -55,8 +71,15 @@ const App = (props) => {
             setForm(prevState=> {
                return {...prevState, ...state}
             });
-            setStage('second-stage');      
+            setStage(prev => ++prev); 
+            console.log(state);  
+            console.log(form);
         } 
+    }
+
+    const prevForm = (e) => {
+        e.preventDefault();
+        setStage(prev => --prev); 
     }
 
     return (
@@ -65,9 +88,9 @@ const App = (props) => {
             <GlobalStyle/>
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage state = {state} name="first-stage" active={"first-stage"===stage} setStage={setStage} setBMI={setBMI} setForm={setForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
-                <SecondStage state={state} name="second-stage" active={"second-stage"===stage} setStage={setStage} setForm={setForm} bmi={bmi}/>
-                <ThirdStage name="third-stage" active={"third-stage"===stage} setStage={setStage} setForm={setForm} bmi={bmi}/>
+                <FirstStage state = {state} name="first-stage" active={stage===1} setStage={setStage} setBMI={setBMI} setForm={setForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <SecondStage state={state} name="second-stage" active={stage===2} setStage={setStage} setForm={setForm} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <ThirdStage state={state} name="third-stage" active={stage===3} setStage={setStage} setForm={setForm} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
             </StyledApp>
         </ThemeProvider>
     )

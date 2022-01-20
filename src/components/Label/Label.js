@@ -5,7 +5,7 @@ import StyledLabel from './Label.styled';
 
 const Label = (props) => {
     return( 
-        <StyledLabel>
+        <StyledLabel className={props.className}>
           {props.children}
         </StyledLabel>
     )
