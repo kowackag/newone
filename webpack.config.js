@@ -6,13 +6,12 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // importuję plugin [clean-webpack-plugin]
 module.exports = function(env = {}) {
-
     const {production: isProd = false} = env;
     // w zmiennej [isProd] przechowuje informację
     // w jakim trybie uruchomić webpack-a
 
     return  {
-        entry: './src/app.js',
+        entry: ['whatwg-fetch', './src/app.js'],
         // definiuje plik wejściowy
         mode: isProd ? 'production' : 'development',
         // definiuje tryb pracy webpack-a

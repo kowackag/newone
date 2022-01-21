@@ -3,29 +3,28 @@ import {createGlobalStyle} from 'styled-components';
 const GlobbalStyle = createGlobalStyle`
     @font-face {
         font-family: "Roboto";
-        font-style: normal;
-        font-weight: normal;
+        font-style: regular;
+        font-weight: 400;
         src:
-        url('./fonts/roboto-medium-webfont.woff2') format('woff2'),
-        url('./fonts/roboto-medium-webfont.woff2') format('woff');
+        url("./../fonts/roboto-regular-webfont.woff2") format('woff2'),
+        url('./../fonts/roboto-regular-webfont.woff') format('woff');
     }
 
     @font-face {
         font-family: "Roboto";
-        font-style: bold;
-        font-weight: 800;
+        font-weight: 700;
         src:
-        url('./fonts/roboto-bold-webfont.woff2') format('woff2'),
-        url('./fonts/roboto-bold-webfont.woff') format('woff');
+        url('./../fonts/roboto-bold-webfont.woff2') format('woff2'),
+        url('./../fonts/roboto-bold-webfont.woff') format('woff');
     }
 
     @font-face {
         font-family: "Roboto";
         font-style: italic;
-        font-weight: 800;
+        font-weight: 400;
         src:
-        url('./fonts/roboto-italic-webfont.woff2') format('woff2'),
-        url('./fonts/roboto-italic-webfont.woff') format('woff');
+        url('./../fonts/roboto-italic-webfont.woff2') format('woff2'),
+        url('./../fonts/roboto-italic-webfont.woff') format('woff');
     }
 
     html {
@@ -38,6 +37,5 @@ const GlobbalStyle = createGlobalStyle`
         line-height:1.5;
     }
 `
-
 
 export default GlobbalStyle;

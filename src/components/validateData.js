@@ -1,13 +1,10 @@
-
 const validateData = (stage, data) => {
     if (stage===1) return validateDataFirstStage(data);
     if (stage===2) return validateDataSecondStage(data);
     if (stage===3) return validateDataThirdStage(data);
     if (stage===4) return validateDataLastStage(data);
 }
-    
-
-
+  
 const validateDataFirstStage =({weight, height, gender, born, activity}) => {
     let errors = {};
     if (gender=='') {
@@ -65,10 +62,19 @@ const validateDataThirdStage =({diet}) => {
     return errors;
 }
 
-const validateDataLastStage =({diet}) => {
+const validateDataLastStage =({userName, userEmail, userPhone}) => {
     let errors = {};
-    if (!diet) {
-        const copyErrors = {goal: 'Wybierz rodzaj diety'};
+    if (userName.length<3) {
+        const copyErrors = {userName: 'Wpisz poprawnie imię i Nazwisko'};
+        errors = {...errors, ...copyErrors};
+    }
+    if (!userEmail.includes('@')) {
+        const copyErrors = {userEmail: 'Błędny adres email'};
+        errors = {...errors, ...copyErrors};
+    }
+    const regDate = /([1-9]{1}[0-9]{8})/;
+    if (!regDate.test(userPhone)) {
+        const copyErrors = {userPhone: 'Wprowadzono błędny numer telefonu'};
         errors = {...errors, ...copyErrors};
     }
     return errors;

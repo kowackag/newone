@@ -4,9 +4,13 @@ import Button from './../Button/Button';
 import Input from './../Input/Input';
 import Label from './../Label/Label';
 
-const LastStage = ({state, active, back, onSubmit, onChange, onClick, errors}) => {
-   
-    const {userPhone, userName, userEmail} = state;
+const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
+    const {userName, userEmail, userPhone, userInfo} = state;
+    const { 
+        userName: errUserName, 
+        userEmail: errUserEmail,
+        userPhone: errUserPhone,
+    } = errors;
 
     return( 
         <StyledLastStage active={active}>
@@ -14,13 +18,16 @@ const LastStage = ({state, active, back, onSubmit, onChange, onClick, errors}) =
             <form className="form" onSubmit ={onSubmit}>
                 <div className ="form__content"> 
                     <Label>Imię i Nazwisko:</Label> 
-                    <Input className="form__value" type="text" name="user-name" value={userName} onChange={onChange}/>
+                    <Input className="form__value" type="text" name="userName" value={userName} onChange={onChange}/>
+                    {errUserName && <p className="errors">{errUserName}</p>}
                     <Label>Adres email:</Label> 
-                    <Input className="form__value" type="email" name="user-mail" value={userEmail} onChange={onChange}/>
+                    <Input className="form__value" type="email" name="userEmail" value={userEmail} onChange={onChange}/>
+                    {errUserEmail && <p className="errors">{errUserEmail}</p>}
                     <Label>Telefon:</Label> 
-                    <Input className="form__value" type="text" name="user-phone" value={userPhone} onChange={onChange}/>
+                    <Input className="form__value" type="text" name="userPhone" value={userPhone} onChange={onChange}/>
+                    {errUserPhone && <p className="errors">{errUserPhone}</p>}
                     <Label>Uwagi:</Label> 
-                    <Input className="form__value" type="text" name="user-phone" value={userPhone} onChange={onChange}/>
+                    <Input className="form__value" type="text" name="userInfo" value={userInfo} onChange={onChange}/>
                 </div>
                 <div className="form__buttons buttons ">
                     <Button value="Wstecz" name="back" onClick={back} type="button"/>

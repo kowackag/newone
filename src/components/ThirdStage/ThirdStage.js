@@ -4,12 +4,12 @@ import Radio from './../Radio/Radio';
 import Button from './../Button/Button';
 import Checkbox from './../Checkbox/Checkbox';
 import Label from './../Label/Label';
-import Input from './../Input/Input';
-import Search from './../Search/Search'
+import Search from './../Search/Search';
 
-const ThirdStage = ({state, active, back, onSubmit, onChange, onClick, errors}) => {
 
-    const {diet, gluten, lactosy, excluded1, excluded2} = state;
+const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onClick, errors}) => {
+
+    const {diet, excluded1, excluded2} = state;
     const {diet:errDiet} = errors;
       
     return (
@@ -45,9 +45,9 @@ const ThirdStage = ({state, active, back, onSubmit, onChange, onClick, errors}) 
                     </div>
                     <h4 className="exclusion__title">Wykluczenia z diety:</h4>
                     <Label className="normal">Składnik 1</Label>
-                    <Search className="form__value" type="text" name="excluded1" value={excluded1} onChange={onChange}/>
+                    {/* <Search className="form__value" type="text" prod={prod} name="excluded1" value={excluded1} onChange={onChange}/> */}
                     <Label className="normal">Składnik 2</Label>
-                    <Search className="form__value" type="text" name="excluded2" value={excluded2} onClick={onClick} onChange={onChange}/>
+                    {/* <Search className="form__value" type="text" prod={prod} name="excluded2" value={excluded2} onClick={onClick} onChange={onChange}/> */}
                 </div>
                 <div className="form__buttons buttons ">
                     <Button value="Wstecz" name="back" onClick ={back}/>
