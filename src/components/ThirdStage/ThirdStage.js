@@ -45,9 +45,9 @@ const ThirdStage = ({state, active, back, onSubmit, onChange, onClick, errors}) 
                     </div>
                     <h4 className="exclusion__title">Wykluczenia z diety:</h4>
                     <Label className="normal">Składnik 1</Label>
-                    <Search className="form__value" type="text" name="excluded1"  onChange={onChange}/>
+                    <Search className="form__value" type="text" name="excluded1" value={excluded1} onChange={onChange}/>
                     <Label className="normal">Składnik 2</Label>
-                    <Search className="form__value" type="text" name="excluded2" onClick={onClick} onChange={onChange}/>
+                    <Search className="form__value" type="text" name="excluded2" value={excluded2} onClick={onClick} onChange={onChange}/>
                 </div>
                 <div className="form__buttons buttons ">
                     <Button value="Wstecz" name="back" onClick ={back}/>

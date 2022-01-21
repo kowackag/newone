@@ -4,7 +4,7 @@ import Button from './../Button/Button';
 import Input from './../Input/Input';
 import Label from './../Label/Label';
 import Radio from './../Radio/Radio'
-import BMI from './../BMI/BMI';
+import BMI from './BMI/BMI';
 
 const SecondStage = ({state, active, bmi, back, onSubmit, onChange, onClick, errors}) => {
    

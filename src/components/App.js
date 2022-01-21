@@ -4,6 +4,7 @@ import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
 import ThirdStage from './ThirdStage/ThirdStage';
+import LastStage from './LastStage/LastStage';
 import ResetStyle from '../styled/Reset';
 import GlobalStyle from '../styled/Global';
 import StyledApp from './../components/App.styled';
@@ -21,8 +22,12 @@ const App = () => {
         diet: '',
         lactosy: false,
         gluten: false,
-        excluded1: '',
+        excluded1: '',           
         excluded2: '',
+        // Chciałam zrobić excluded: [] a potem korzystac z destrukturyzacji ale chyba żle zapisywałam zasadę w reducer ???
+        userName: '',
+        userEmail: '',
+        userPhone:'',
     };
 
     const reducer = (state, action) => {
@@ -52,7 +57,7 @@ const App = () => {
     const [bmi, setBMI] = useState();
     const [err, setErr] = useState({});
 
-    // --
+    
     // const [ing1,ing2] = state.excluded;
 
     const countBMI = (weight, height) => {
@@ -88,9 +93,10 @@ const App = () => {
             <GlobalStyle/>
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage state = {state} name="first-stage" active={stage===1} setStage={setStage} setBMI={setBMI} setForm={setForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
-                <SecondStage state={state} name="second-stage" active={stage===2} setStage={setStage} setForm={setForm} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
-                <ThirdStage state={state} name="third-stage" active={stage===3} setStage={setStage} setForm={setForm} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <FirstStage state = {state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <ThirdStage state={state} active={stage===3} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
             </StyledApp>
         </ThemeProvider>
     )
