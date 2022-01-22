@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 
 const DefaultStyledApp = styled.section`
     --color-alfa: ${props=>props.theme.colorBody};
@@ -17,6 +17,12 @@ const DefaultStyledApp = styled.section`
     & .diet-app__title {
         margin-bottom: 3rem;
         color: rgb(var(--color-contrast));
+    }
+
+    & .done {
+        margin-top:100px;
+        margin-bottom: 100px;
+        width: 100%
     }
 `
 const StyledApp = styled(DefaultStyledApp)(props=>props.style);

@@ -8,7 +8,7 @@ const DefaultStyledButton = styled.input`
    
     display: inline-block;
     padding: 1rem 2rem;
-    width: 120px;
+    min-width: 120px;
     margin: 2rem;
     border: none;
     border-radius: .8rem;

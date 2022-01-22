@@ -5,11 +5,13 @@ import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
 import ThirdStage from './ThirdStage/ThirdStage';
 import LastStage from './LastStage/LastStage';
+import Complete from './Complete/Complete';
 import ResetStyle from '../styled/Reset';
 import GlobalStyle from '../styled/Global';
 import StyledApp from './../components/App.styled';
 import validateData from './validateData';
 import DataAPI from './DataAPI';
+import ProgressBar from './ProgresBar/ProgressBar';
 
 
 const App = () => {
@@ -68,7 +70,7 @@ const App = () => {
         return bmi;
     }
 
-    const handleForm =(e) => {
+    const handleForm = (e) =>  {
         e.preventDefault();
         const errors = validateData(stage, state);
         setErr({...errors});
@@ -76,23 +78,30 @@ const App = () => {
             const {weight, height} = state;
             const bmi = countBMI(Number(weight), Number(height)/100);
             setBMI(bmi);
-            if (stage <4) {
-                setForm(prevState=> {
-                    return {...prevState, ...state}
-                });
-                setStage(prev => ++prev); 
-            } else {
+            if (stage === 4) {
                 dataDB.addOrdersAPI(state);
-                alert('Formularz został wysłany')
-                dispatch({type:'reset'});
-                setStage(1); 
-            }
+            } 
+            setStage(prev => ++prev); 
         } 
     }
     
     const prevForm = (e) => {
         e.preventDefault();
         setStage(prev => --prev); 
+    }
+
+    const reset = (e) => {
+        e.preventDefault();
+        setStage(1); 
+        dispatch({type:'reset'});
+    }
+
+    const getProgress = (stage) => {
+        if (stage===1) return '0%';
+        if (stage===2) return '25%';
+        if (stage===3) return '50%';
+        if (stage===4) return '75%';
+        if (stage===5) return '100%';
     }
 
     return (
@@ -105,6 +114,8 @@ const App = () => {
                 <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
                 <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
                 <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })}  errors={err}/>
+                <Complete active={stage===5} reset={reset}/> 
+                <ProgressBar completed={getProgress(stage)} ></ProgressBar>
             </StyledApp>
         </ThemeProvider>
     )
