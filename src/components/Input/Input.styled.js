@@ -37,7 +37,7 @@ const DefaultStyledInput = styled.div`
     }
     
     & .form__value:focus {
-        background-color: rgba(var(--color-gamma));
+        background-color: rgb(var(--color-gamma));
         box-shadow: inset 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));
     }
 `

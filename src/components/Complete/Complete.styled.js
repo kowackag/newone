@@ -8,6 +8,7 @@ const DefaultStyledComplete = styled.div`
     display: ${props=> !props.active && css`none`};
     
     color: rgb(var(--color-font));
+    font-weight: bold;
 
     & .header {
         font-size: 2rem;
@@ -22,13 +23,14 @@ const DefaultStyledComplete = styled.div`
     }  
     
     & .info {
-        margin: 100px auto 0;
+        font-size: 1.4rem;
+        margin: 100px auto 1rem;
     }
 
     & .thanks {
         margin: 0 auto 100px;
         font-style: italic;
-        font-weight: bold;
+        
         color: rgb(var(--color-contrast)); 
     }
 

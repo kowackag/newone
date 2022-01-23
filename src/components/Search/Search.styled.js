@@ -16,6 +16,7 @@ const DefaultStyledInput = styled.div`
     } 
 
     & .form__value {
+        position: relative;
         display:inline-block;
         padding: 1rem 1rem;
         width: 90%;
@@ -29,17 +30,36 @@ const DefaultStyledInput = styled.div`
         border-radius: .8rem;
         box-shadow: inset 4px 4px 6px rgb(var(--color-beta)), inset -4px -4px 6px rgb(var(--color-gamma));
         background-color: rgb(var(--color-alfa));
-    }
-    
-    & .form__value:focus {
-        background-color: rgba(var(--color-gamma));
-        box-shadow: inset 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));
+        cursor: context-menu;
     }
 
+    .form__label::after ::before {
+        content: '\/';
+        font-weight:bold;
+        // color: rgb(var(--color-font));
+        position:absolute;
+        display:block;
+        content:"";
+        border:25px solid transparent; /*Adjust chevron size*/
+    }
+ 
     & .list {
+        margin:0.2rem 0;
+        display: ${props=> !props.active && css`none`};
         position: absolute;
         list-style: none;
+        width: 90%;
+        background-color: rgb(var(--color-alfa));
+        box-shadow: 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));
     }
+
+    & .ingred {
+        padding:0.4rem;
+        border-bottom: 1px solid rgb(var(--color-beta));
+        cursor: pointer;
+    }
+
+
 `
 const StyledInput = styled(DefaultStyledInput)(props=>props.style);
 

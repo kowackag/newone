@@ -38,18 +38,22 @@ const App = () => {
     const reducer = (state, action) => {
         
         switch (action.type) {
+            
             case 'reset': 
                 return init;
-
             case 'change':
                 const {name, value, checked, type} = action.element;
                 let copyValue = type=='checkbox' ? checked : value;
                 return {...state, [name]:copyValue};
-            case 'add':
-                return {...state, [name]:[value]};
             case 'click':
                 let copyValue2 = type=='checkbox' ? checked : value;
                 return {...state, [name]:copyValue2};
+            case 'choose':
+                console.log(action.element);
+                let copyValue3 = type=='checkbox' ? checked : value;
+                let nameLi = action.element.getAttribute('name');
+                console.log(nameLi, action.element.innerText );
+                return {...state, nameLi: action.element.innerText};
             default:
                 return state;
         }
@@ -57,11 +61,9 @@ const App = () => {
 
     const [state, dispatch] = useReducer(reducer, init);
     const [stage, setStage] = useState(1);
-    const [form, setForm] = useState({})
     const [bmi, setBMI] = useState();
     const [err, setErr] = useState({});
     const [products, setProducts] = useState([]);
-    
     const dataDB = new DataAPI();
     useEffect(() => {dataDB.loadProductsAPI().then(data=>setProducts(data))},[]);
 
@@ -112,7 +114,7 @@ const App = () => {
                 <h2 className="diet-app__title">Konfigurator diety</h2>
                 <FirstStage state = {state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
                 <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
-                <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onClick={e=>dispatch({type:'change', element: e.target })} errors={err} errors={err} onChoose={e=>dispatch({type:'choose', element: e.target })}/>
                 <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })}  errors={err}/>
                 <Complete active={stage===5} reset={reset}/> 
                 <ProgressBar completed={getProgress(stage)} ></ProgressBar>
