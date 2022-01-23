@@ -49,6 +49,7 @@ const DefaultStyledInput = styled.div`
         position: absolute;
         list-style: none;
         width: 90%;
+        z-index:3;
         background-color: rgb(var(--color-alfa));
         box-shadow: 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));
     }
@@ -58,8 +59,6 @@ const DefaultStyledInput = styled.div`
         border-bottom: 1px solid rgb(var(--color-beta));
         cursor: pointer;
     }
-
-
 `
 const StyledInput = styled(DefaultStyledInput)(props=>props.style);
 

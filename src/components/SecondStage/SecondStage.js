@@ -6,7 +6,7 @@ import Label from './../Label/Label';
 import Radio from './../Radio/Radio'
 import BMI from './BMI/BMI';
 
-const SecondStage = ({state, active, bmi, back, onSubmit, onChange, onClick, errors}) => {
+const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => {
    
     const {goal, targetWeight} = state;
     const {goal:errGoal, weight:errTargetWeight} = errors;
@@ -16,9 +16,9 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, onClick, err
             <h4 className="goal-header">Cel diety</h4>
             <form className="form" onSubmit ={onSubmit}>
                 <div className="form__option">
-                    <Radio active={goal==="stable"} name="goal" value="stable" onClick={onClick}><p>Utrzymanie masy ciała</p></Radio>
-                    <Radio active={goal==="reduction"} name="goal" value="reduction" onClick={onClick}><p>Redukcja masy ciała</p></Radio>
-                    <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={onClick}><p>Wzrost masy mięśniowej</p></Radio>
+                    <Radio active={goal==="stable"} name="goal" value="stable" onClick={onChange}><p>Utrzymanie masy ciała</p></Radio>
+                    <Radio active={goal==="reduction"} name="goal" value="reduction" onClick={onChange}><p>Redukcja masy ciała</p></Radio>
+                    <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={onChange}><p>Wzrost masy mięśniowej</p></Radio>
                     {errGoal &&<p className="errors">{errGoal}</p>}
                     {(goal === 'reduction' || goal === 'muscle-mass') && 
                     <>

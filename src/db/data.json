@@ -39,6 +39,26 @@
       "nameLi": "szczypiorek",
       "undefined": 0,
       "id": 1
+    },
+    {
+      "gender": "mężczyzna",
+      "weight": "111",
+      "height": "145",
+      "born": "2022-01-13",
+      "activity": "none",
+      "goal": "stable",
+      "targetWeight": 0,
+      "diet": "fit",
+      "lactosy": true,
+      "gluten": true,
+      "excluded1": "",
+      "excluded2": "",
+      "userName": "dee",
+      "userEmail": "ee@we",
+      "userPhone": "666666666",
+      "userInfo": "ds",
+      "nameLi": "szczypiorek",
+      "id": 2
     }
   ]
 }
