@@ -103,7 +103,7 @@ const App = () => {
             <GlobalStyle/>
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage state = {state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <FirstStage state = {state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onChoose={e=>dispatch({type:'choose', element: e.target })} errors={err}/>
                 <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>
                 <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err} errors={err} onChoose={e=>dispatch({type:'choose', element: e.target })}/>
                 <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>

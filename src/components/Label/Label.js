@@ -1,11 +1,9 @@
 import React from 'react';
 import StyledLabel from './Label.styled';
 
-
-
 const Label = (props) => {
     return( 
-        <StyledLabel className={props.className}>
+        <StyledLabel>
           {props.children}
         </StyledLabel>
     )

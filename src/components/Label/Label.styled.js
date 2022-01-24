@@ -12,11 +12,6 @@ const DefaultStyledLabel = styled.label`
     :first-of-type {
         margin-top: 0;
     }
-
-    .normal {
-        fornt-weight: 400;
-    }
-
 `
 const StyledLabel = styled(DefaultStyledLabel)(props=>props.style);
 

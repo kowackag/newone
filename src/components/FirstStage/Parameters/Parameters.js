@@ -4,10 +4,11 @@ import Input from '../../Input/Input';
 import Label from '../../Label/Label';
 import Dropdown from '../../Dropdown/Dropdown';
 import Error from '../../Error/Error';
-import {v4 as uuid} from 'uuid'
+import Search from '../../Search/Search';
 
 const Parameters = (props) => {
     const {gender, weight, height, born} = props.param;
+    console.log(gender);
     const {
         gender: errGender,
         weight: errWeight,
@@ -17,16 +18,16 @@ const Parameters = (props) => {
 
     const fields =[
         {label: 'Masa ciała', type: 'number', unit: 'kg', name: 'weight', value: weight , err: errWeight},
-        {label: 'Wzrost', type: 'number', unit: 'kg', name: 'height', value: height , err: errHeight},
+        {label: 'Wzrost', type: 'number', unit: 'cm', name: 'height', value: height , err: errHeight},
         {label: 'Data urodzenia', type: 'date', name: 'born', value: born, err: errBorn},
     ]
-   
+
     return( 
         <StyledParameters>
             <Label>Płeć</Label> 
-            <Dropdown name="gender" value ={gender} onChange={props.onChange} err={errGender ? true : false}></Dropdown>
+            <Search className="form__value" prod={['kobieta', 'mężczyzna']} name="gender" value ={gender} onChange={props.onChange} onChoose={props.onChoose}/>
             {errGender && <Error err={errGender}/>}
-            {fields.map(({label, type, unit, name, err})=><React.Fragment key={uuid()}><Label >{label}</Label><Input className="form__value" type={type} unit={unit} name={name} value={weight} onChange={props.onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
+            {fields.map(({label, type, unit, name, value, err})=><React.Fragment key={name}><Label>{label}</Label><Input className="form__value" type={type} unit={unit} name={name} value={value} onChange={props.onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
         </StyledParameters>
     )
 }

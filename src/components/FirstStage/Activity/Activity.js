@@ -14,7 +14,7 @@ const Activity = (props) => {
 
     return (
         <StyledActivity>
-            <h4 className="activity__title">Jaka jest twoja aktywność fizyczna?</h4>
+            <h4>Jaka jest twoja aktywność fizyczna?</h4>
             {fields.map(({name, value, label, desc}) => <Radio key={uuid()} name={name} value={value} onClick={props.onClick} active={value===props.activity}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p> </Radio>)}
             <Error err={props.error}/>
         </StyledActivity>

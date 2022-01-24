@@ -19,7 +19,7 @@ const DefaultStyledInput = styled.div`
         position: relative;
         display:inline-block;
         padding: 1rem 1rem;
-        width: 90%;
+        width: 100%;
         flex-grow: 2;
         outline: none;
         border: none;
@@ -48,7 +48,7 @@ const DefaultStyledInput = styled.div`
         display: ${props=> !props.active && css`none`};
         position: absolute;
         list-style: none;
-        width: 90%;
+        width: 100%;
         z-index:3;
         background-color: rgb(var(--color-alfa));
         box-shadow: 3px 3px 3px rgb(var(--color-beta)), inset -3px -3px 3px rgb(var(--color-gamma));

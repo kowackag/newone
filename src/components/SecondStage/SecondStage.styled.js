@@ -6,7 +6,7 @@ const DefaultStyleSecondStage = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
 
-    display: ${props=> !props.active && css`none`};
+    // display: ${props=> !props.active && css`none`};
     color: rgb(var(--color-font));
 
     & .goal-header {
@@ -18,24 +18,6 @@ const DefaultStyleSecondStage = styled.div`
         display:flex;
         justify-content: space-between;
         flex-wrap: wrap;
-    }
-
-    & .form__option {
-        width: 45%;
-    }
-
-    & .buttons {
-        width:100%;
-        display: flex;
-        justify-content:center;
-        margin: 2rem;
-    }    
-
-    & .errors {
-        position: fixed;
-        color: #e01010;
-        font-size: .9rem;
-        font-style: italic;
     }
 `
 
