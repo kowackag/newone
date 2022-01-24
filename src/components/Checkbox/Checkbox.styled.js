@@ -7,18 +7,18 @@ const DefaultStyledCheckbox = styled.div`
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast: ${props=>props.theme.colorContrast};
     display: block;
-    width: 5rem;
-    height: 2rem;
+    width: 50px;
+    height: 20px;
     background: rgb(var(--color-gamma));
     position: relative;
-    border-radius: 2rem;
+    border-radius: 20px;
     box-shadow: inset 2px 2px 2px rgb(var(--color-beta)), inset 2px 2px 2px rgb(var(--color-beta));
     box-shadow: inset 2px 2px 3px rgb(var(--color-beta)), inset -2px -2px 3px rgb(var(--color-gamma));
-    &:after {
+    &::after {
       content: 'TAK';
       color: rgba(var(--color-contrast),.7);
       position: absolute;
-      right: .5rem;
+      right: 2px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 0;
@@ -26,11 +26,11 @@ const DefaultStyledCheckbox = styled.div`
       font-weight: bold;
     }
 
-    &:before {
+    &::before {
       content: 'NIE';
       color: rgba(var(--color-font),.7);
       position: absolute;
-      left: .5rem;
+      left: 2px;
       top: 50%;
       transform: translateY(-50%);
       z-index: 0;
@@ -46,7 +46,6 @@ const DefaultStyledCheckbox = styled.div`
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      
       z-index: 1;
       background: rgb(var(--color-alfa));
       border-radius: 50px;

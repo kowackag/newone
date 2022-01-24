@@ -10,7 +10,7 @@ const FirstStage = ({state, errors, onChange, onSubmit, active}) => {
             <form onSubmit={onSubmit}> 
                 <div className="flex-wrapper">
                     <Parameters param={state} errors ={errors} onChange={onChange}/>
-                    <Activity activity={state.activity} errors ={errors.activity} onClick={onChange}/>
+                    <Activity activity={state.activity} error ={errors.activity} onClick={onChange}/>
                 </div>
                 <div className="buttons"> 
                     <Button value="Dalej" type="submit"/>

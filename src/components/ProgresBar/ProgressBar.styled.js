@@ -17,7 +17,7 @@ const DefaultStyledProgressBar = styled.div`
 
     & .progress {
         border-radius: 50px;
-        width: ${props=>props.completed};
+        width: ${props=>props.progress}%;
         background-color: rgba(var(--color-contrast),.8);
         display: inline-block;
         height: 100%;

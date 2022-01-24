@@ -93,11 +93,8 @@ const App = () => {
     }
 
     const getProgress = (stage) => {
-        if (stage===1) return '0%';
-        if (stage===2) return '25%';
-        if (stage===3) return '50%';
-        if (stage===4) return '75%';
-        if (stage===5) return '100%';
+        const progress = 25 * (stage-1);
+        return progress;
     }
 
     return (
@@ -111,7 +108,7 @@ const App = () => {
                 <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err} errors={err} onChoose={e=>dispatch({type:'choose', element: e.target })}/>
                 <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>
                 <Complete active={stage===5} reset={reset}/> 
-                <ProgressBar completed={getProgress(stage)} ></ProgressBar>
+                <ProgressBar progress={getProgress(stage)} ></ProgressBar>
             </StyledApp>
         </ThemeProvider>
     )

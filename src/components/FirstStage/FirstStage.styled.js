@@ -7,13 +7,11 @@ const DefaultStyledFirstStage = styled.div`
     --color-font: ${props=>props.theme.colorFont};
     
     display: ${props=> !props.active && css`none`};
-    // display: none;
     color: rgb(var(--color-font));
 
     & .flex-wrapper {
         display: flex;
         justify-content: space-between;
-        // align-items:center;
     }
 
     & .buttons {

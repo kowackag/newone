@@ -1,9 +1,9 @@
 import React from 'react';
 import StyledProgressBar from './ProgressBar.styled';
 
-const ProgressBar = ({completed}) => {
+const ProgressBar = ({progress}) => {
        return(
-        <StyledProgressBar completed={completed}>
+        <StyledProgressBar progress={progress}>
             <span className="progress"></span>
         </StyledProgressBar>
     )
