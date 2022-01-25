@@ -1,13 +1,7 @@
-class DataAPI {
-    constructor()  {
-        this.url = "http://localhost:3000"
-    }
-
-    loadDataAPI() {
-        return this._fetch()
-    }
-
-    addOrdersAPI(data) {
+const DataAPI = () => {
+    const url = "http://localhost:3000";
+    
+    function addOrdersAPI(data) {
         const options = {
             method: 'POST',
             body: JSON.stringify(data),
@@ -15,22 +9,22 @@ class DataAPI {
                 'Content-Type': 'application/json'
             }
         }
-        return this._fetch(options, `/orders`)
+        return _fetch(options, `/orders`)
     }
 
-    loadProductsAPI(){
+    function loadProductsAPI(){
         const options = {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             }
         }
-        return this._fetch(options, `/products`)
+        return _fetch(options, `/products`)
     }
 
-    _fetch(options, additionalPath=""){
-        const url =`${this.url}${additionalPath}`
-        return fetch(url, options)
+    function _fetch(options, additionalPath=""){
+        const urlCopy =`${url}${additionalPath}`
+        return fetch(urlCopy, options)
                 .then(resp=>{
                     if (resp.ok) {
                         return resp.json();
@@ -38,6 +32,13 @@ class DataAPI {
                     return Promise.reject(resp)
                 })
     }
-}
 
+   return [addOrdersAPI, loadProductsAPI];
+     
+}
+        
+        
 export default DataAPI;
+       
+
+   

@@ -21,8 +21,10 @@ const App = () => {
     const [bmi, setBMI] = useState();
     const [err, setErr] = useState({});
     const [products, setProducts] = useState([]);
-    const dataDB = new DataAPI();
-    useEffect(() => {dataDB.loadProductsAPI().then(data=>setProducts(data))},[]);
+    const db = new DataAPI();
+    const [addOrdersAPI, loadProductsAPI] = db;
+
+    useEffect(() => {loadProductsAPI().then(item=>item).then(data=>setProducts(data))},[]);
 
     const countBMI = (weight, height) => {
         const bmi = (weight/Math.pow(height,2)).toFixed(1);
@@ -38,7 +40,7 @@ const App = () => {
             const bmi = countBMI(Number(weight), Number(height)/100);
             setBMI(bmi);
             if (stage === 4) {
-                dataDB.addOrdersAPI(state);
+                addOrdersAPI(state);
             } 
             setStage(prev => ++prev); 
         } 
