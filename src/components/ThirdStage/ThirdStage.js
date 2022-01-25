@@ -44,7 +44,7 @@ const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, er
                         <Checkbox name="lactosy" onClick={onChange}/>
                     </div>
                     <Subtitle>Wykluczenia z diety:</Subtitle>
-                    {searchFields.map(({name, value, label}) => <React.Fragment key={name}><Label>{label}</Label><Search prod={prod} name={name} value={value} onChange={onChange} onChoose={onChoose}/></React.Fragment>)}
+                    {searchFields.map(({name, value, label}) => <React.Fragment key={name}><Label>{label}</Label><Search items={prod} name={name} value={value} onChange={onChange} onChoose={onChoose} isMutable={true}/></React.Fragment>)}
                 </Column>
                 <ButtonBox>
                     <Button value="Wstecz" name="back" onClick={back} type="button"/>
