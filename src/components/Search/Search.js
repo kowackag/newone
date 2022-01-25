@@ -16,7 +16,7 @@ const Search = (props) => {
 
     return(
         <StyledSearch active={isActive} >
-            <input className="form__value" value={value || ""} name={name} onClick={() => setIsActive(true)} onChange={isMutable ? onChange : null} readOnly={isMutable ? false:true}/>
+            <input className="form__value" value={value || ""} name={name} onClick={() => setIsActive(true)} onChange={isMutable ? onChange : null} readOnly={isMutable ? false: true}/>
             <label className="form__label"></label> 
             <ul className="list">
                 {copyItems.map(el=><li className="ingred" key={uuid()} onClick={getProduct} value={el} name={name}>{el}</li>)} 

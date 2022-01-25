@@ -18,5 +18,25 @@
     "maślanka",
     "kefir"
   ],
-  "orders": []
+  "orders": [
+    {
+      "gender": "kobieta",
+      "weight": "111",
+      "height": "123",
+      "born": "2021-12-30",
+      "activity": "none",
+      "goal": "stable",
+      "targetWeight": 0,
+      "diet": "vegetarian",
+      "lactosy": false,
+      "gluten": true,
+      "excluded1": "",
+      "excluded2": "",
+      "userName": "gosiakow",
+      "userEmail": "gosia_kow@gazeta.pl",
+      "userPhone": "666666666",
+      "userInfo": "",
+      "id": 1
+    }
+  ]
 }

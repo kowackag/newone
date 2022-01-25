@@ -9,18 +9,19 @@ const DefaultStyledCheckbox = styled.div`
     
     position: relative;
     display: block;
-    margin:2.2rem 0 .4rem;
-    width: 50px;
-    height: 20px;
+    margin: 2.2rem 0 .4rem;
+    min-width: 5rem;
+    height: 2rem;
     background: rgb(var(--color-gamma));
     
-    border-radius: 20px;
+    border-radius: 2rem;
     box-shadow: inset 2px 2px 3px rgb(var(--color-beta)), inset -2px -2px 3px rgb(var(--color-gamma));
 
     &::after {
       content: 'TAK';
       color: rgba(var(--color-contrast),.7);
       position: absolute;
+      padding-right:2px;
       right: 2px;
       top: 50%;
       transform: translateY(-50%);
@@ -33,6 +34,7 @@ const DefaultStyledCheckbox = styled.div`
       content: 'NIE';
       color: rgba(var(--color-font),.7);
       position: absolute;
+      padding-left:2px;
       left: 2px;
       top: 50%;
       transform: translateY(-50%);
