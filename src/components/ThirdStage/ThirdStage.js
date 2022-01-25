@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledThirdStage from './ThirdStage.styled';
+import Subtitle from './../Subtitle/Subtitle';
 import Radio from './../Radio/Radio';
 import Column from './../Column/Column';
 import ButtonBox from './../ButtonBox/ButtonBox';
@@ -42,7 +43,7 @@ const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, er
                         <Label>Dieta bez laktozy?</Label>
                         <Checkbox name="lactosy" onClick={onChange}/>
                     </div>
-                    <p className="exclusion__title">Wykluczenia z diety:</p>
+                    <Subtitle>Wykluczenia z diety:</Subtitle>
                     {searchFields.map(({name, value, label}) => <><Label>{label}</Label><Search prod={prod} name={name} value={value} onChoose={onChoose}/></>)}
                 </Column>
                 <ButtonBox>

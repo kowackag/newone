@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledSecondStage from './SecondStage.styled';
+import Subtitle from './../Subtitle/Subtitle';
 import Box from './../Box/Box';
 import ButtonBox from './../ButtonBox/ButtonBox';
 import Button from './../Button/Button';
@@ -23,7 +24,7 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => 
 
     return( 
         <StyledSecondStage active={active}>
-            <h4 className="goal-header">Cel diety</h4>
+            <Subtitle>Cel diety:</Subtitle>
             <form className="form" onSubmit ={onSubmit}>
                 <Box>
                     <Column>

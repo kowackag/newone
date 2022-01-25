@@ -9,11 +9,6 @@ const DefaultStyleThirdStage = styled.div`
     // display: ${props=> !props.active && css`none`};
     color: var(--color-font);
 
-    & .exclusion__title {
-        font-size: 1.4rem;
-        margin:2rem 0;
-    }
-
     & .form {
         display:flex;
         justify-content: space-between;
@@ -24,7 +19,6 @@ const DefaultStyleThirdStage = styled.div`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem 0;
     }
 `
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledActivity from './Activity.styled';
+import Subtitle from '../../Subtitle/Subtitle';
 import Radio from '../../Radio/Radio';
 import Error from './../../Error/Error';
 import {v4 as uuid} from 'uuid';
@@ -14,7 +15,7 @@ const Activity = (props) => {
 
     return (
         <StyledActivity>
-            <h4>Jaka jest twoja aktywność fizyczna?</h4>
+            <Subtitle>Jaka jest twoja aktywność fizyczna?</Subtitle>
             {fields.map(({name, value, label, desc}) => <Radio key={uuid()} name={name} value={value} onClick={props.onClick} active={value===props.activity}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p> </Radio>)}
             <Error err={props.error}/>
         </StyledActivity>

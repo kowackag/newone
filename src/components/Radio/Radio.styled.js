@@ -9,7 +9,7 @@ const DefaultStyledRadio = styled.label`
     
     display:inline-block;
     width: 100%;
-    margin-top: 2rem;
+    margin-bottom: 2rem;
     position: relative;
     padding: 1rem 1rem;
     cursor: pointer;  

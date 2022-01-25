@@ -6,14 +6,17 @@ const DefaultStyledCheckbox = styled.div`
     --color-gamma: ${props=>props.theme.colorShadowLight};
     --color-font: ${props=>props.theme.colorFont};
     --color-contrast: ${props=>props.theme.colorContrast};
+    
+    position: relative;
     display: block;
+    margin:2.2rem 0 .4rem;
     width: 50px;
     height: 20px;
     background: rgb(var(--color-gamma));
-    position: relative;
+    
     border-radius: 20px;
-    box-shadow: inset 2px 2px 2px rgb(var(--color-beta)), inset 2px 2px 2px rgb(var(--color-beta));
     box-shadow: inset 2px 2px 3px rgb(var(--color-beta)), inset -2px -2px 3px rgb(var(--color-gamma));
+
     &::after {
       content: 'TAK';
       color: rgba(var(--color-contrast),.7);

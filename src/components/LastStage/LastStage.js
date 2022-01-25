@@ -1,5 +1,6 @@
 import React from 'react';
 import StyledLastStage from './LastStage.styled';
+import Subtitle from './../Subtitle/Subtitle';
 import ButtonBox from './../ButtonBox/ButtonBox';
 import Button from './../Button/Button';
 import Input from './../Input/Input';
@@ -20,11 +21,9 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
         {label: 'Uwagi:', type: 'text', name: 'userInfo', value: userInfo}
     ]
 
-
-
     return( 
         <StyledLastStage active={active}>
-            <h4 className="goal-header">Proszę o podanie danych kontaktowych</h4>
+            <Subtitle>Proszę o podanie danych kontaktowych.</Subtitle>
             <form className="form" onSubmit ={onSubmit}>
                 <div className ="form__content"> 
                     {fields.map(({label, name, type, value, err}) => <>
@@ -32,20 +31,6 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
                         <Input className="form__value" type={type} name={name} value={value} onChange={onChange}/>
                         {err && <p className="errors">{err}</p>}
                     </>)}
-{/* 
-
-
-                    <Label>Imię i Nazwisko:</Label> 
-                    <Input className="form__value" type="text" name="userName" value={userName} onChange={onChange}/>
-                    {errUserName && <p className="errors">{errUserName}</p>}
-                    <Label>Adres email:</Label> 
-                    <Input className="form__value" type="email" name="userEmail" value={userEmail} onChange={onChange}/>
-                    {errUserEmail && <p className="errors">{errUserEmail}</p>}
-                    <Label>Telefon:</Label> 
-                    <Input className="form__value" type="text" name="userPhone" value={userPhone} onChange={onChange}/>
-                    {errUserPhone && <p className="errors">{errUserPhone}</p>}
-                    <Label>Uwagi:</Label> 
-                    <Input className="form__value" type="text" name="userInfo" value={userInfo} onChange={onChange}/> */}
                 </div>
                 <ButtonBox>
                     <Button value="Wstecz" name="back" onClick={back} type="button"/>
