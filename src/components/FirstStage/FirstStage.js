@@ -18,7 +18,6 @@ const FirstStage = ({state, errors, onChange, onChoose, onSubmit, active}) => {
                     <Button value="Dalej" type="submit"/>
                 </ButtonBox>
             </form>
-            
         </StyledFirstStage>
     )
 }

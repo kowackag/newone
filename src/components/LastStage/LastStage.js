@@ -26,11 +26,11 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
             <Subtitle>Proszę o podanie danych kontaktowych.</Subtitle>
             <form className="form" onSubmit ={onSubmit}>
                 <div className ="form__content"> 
-                    {fields.map(({label, name, type, value, err}) => <>
+                    {fields.map(({label, name, type, value, err}) => <React.Fragment key={name}>
                         <Label>{label}</Label> 
                         <Input className="form__value" type={type} name={name} value={value} onChange={onChange}/>
                         {err && <p className="errors">{err}</p>}
-                    </>)}
+                    </React.Fragment>)}
                 </div>
                 <ButtonBox>
                     <Button value="Wstecz" name="back" onClick={back} type="button"/>

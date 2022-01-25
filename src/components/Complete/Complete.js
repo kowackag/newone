@@ -1,16 +1,17 @@
 import React from 'react';
 import StyledComplete from './Complete.styled';
 import Button from './../Button/Button';
+import ButtonBox from '../ButtonBox/ButtonBox';
 
 const Complete = ({active, reset}) => {
     
     return( 
         <StyledComplete active={active}>
-            <p className="info">Formularz został poprawnie wysłany. </p>
+            <p>Formularz został poprawnie wysłany. </p>
             <p className ="thanks">Dziękujemy za skorzystanie z naszej oferty</p>
-            <div className="form__buttons buttons ">
+            <ButtonBox>
                 <Button value="Uzupełnij ponownie" onClick={reset} type="button"/>
-            </div>
+            </ButtonBox>
         </StyledComplete>
     )
 }

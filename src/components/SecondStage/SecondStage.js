@@ -24,10 +24,10 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => 
 
     return( 
         <StyledSecondStage active={active}>
-            <Subtitle>Cel diety:</Subtitle>
             <form className="form" onSubmit ={onSubmit}>
                 <Box>
                     <Column>
+                    <Subtitle>Cel diety:</Subtitle>
                         {fields.map(({name, value, desc})=><Radio key={value} active={goal===value} name={name} value={value} onClick={onChange}><p>{desc}</p></Radio>)}
                         {errGoal &&<Error err={errGoal}/>}
                         {(goal === 'reduction' || goal === 'muscle-mass') && 
@@ -46,38 +46,6 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => 
             </form>
         </StyledSecondStage>
     )
-
-
-
-
-
-
-
-
-    // return( 
-    //     <StyledSecondStage active={active}>
-    //         <h4 className="goal-header">Cel diety</h4>
-    //         <form className="form" onSubmit ={onSubmit}>
-    //             <div className="form__option">
-    //                 <Radio active={goal==="stable"} name="goal" value="stable" onClick={onChange}><p>Utrzymanie masy ciała</p></Radio>
-    //                 <Radio active={goal==="reduction"} name="goal" value="reduction" onClick={onChange}><p>Redukcja masy ciała</p></Radio>
-    //                 <Radio active={goal==="muscle-mass"} name="goal" value="muscle-mass" onClick={onChange}><p>Wzrost masy mięśniowej</p></Radio>
-    //                 {errGoal &&<p className="errors">{errGoal}</p>}
-    //                 {(goal === 'reduction' || goal === 'muscle-mass') && 
-    //                 <>
-    //                     <Label>Docelowa masa ciała</Label> 
-    //                     <Input className="form__value" type="number" unit="kg" name="targetWeight" value={targetWeight} onChange={onChange}/> 
-    //                     {errTargetWeight&&<p className="errors">{errTargetWeight}</p>}
-    //                 </>}
-    //             </div>
-    //             <BMI className="BMI" bmi={bmi}/>
-    //             <div className="form__buttons buttons ">
-    //                 <Button value="Wstecz" name="back" onClick={back} type="button"/>
-    //                 <Button value="Dalej" name="next" type="submit"/>
-    //             </div>
-    //         </form>
-    //     </StyledSecondStage>
-    // )
 }
 
 export default SecondStage;

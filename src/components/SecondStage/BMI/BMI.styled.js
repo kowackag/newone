@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
 const DefaultStyledBMI = styled.section`
-    --color-font: ${props=>props.theme.colorFont};
     --color-contrast:${props=>props.theme.colorContrast};
+
     width:45%;
-    font-weight: 400;
-    font-size: 1.4rem;
+    font-size:1.4rem;
+    font-weight: bold;
     
     & .bmi-value, .bmi-description {
         color: rgb(var(--color-contrast));
+        margin-top:2rem;
     }
 
     & .bmi-value {

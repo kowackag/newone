@@ -1,5 +1,6 @@
-import React, {useReducer, useState, useEffect} from 'react';
-import { ThemeProvider} from 'styled-components';
+import React, { useState, useEffect} from 'react';
+
+import {ThemeProvider} from 'styled-components';
 import themeSettings from './theme';
 import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
@@ -12,48 +13,10 @@ import StyledApp from './../components/App.styled';
 import validateData from './validateData';
 import DataAPI from './DataAPI';
 import ProgressBar from './ProgresBar/ProgressBar';
-
+import {useHandler} from './reducer'
 
 const App = () => {
-    const init = { 
-        gender: '',
-        weight: 0,
-        height: 0,
-        born: '',
-        activity: '',
-        goal: '',
-        targetWeight: 0,
-        diet: '',
-        lactosy: false,
-        gluten: false,
-        excluded1: '',           
-        excluded2: '',
-        // Chciałam zrobić excluded: ['',''] a potem korzystac z destrukturyzacji ale chyba źle zapisywałam zasadę w reducer. Czy powinnam zmieniac?
-        userName: '',
-        userEmail: '',
-        userPhone:'',
-        userInfo:'',
-    };
-
-    const reducer = (state, action) => {
-        
-        switch (action.type) {
-            
-            case 'reset': 
-                return init;
-            case 'change':
-                const {name, value, checked, type} = action.element;
-                let copyValue = type=='checkbox' ? checked : value;
-                return {...state, [name]:copyValue};
-            case 'choose':
-                let nameLi = action.element.getAttribute('name');
-                return {...state, nameLi: action.element.innerText};
-            default:
-                return state;
-        }
-    }
-
-    const [state, dispatch] = useReducer(reducer, init);
+    const [state, dispatch] = useHandler();
     const [stage, setStage] = useState(1);
     const [bmi, setBMI] = useState();
     const [err, setErr] = useState({});
