@@ -5,6 +5,7 @@ import ButtonBox from './../ButtonBox/ButtonBox';
 import Button from './../Button/Button';
 import Input from './../Input/Input';
 import Label from './../Label/Label';
+import Error from './../Error/Error'
 
 const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
     const {userName, userEmail, userPhone, userInfo} = state;
@@ -29,7 +30,7 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
                     {fields.map(({label, name, type, value, err}) => <React.Fragment key={name}>
                         <Label>{label}</Label> 
                         <Input className="form__value" type={type} name={name} value={value} onChange={onChange}/>
-                        {err && <p className="errors">{err}</p>}
+                        {err && <Error err={err}>{err}</Error>}
                     </React.Fragment>)}
                 </div>
                 <ButtonBox>

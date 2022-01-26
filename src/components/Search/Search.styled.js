@@ -8,7 +8,7 @@ const DefaultStyledInput = styled.div`
    
     font-size: 1.2rem;
     position: relative;
-
+    
     & .form__unit {
         display:inline-block;
         padding: 1rem 1rem;  

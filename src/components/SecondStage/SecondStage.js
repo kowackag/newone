@@ -31,11 +31,11 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => 
                         {fields.map(({name, value, desc})=><Radio key={value} active={goal===value} name={name} value={value} onClick={onChange}><p>{desc}</p></Radio>)}
                         {errGoal &&<Error err={errGoal}/>}
                         {(goal === 'reduction' || goal === 'muscle-mass') && 
-                        <React.Fragment key={value}>
+                        <>
                             <Label>Docelowa masa ciała</Label> 
                             <Input className="form__value" type="number" unit="kg" name="targetWeight" value={targetWeight} onChange={onChange}/> 
                             {errTargetWeight&&<Error err={errTargetWeight}/>}
-                        </React.Fragment>}
+                        </>}
                     </Column>
                     <BMI className="BMI" bmi={bmi}/>
                 </Box>

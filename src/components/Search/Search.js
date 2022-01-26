@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import StyledSearch from './Search.styled';
-import {v4 as uuid} from 'uuid';
 
 const Search = (props) => {
     const {name, value, items, onChoose, onChange, isMutable} = props;
@@ -15,12 +14,12 @@ const Search = (props) => {
     const copyItems = isMutable ? items.filter(el=>el.includes(value)) : items;
 
     return(
-        <StyledSearch active={isActive} >
-            <input className="form__value" value={value || ""} name={name} onClick={() => setIsActive(true)} onChange={isMutable ? onChange : null} readOnly={isMutable ? false: true}/>
+        <StyledSearch active={isActive}>
+        <input className="form__value" value={value || ""} name={name} onClick={() => setIsActive(true)}  onChange={isMutable ? onChange:null} readOnly={isMutable ? false: true}/>
             <label className="form__label"></label> 
-            <ul className="list">
-                {copyItems.map(el=><li className="ingred" key={uuid()} onClick={getProduct} value={el} name={name}>{el}</li>)} 
-            </ul>
+            <ul className="list" onMouseLeave={()=>setIsActive(false)}>
+                {copyItems.map(el=><li className="ingred" key={el} onClick={getProduct} value={el} name={name}>{el}</li>)} 
+            </ul>  
         </StyledSearch>
     )
 }

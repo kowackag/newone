@@ -21,7 +21,6 @@ const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, er
         {name: 'diet', value: 'keto', label: 'Dieta ketogeniczna', desc: 'Zwiększenie ilości tłuszczu, ograniczenie węglowodanów oraz umiarkowane spożycie białka.'},
         {name: 'diet', value: 'high-protein', label: 'Dieta wysokobiałkowa', desc: 'Urozmaicona dieta, zapewniająca uczucie sytości, dzięki daniom o dużej zawartości białka.'},
     ];
-
     const searchFields = [
         {name:'excluded1', value: excluded1, label: 'Składnik 1'},
         {name:'excluded2', value: excluded2, label: 'Składnik 2'},

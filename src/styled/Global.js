@@ -28,7 +28,7 @@ const GlobbalStyle = createGlobalStyle`
     }
 
     html {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     body {
