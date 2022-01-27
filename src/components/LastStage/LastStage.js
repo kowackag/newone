@@ -8,7 +8,7 @@ import Label from './../Label/Label';
 import Error from './../Error/Error'
 
 const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
-    const {userName, userEmail, userPhone, userInfo} = state;
+    const {userName, userEmail, userPhone, userInfo} = state.personalData;
     const { 
         userName: errUserName, 
         userEmail: errUserEmail,
@@ -16,10 +16,10 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
     } = errors;
 
     const fields = [
-        {label: 'Imię i Nazwisko:', type: 'text', name: 'userName', value: userName, err: errUserName},
-        {label: 'Adres email:', type: 'email', name: 'userEmail', value: userEmail , err: errUserEmail},
-        {label: 'Telefon:', type: 'text', name: 'userPhone', value: userPhone, err: errUserPhone},
-        {label: 'Uwagi:', type: 'text', name: 'userInfo', value: userInfo}
+        {label: 'Imię i Nazwisko:', type: 'text', name:'personalData', key: 'userName', value: userName, err: errUserName},
+        {label: 'Adres email:', type: 'email', name:'personalData', key: 'userEmail', value: userEmail , err: errUserEmail},
+        {label: 'Telefon:', type: 'text', name:'personalData', key: 'userPhone', value: userPhone, err: errUserPhone},
+        {label: 'Uwagi:', type: 'text', name:'personalData', key: 'userInfo', value: userInfo}
     ]
 
     return( 
@@ -27,9 +27,9 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
             <Subtitle>Proszę o podanie danych kontaktowych.</Subtitle>
             <form className="form" onSubmit ={onSubmit}>
                 <div className ="form__content"> 
-                    {fields.map(({label, name, type, value, err}) => <React.Fragment key={name}>
+                    {fields.map(({label, name, type, value, err, key}) => <React.Fragment key={key}>
                         <Label>{label}</Label> 
-                        <Input className="form__value" type={type} name={name} value={value} onChange={onChange}/>
+                        <Input className="form__value" type={type} name={name} value={value} title={key} onChange={onChange}/>
                         {err && <Error err={err}>{err}</Error>}
                     </React.Fragment>)}
                 </div>

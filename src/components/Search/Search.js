@@ -20,7 +20,7 @@ const Search = (props) => {
     } 
 
     return(
-        <StyledSearch active={isActive} onClick={()=>setIsActive(true)}>
+        <StyledSearch active={isActive} onClick={()=>setIsActive(!isActive)}>
             <input className="form__value" value={value || ""} name={name}  onFocus={()=> {
                 setIsFocus(true)}} onBlur={handleOnBlur} onChange={isMutable ? onChange:null} readOnly={isMutable ? false: true}/>
                 <label className="form__label"></label> 

@@ -12,12 +12,14 @@ export const useHandler = () => {
         diet: '',
         lactosy: false,
         gluten: false,
-        excluded1: '',           
+        excluded1: '',         
         excluded2: '',
-        userName: '',
-        userEmail: '',
-        userPhone:'',
-        userInfo:'',
+        personalData: {
+            userName: '',
+            userEmail: '',
+            userPhone:'',
+            userInfo:'',
+        }
     };
     
     const reducer = (state, action) => {
@@ -25,9 +27,10 @@ export const useHandler = () => {
             case 'reset': 
                 return init;
             case 'change':
-                const {name, value, checked, type} = action.element;
-                let copyValue = type=='checkbox' ? checked : value;
-                return {...state, [name]:copyValue};
+                const {name, value, checked, type, title} = action.element;
+                const copyValue = type==='checkbox' ? checked : value;
+                const result = title ? {...state, [name]: {...state.personalData, [title]:copyValue}} : {...state, [name]:copyValue};
+                return result;
             case 'choose':
                 let nameLi = action.element.getAttribute('name');
                 return {...state, [nameLi]: action.element.innerText};
@@ -35,7 +38,7 @@ export const useHandler = () => {
                 return state;
         }
     }
-    const [state, dispatch] = useReducer(reducer, init);
     
+    const [state, dispatch] = useReducer(reducer, init);
     return [state, dispatch];
 }

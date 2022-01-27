@@ -56,44 +56,6 @@
       "userPhone": "666666666",
       "userInfo": "dsdsaewq",
       "id": 2
-    },
-    {
-      "gender": "kobieta",
-      "weight": "123",
-      "height": "156",
-      "born": "2022-01-28",
-      "activity": "low",
-      "goal": "reduction",
-      "targetWeight": "111",
-      "diet": "vegetarian",
-      "lactosy": true,
-      "gluten": false,
-      "excluded1": "szczypiorek",
-      "excluded2": "brokuł",
-      "userName": "gosiako",
-      "userEmail": "gosia_kow@gazeta.pl",
-      "userPhone": "666666666",
-      "userInfo": "",
-      "id": 3
-    },
-    {
-      "gender": "kobieta",
-      "weight": "123",
-      "height": "124",
-      "born": "2022-01-22",
-      "activity": "none",
-      "goal": "stable",
-      "targetWeight": 0,
-      "diet": "vegetarian",
-      "lactosy": false,
-      "gluten": true,
-      "excluded1": "rukola",
-      "excluded2": "groszek zielonu",
-      "userName": "gosiakow",
-      "userEmail": "kowackag@gmail.com",
-      "userPhone": "666666666",
-      "userInfo": "",
-      "id": 4
     }
   ]
 }

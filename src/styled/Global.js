@@ -36,6 +36,7 @@ const GlobbalStyle = createGlobalStyle`
         font-size: 1.6rem;
         line-height:1.5;
     }
+
 `
 
 export default GlobbalStyle;

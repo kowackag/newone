@@ -62,7 +62,8 @@ const validateDataThirdStage =({diet}) => {
     return errors;
 }
 
-const validateDataLastStage =({userName, userEmail, userPhone}) => {
+const validateDataLastStage =({personalData}) => {
+    const {userName, userEmail, userPhone} = personalData;
     let errors = {};
     if (userName.length<3) {
         const copyErrors = {userName: 'Wpisz poprawnie imię i Nazwisko'};
