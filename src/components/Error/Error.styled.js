@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const DefaultStyledError = styled.p`
-    position: fixed;
+    position: absolute;
     color: #e01010;
     font-size: .9rem;
     font-style: italic;
