@@ -56,6 +56,27 @@
       "userPhone": "666666666",
       "userInfo": "dsdsaewq",
       "id": 2
+    },
+    {
+      "gender": "kobieta",
+      "weight": "67",
+      "height": "165",
+      "born": "2022-01-13",
+      "activity": "none",
+      "goal": "stable",
+      "targetWeight": 0,
+      "diet": "fit",
+      "lactosy": false,
+      "gluten": true,
+      "excluded1": "rukola",
+      "excluded2": "i",
+      "personalData": {
+        "userName": "Małgorzata Kowacka",
+        "userEmail": "gosia@wp.pl",
+        "userPhone": "509456785",
+        "userInfo": ""
+      },
+      "id": 3
     }
   ]
 }

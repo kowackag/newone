@@ -63,7 +63,7 @@ const App = () => {
     }
 
     return (
-        <ThemeProvider theme ={themeSettings.variant.light}> 
+        <ThemeProvider theme = {themeSettings.variant.light}> 
             <ResetStyle/>
             <GlobalStyle/>
             <StyledApp className="diet-app"> 
