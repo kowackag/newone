@@ -22,18 +22,18 @@ export const useHandler = () => {
         }
     };
     
-    const reducer = (state, action) => {
-        switch (action.type) {
+    const reducer = (state, {type, element}) => {
+        switch (type) {
             case 'reset': 
                 return init;
             case 'change':
-                const {name, value, checked, type, title} = action.element;
+                const {name, value, checked, type, title} = element;
                 const copyValue = type==='checkbox' ? checked : value;
                 const result = title ? {...state, [name]: {...state.personalData, [title]:copyValue}} : {...state, [name]:copyValue};
                 return result;
             case 'choose':
-                let nameLi = action.element.getAttribute('name');
-                return {...state, [nameLi]: action.element.innerText};
+                let nameLi = element.getAttribute('name');
+                return {...state, [nameLi]: element.innerText};
             default:
                 return state;
         }
