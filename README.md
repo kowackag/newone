@@ -14,8 +14,8 @@
 [💡 My process](#💡-my-process)
   - [Technologies](#Technologies)
   - [Solutions provided in the project](#Solutions-provided-in-the-project)
+  - [Ideas to develop the app](#Ideas-to-develop-the-app)
   - [Useful resources](#useful-resources)
-  - [Copyrights](#copyrights)
 
 [Screenshot](#screenshot)
 
