@@ -1,6 +1,6 @@
 ![](./public/top.jpg)
 
-# Neumorfizm
+# Diet form with calculator BMI
 
 &nbsp;
 
