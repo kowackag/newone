@@ -1,11 +1,10 @@
 import React from 'react';
 import StyledRadio from './Radio.styled';
 
-const Radio = (props) => {
-    const {name, value, active, onClick} = props;
+const Radio = ({name, value, active, onClick, children}) => {
     return( 
         <StyledRadio active={active}> 
-            {props.children}
+            {children}
             <input name={name} value={value} type="radio" onClick={onClick}></input>
         </StyledRadio>
     )

@@ -14,7 +14,7 @@ import BMI from './BMI/BMI';
 const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => {
    
     const {goal, targetWeight} = state;
-    const {goal:errGoal, weight:errTargetWeight} = errors;
+    const {goal: errGoal, weight:errTargetWeight} = errors;
 
     const fields = [
         {name:'goal', value: 'stable', desc: 'Utrzymanie masy ciała'}, 

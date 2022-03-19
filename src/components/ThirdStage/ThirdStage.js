@@ -9,7 +9,6 @@ import Checkbox from './../Checkbox/Checkbox';
 import Label from './../Label/Label';
 import Search from './../Search/Search';
 import Error from './../Error/Error'
-import {v4 as uuid} from 'uuid'
 
 const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, errors}) => {
     const {diet, excluded1, excluded2} = state;
@@ -30,7 +29,7 @@ const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, er
        <StyledThirdStage active={active}>
            <form className="form" onSubmit = {onSubmit} >
                 <Column>
-                    {radioFields.map(({name, value, label, desc}) => <Radio key={uuid()} name={name} value={value} onClick={onChange} active={diet===value}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p></Radio>)}
+                    {radioFields.map(({name, value, label, desc}) => <Radio key={value} name={name} value={value} onClick={onChange} active={diet===value}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p></Radio>)}
                     <Error err={errDiet}/>
                 </Column>
                 <Column>

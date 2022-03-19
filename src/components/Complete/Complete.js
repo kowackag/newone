@@ -4,7 +4,6 @@ import Button from './../Button/Button';
 import ButtonBox from '../ButtonBox/ButtonBox';
 
 const Complete = ({active, reset}) => {
-    
     return( 
         <StyledComplete active={active}>
             <p>Formularz został poprawnie wysłany. </p>

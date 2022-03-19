@@ -5,14 +5,14 @@ import Label from '../../Label/Label';
 import Error from '../../Error/Error';
 import Search from '../../Search/Search';
 
-const Parameters = (props) => {
-    const {gender, weight, height, born} = props.param;
+const Parameters = ({param, errors, onChange, onChoose}) => {
+    const {gender, weight, height, born} = param;
     const {
         gender: errGender,
         weight: errWeight,
         height: errHeight,
         born: errBorn
-    } = props.errors;
+    } = errors;
 
     const fields =[
         {label: 'Masa ciała', type: 'number', unit: 'kg', name: 'weight', value: weight , err: errWeight},
@@ -23,9 +23,9 @@ const Parameters = (props) => {
     return( 
         <StyledParameters>
             <Label>Płeć</Label> 
-            <Search className="form__value" items={['kobieta', 'mężczyzna']} name="gender" value ={gender} onChange={props.onChange} onChoose={props.onChoose} isMutable={false} />
+            <Search className="form__value" items={['kobieta', 'mężczyzna']} name="gender" value ={gender} onChange={onChange} onChoose={onChoose} isMutable={false} />
             {errGender && <Error err={errGender}/>}
-            {fields.map(({label, type, unit, name, value, err})=><React.Fragment key={name}><Label>{label}</Label><Input className="form__value" type={type} unit={unit} name={name} value={value} onChange={props.onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
+            {fields.map(({label, type, unit, name, value, err})=><React.Fragment key={name}><Label>{label}</Label><Input className="form__value" type={type} unit={unit} name={name} value={value} onChange={onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
         </StyledParameters>
     )
 }

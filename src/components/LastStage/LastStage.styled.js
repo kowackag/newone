@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 
-const DefaultStyledLastStage = styled.div`
+const StyledLastStage = styled.div`
     display: ${props=> !props.active && css`none`};
 
     & .form__content {
@@ -8,6 +8,6 @@ const DefaultStyledLastStage = styled.div`
     }
 `
 
-const StyledLastStage = styled(DefaultStyledLastStage)(props=>props.style);
+// const StyledLastStage = styled(DefaultStyledLastStage)(props=>props.style);
 
 export default StyledLastStage;

@@ -1,12 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const DefaultStyledRadio = styled.label`
-    --color-alfa: ${props=>props.theme.colorBody};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-    --color-contrast:${props=>props.theme.colorContrast};
-    
     display:inline-block;
     width: 100%;
     margin-bottom: 2rem;
@@ -31,7 +25,6 @@ const DefaultStyledRadio = styled.label`
         border-radius: 8px;
         box-shadow: 0px 0px 8px rgb(var(--color-beta));
         content: '';
-    
         background-color: ${props=>props.active && css`rgb(var(--color-contrast))`};
         border: ${props=>props.active && css`4px solid rgb(var(--color-alfa))`};
         box-shadow: ${props=>props.active && css`0px 0px 4px rgb(var(--color-contrast))`};
@@ -55,7 +48,6 @@ const DefaultStyledRadio = styled.label`
     }
 
 `
-
 
 const StyledRadio = styled(DefaultStyledRadio)(props=>props.style);
 

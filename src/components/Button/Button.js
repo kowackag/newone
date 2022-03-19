@@ -1,9 +1,9 @@
 import React from 'react';
 import StyledButton from './Button.styled';
 
-const Button = (props) => {
+const Button = ({type, value, onClick}) => {
     return( 
-        <StyledButton readOnly type ={props.type} value = {props.value} onClick={props.onClick}/>
+        <StyledButton readOnly type ={type} value ={value} onClick={onClick}/>
     )
 }
 

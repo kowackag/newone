@@ -1,9 +1,9 @@
 import React from 'react';
 import StyledSubtitle from './Subtitle.styled';
 
-const Subtitle = (props) => {
+const Subtitle = ({children}) => {
     return(
-        <StyledSubtitle>{props.children}</StyledSubtitle>
+        <StyledSubtitle>{children}</StyledSubtitle>
     )
 }
 

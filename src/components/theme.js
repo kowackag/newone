@@ -7,12 +7,6 @@ export default {
             colorShadowLight: '251, 253, 255',
             colorFont: '25, 0, 180',
             colorContrast:'216, 27, 110',
-        }, 
-        dark: {
-            colorBgc: '#3E4247',
-            colorShadowDark: '#a8a8a9',
-            colorShadowLight: '#373b3f',
-            colorFont: '#F5F2F0'
         }
     }
 }

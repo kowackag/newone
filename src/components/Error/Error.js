@@ -1,9 +1,9 @@
 import React from 'react';
 import StyledError from './Error.styled'
 
-const Error = (props) => {
+const Error = ({err}) => {
     return (
-        <StyledError>{props.err}</StyledError>
+        <StyledError>{err}</StyledError>
     )
 }
 

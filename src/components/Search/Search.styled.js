@@ -1,11 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const DefaultStyledInput = styled.div`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-   
     font-size: 1.2rem;
     position: relative;
     
@@ -36,7 +31,6 @@ const DefaultStyledInput = styled.div`
     .form__label::after ::before {
         content: '\/';
         font-weight:bold;
-        // color: rgb(var(--color-font));
         position:absolute;
         display:block;
         content:"";

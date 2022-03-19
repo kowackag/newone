@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import StyledSearch from './Search.styled';
 
-const Search = (props) => {
-    const {name, value, items, onChoose, onChange, isMutable} = props;
+const Search = ({name, value, items, onChoose, onChange, isMutable}) => {
     const [isActive, setIsActive] = useState(false);
     const [isFocus, setIsFocus] = useState(false);
     const [isOnMouse, setIsOnMouse] = useState(false);

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const DefaultStyledLabel = styled.label`
-    --color-font: ${props=>props.theme.colorFont};
     display: block;
     margin-top: 2.2rem;
     margin-bottom: 0.4rem;

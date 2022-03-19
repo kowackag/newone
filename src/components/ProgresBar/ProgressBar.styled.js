@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
 const DefaultStyledProgressBar = styled.div`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-    --color-contrast: ${props=>props.theme.colorContrast};
-   
     display: inline-block;
     width: 100%;
     height: 1rem;
@@ -23,7 +17,6 @@ const DefaultStyledProgressBar = styled.div`
         height: 100%;
     }
 `
-
 
 const StyledProgressBar = styled(DefaultStyledProgressBar)(props=> props.style);
 

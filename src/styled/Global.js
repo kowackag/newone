@@ -7,6 +7,14 @@ import robotoItalicWoff2 from "./../fonts/roboto-italic-webfont.woff2";
 import robotoItalicWoff from "./../fonts/roboto-italic-webfont.woff";
 
 const GlobbalStyle = createGlobalStyle`
+    :root {
+        --color-alfa: ${props=>props.theme.colorBgc};
+        --color-beta: ${props=>props.theme.colorShadowDark};
+        --color-gamma: ${props=>props.theme.colorShadowLight};
+        --color-font: ${props=>props.theme.colorFont};
+        --color-contrast:${props=>props.theme.colorContrast};
+    }
+
     @font-face {
         font-family: "Roboto";
         font-style: regular;
@@ -36,7 +44,7 @@ const GlobbalStyle = createGlobalStyle`
     }
 
     body {
-        font-family: Roboto, Verdana, sans-serif;
+        font-family: "Roboto", Verdana, sans-serif;
         font-size: 1.6rem;
         line-height:1.5;
     }

@@ -1,10 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const DefaultStyledField = styled.input`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
     display: inline-block;
     padding: .4rem 1rem;
     border: none;
@@ -14,8 +10,7 @@ const DefaultStyledField = styled.input`
     color: var(--color-font);
     font-weight: 400;
     &:focus {
-     outline: none;
-    //  color: #3743ae;
+    outline: none;
     background-color:rgb(246,247,252);
     box-shadow: inset 4px 4px 6px var(--color-beta), inset -4px -4px 30px var(--color-gamma);
     }

@@ -3,9 +3,8 @@ import StyledActivity from './Activity.styled';
 import Subtitle from '../../Subtitle/Subtitle';
 import Radio from '../../Radio/Radio';
 import Error from './../../Error/Error';
-import {v4 as uuid} from 'uuid';
 
-const Activity = (props) => {
+const Activity = ({onClick, activity, error}) => {
     const fields = [
         {name: 'activity', value: 'none', label: 'Brak aktywności', desc: 'Siedzący tryb życia'},
         {name: 'activity', value: 'low', label: 'Mała aktywność', desc: 'Sporadyczne treningi'},
@@ -16,8 +15,8 @@ const Activity = (props) => {
     return (
         <StyledActivity>
             <Subtitle>Jaka jest twoja aktywność fizyczna?</Subtitle>
-            {fields.map(({name, value, label, desc}) => <Radio key={uuid()} name={name} value={value} onClick={props.onClick} active={value===props.activity}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p> </Radio>)}
-            <Error err={props.error}/>
+            {fields.map(({name, value, label, desc}) => <Radio key={value} name={name} value={value} onClick={onClick} active={value===activity}><p className ="radio__name"> {label}</p><p className ="radio__description">{desc}</p> </Radio>)}
+            <Error err={error}/>
         </StyledActivity>
     )
 }

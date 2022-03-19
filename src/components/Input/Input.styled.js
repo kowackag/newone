@@ -1,10 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const DefaultStyledInput = styled.div`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
     display: flex;
     border-radius: .8rem;
     box-shadow: inset 4px 4px 6px rgb(var(--color-beta)), inset -4px -4px 6px rgb(var(--color-gamma));

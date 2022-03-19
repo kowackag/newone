@@ -1,12 +1,6 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const DefaultStyledApp = styled.section`
-    --color-alfa: ${props=>props.theme.colorBody};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-    --color-contrast:${props=>props.theme.colorContrast};
-  
     margin:50px auto;
     padding: 50px;
     max-width: 800px;
