@@ -11,7 +11,7 @@ import validateData from './validateData';
 import DataAPI from './DataAPI';
 import {useHandler} from './reducer';
 
-import themeSettings from './theme';
+import themeSettings from '../styled/theme';
 import ResetStyle from '../styled/Reset';
 import GlobalStyle from '../styled/Global';
 import StyledApp from './../components/App.styled';
@@ -62,6 +62,11 @@ const App = () => {
         const progress = 25 * (stage-1);
         return progress;
     }
+    
+    const changeValue = e => {
+        e.preventDefault();
+        dispatch({type:'change', element: e.target })
+    }
 
     return (
         <ThemeProvider theme = {themeSettings.variant.light}> 
@@ -69,10 +74,10 @@ const App = () => {
             <GlobalStyle/>
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
-                <FirstStage state = {state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} onChoose={e=>dispatch({type:'choose', element: e.target })} errors={err}/>
-                <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>
-                <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err} onChoose={e=>dispatch({type:'choose', element: e.target })}/>
-                <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={e=>dispatch({type:'change', element: e.target })} errors={err}/>
+                <FirstStage state={state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={changeValue} onChoose={e=>dispatch({type:'choose', element: e.target })} errors={err}/>
+                <SecondStage state={state} active={stage===2} bmi={bmi} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={changeValue} errors={err}/>
+                <ThirdStage state={state} active={stage===3} prod={products} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={changeValue} errors={err} onChoose={e=>dispatch({type:'choose', element: e.target })}/>
+                <LastStage state={state} active={stage===4} back={prevForm} onSubmit={(e)=> handleForm(e)} onChange={changeValue} errors={err}/>
                 <Complete active={stage===5} reset={reset}/> 
                 <ProgressBar progress={getProgress(stage)} ></ProgressBar>
             </StyledApp>

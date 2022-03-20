@@ -28,8 +28,8 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
             <form className="form" onSubmit ={onSubmit}>
                 <div className ="form__content"> 
                     {fields.map(({label, name, type, value, err, key}) => <React.Fragment key={key}>
-                        <Label>{label}</Label> 
-                        <Input className="form__value" type={type} name={name} value={value} title={key} onChange={onChange}/>
+                        <Label htmlFor={key} >{label}</Label> 
+                        <Input className="form__value" type={type} id={key} name={name} value={value} title={key} onChange={onChange}/>
                         {err && <Error err={err}>{err}</Error>}
                     </React.Fragment>)}
                 </div>

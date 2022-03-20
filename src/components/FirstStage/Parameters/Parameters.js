@@ -23,9 +23,9 @@ const Parameters = ({param, errors, onChange, onChoose}) => {
     return( 
         <StyledParameters>
             <Label>Płeć</Label> 
-            <Search className="form__value" items={['kobieta', 'mężczyzna']} name="gender" value ={gender} onChange={onChange} onChoose={onChoose} isMutable={false} />
+            <Search className="form__value" items={['kobieta', 'mężczyzna']} name="gender" value={gender} onChange={onChange} onChoose={onChoose} isMutable={false} />
             {errGender && <Error err={errGender}/>}
-            {fields.map(({label, type, unit, name, value, err})=><React.Fragment key={name}><Label>{label}</Label><Input className="form__value" type={type} unit={unit} name={name} value={value} onChange={onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
+            {fields.map(({label, type, unit, name, value, err})=><React.Fragment key={name}><Label htmlFor={name}>{label}</Label><Input id={name}className="form__value" type={type} unit={unit} name={name} value={value} onChange={onChange}/>{err && <Error err={err}/>}</React.Fragment>)}
         </StyledParameters>
     )
 }

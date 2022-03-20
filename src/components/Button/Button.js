@@ -3,7 +3,7 @@ import StyledButton from './Button.styled';
 
 const Button = ({type, value, onClick}) => {
     return( 
-        <StyledButton readOnly type ={type} value ={value} onClick={onClick}/>
+        <StyledButton readOnly type={type} value={value} onClick={onClick}/>
     )
 }
 

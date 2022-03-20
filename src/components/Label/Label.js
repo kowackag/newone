@@ -1,11 +1,9 @@
 import React from 'react';
 import StyledLabel from './Label.styled';
 
-const Label = ({children}) => {
+const Label = ({children,htmlFor}) => {
     return( 
-        <StyledLabel>
-          {children}
-        </StyledLabel>
+        <StyledLabel htmlFor={htmlFor}>{children}</StyledLabel>
     )
 }
 
