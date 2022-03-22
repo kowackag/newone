@@ -77,6 +77,48 @@
         "userInfo": ""
       },
       "id": 3
+    },
+    {
+      "gender": "kobieta",
+      "weight": "77.5",
+      "height": "167",
+      "born": "2022-03-09",
+      "activity": "none",
+      "goal": "stable",
+      "targetWeight": 0,
+      "diet": "fit",
+      "lactosy": true,
+      "gluten": true,
+      "excluded1": "",
+      "excluded2": "",
+      "personalData": {
+        "userName": "Małgorzata Kowacka",
+        "userEmail": "kowackag@gmail.com",
+        "userPhone": "444444567",
+        "userInfo": ""
+      },
+      "id": 4
+    },
+    {
+      "gender": "kobieta",
+      "weight": "77.5",
+      "height": "167",
+      "born": "2022-03-17",
+      "activity": "none",
+      "goal": "stable",
+      "targetWeight": 0,
+      "diet": "high-protein",
+      "lactosy": true,
+      "gluten": false,
+      "excluded1": "",
+      "excluded2": "",
+      "personalData": {
+        "userName": "koplgytgki",
+        "userEmail": "kowackag@gmail.com",
+        "userPhone": "666666666",
+        "userInfo": ""
+      },
+      "id": 5
     }
   ]
 }

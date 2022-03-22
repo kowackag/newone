@@ -15,7 +15,7 @@ const FirstStage = ({state, errors, onChange, onChoose, onSubmit, active}) => {
                     <Activity activity={state.activity} error={errors.activity} onClick={onChange}/>
                 </Box>
                 <ButtonBox> 
-                    <Button value="Dalej" type="submit"/>
+                    <Button>Dalej</Button>
                 </ButtonBox>
             </form>
         </StyledFirstStage>

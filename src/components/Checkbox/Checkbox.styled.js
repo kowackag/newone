@@ -1,12 +1,6 @@
 import styled from 'styled-components';
 
 const DefaultStyledCheckbox = styled.div`
-    --color-alfa: ${props=>props.theme.colorBgc};
-    --color-beta: ${props=>props.theme.colorShadowDark};
-    --color-gamma: ${props=>props.theme.colorShadowLight};
-    --color-font: ${props=>props.theme.colorFont};
-    --color-contrast: ${props=>props.theme.colorContrast};
-    
     position: relative;
     display: block;
     margin: 2.2rem 0 .4rem;
@@ -65,16 +59,8 @@ const DefaultStyledCheckbox = styled.div`
     & input:checked + label {
         left: 2.5rem;
     }
-    
-    
-
-
-
-
-  }
-
 `
 
 const StyledCheckbox = styled(DefaultStyledCheckbox)(props=>props.style);
 
-export default StyledCheckbox
+export default StyledCheckbox;

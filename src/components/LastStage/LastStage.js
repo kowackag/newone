@@ -34,8 +34,8 @@ const LastStage = ({state, active, back, onSubmit, onChange, errors}) => {
                     </React.Fragment>)}
                 </div>
                 <ButtonBox>
-                    <Button value="Wstecz" name="back" onClick={back} type="button"/>
-                    <Button value="Wyślij" name="next" type="submit"/>
+                    <Button onClick={back} type="button">Wstecz</Button>
+                    <Button>Wyślij</Button>
                 </ButtonBox>
             </form>
         </StyledLastStage>

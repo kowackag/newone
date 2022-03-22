@@ -64,7 +64,6 @@ const App = () => {
     }
     
     const changeValue = e => {
-        e.preventDefault();
         dispatch({type:'change', element: e.target })
     }
 

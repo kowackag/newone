@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const DefaultStyledButton = styled.input`
+const DefaultStyledButton = styled.button`
     display: inline-block;
     padding: 1rem 2rem;
     min-width: 120px;

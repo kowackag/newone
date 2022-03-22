@@ -40,8 +40,8 @@ const SecondStage = ({state, active, bmi, back, onSubmit, onChange, errors}) => 
                     <BMI className="BMI" bmi={bmi}/>
                 </Box>
                 <ButtonBox>
-                    <Button value="Wstecz" name="back" onClick={back} type="button"/>
-                    <Button value="Dalej" name="next" type="submit"/>
+                    <Button onClick={back} type="button">Wstecz</Button>
+                    <Button>Dalej</Button>
                 </ButtonBox>
             </form>
         </StyledSecondStage>

@@ -45,8 +45,8 @@ const ThirdStage = ({state, active, prod, back, onSubmit, onChange, onChoose, er
                     {searchFields.map(({name, value, label}) => <React.Fragment key={name}><Label>{label}</Label><Search items={prod} name={name} value={value} onChange={onChange} onChoose={onChoose} isMutable={true}/></React.Fragment>)}
                 </Column>
                 <ButtonBox>
-                    <Button value="Wstecz" name="back" onClick={back} type="button"/>
-                    <Button value="Dalej" name="next" type="submit"/>
+                    <Button onClick={back} type="button">Wstecz</Button>
+                    <Button>Dalej</Button>
                 </ButtonBox>
             </form>
        </StyledThirdStage>

@@ -1,8 +1,6 @@
 import styled, {css} from 'styled-components';
 
 const DefaultStyledComplete = styled.div`
-    --color-contrast: ${props=>props.theme.colorContrast};
-
     display: ${props=> !props.active && css`none`};
     font-weight: bold;
 
