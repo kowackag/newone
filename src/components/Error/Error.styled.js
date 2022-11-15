@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const DefaultStyledError = styled.p`
     position: absolute;
     color: #e01010;
-    font-size: .9rem;
+    font-size: 1rem;
     font-style: italic;
 `
 

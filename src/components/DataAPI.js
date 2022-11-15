@@ -1,5 +1,5 @@
 const DataAPI = () => {
-    const url = "http://localhost:3000";
+    const url = "https://my-json-server.typicode.com/kowackag/db-diet-form";
     
     function addOrdersAPI(data) {
         const options = {
