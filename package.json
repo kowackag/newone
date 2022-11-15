@@ -1,12 +1,14 @@
 {
-  "name": "task-react-styling",
+  "homepage": "https://kowackag.github.com/diet-form-and-calc-BMI",
+  "name": "diet-form-and-calc-bmi",
   "version": "1.0.0",
   "description": "> ⭐ ***README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!***\r > \r > 🎁 *Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**.*",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open",
-    "build": "webpack --env.production"
+    "build": "webpack --env.production",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
   "dependencies": {
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
+    "gh-pages": "^4.0.0",
     "json-server": "^0.17.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
