@@ -1,23 +1,22 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 
 const DefaultStyleThirdStage = styled.div`
-    display: ${props=> !props.active && css`none`};
-    color: var(--color-font);
+  display: ${(props) => !props.active && css`none`};
+  color: var(--color-font);
 
-    & .form {
-        display:flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
+  & .form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
 
-    & .box {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-`
+  & .box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
 
-const StyledThirdStage = styled(DefaultStyleThirdStage)(props=>props.style)
-
+const StyledThirdStage = styled(DefaultStyleThirdStage)((props) => props.style);
 
 export default StyledThirdStage;

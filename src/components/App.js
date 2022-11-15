@@ -22,7 +22,8 @@ const App = () => {
     const [bmi, setBMI] = useState();
     const [err, setErr] = useState({});
     const [products, setProducts] = useState([]);
-    const db = new DataAPI();
+    // const db = new DataAPI();
+    const db = DataAPI();
     const [addOrdersAPI, loadProductsAPI] = db;
 
     useEffect(() => {loadProductsAPI().then(item=>item).then(data=>setProducts(data))},[]);

@@ -1,8 +1,8 @@
-import React from 'react';
-import StyledButtonBox from './ButtonBox.styled';
+import React from "react";
+import StyledButtonBox from "./ButtonBox.styled";
 
-const ButtonBox = ({children})=> {
-    return <StyledButtonBox>{children}</StyledButtonBox> 
-}
+const ButtonBox = ({ children }) => {
+  return <StyledButtonBox>{children}</StyledButtonBox>;
+};
 
 export default ButtonBox;

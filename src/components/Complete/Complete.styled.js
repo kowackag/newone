@@ -1,16 +1,16 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 
 const DefaultStyledComplete = styled.div`
-    display: ${props=> !props.active && css`none`};
-    font-weight: bold;
+  display: ${(props) => !props.active && css`none`};
+  font-weight: bold;
 
-    & .thanks {
-        margin: 6rem 0 6rem;
-        font-style: italic;
-        color: rgb(var(--color-contrast)); 
-    }
-`
+  & .thanks {
+    margin: 6rem 0 6rem;
+    font-style: italic;
+    color: rgb(var(--color-contrast));
+  }
+`;
 
-const StyledComplete = styled(DefaultStyledComplete)(props=>props.style);
+const StyledComplete = styled(DefaultStyledComplete)((props) => props.style);
 
 export default StyledComplete;

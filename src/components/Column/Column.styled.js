@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const DefaultStyledColumn = styled.div`
-    width:45%;
-`
+  width: 45%;
+`;
 
-const StyledColumn = styled(DefaultStyledColumn)(props=>props.style);
+const StyledColumn = styled(DefaultStyledColumn)((props) => props.style);
 
 export default StyledColumn;

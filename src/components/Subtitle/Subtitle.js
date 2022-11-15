@@ -1,10 +1,8 @@
-import React from 'react';
-import StyledSubtitle from './Subtitle.styled';
+import React from "react";
+import StyledSubtitle from "./Subtitle.styled";
 
-const Subtitle = ({children}) => {
-    return(
-        <StyledSubtitle>{children}</StyledSubtitle>
-    )
-}
+const Subtitle = ({ children }) => {
+  return <StyledSubtitle>{children}</StyledSubtitle>;
+};
 
 export default Subtitle;
