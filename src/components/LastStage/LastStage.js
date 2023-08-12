@@ -3,9 +3,9 @@ import StyledLastStage from "./LastStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
 import ButtonBox from "./../ButtonBox/ButtonBox";
 import Button from "./../Button/Button";
-import Input from "./../Input/Input";
-import Label from "./../Label/Label";
-import Error from "./../Error/Error";
+import { Input } from "common/components/Input/Input";
+import { Label } from "common/components/Label/Label";
+import Error from "../../common/components/Error/Error";
 
 const LastStage = ({ state, active, back, onSubmit, onChange, errors }) => {
   const { userName, userEmail, userPhone, userInfo } = state.personalData;

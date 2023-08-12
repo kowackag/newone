@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DefaultStyledLabel = styled.label`
+export const StyledLabel = styled.label`
   display: block;
   margin-top: 2.2rem;
   margin-bottom: 0.4rem;
@@ -8,6 +8,4 @@ const DefaultStyledLabel = styled.label`
   font-weight: 600;
   color: var(--color-font);
 `;
-const StyledLabel = styled(DefaultStyledLabel)((props) => props.style);
 
-export default StyledLabel;

@@ -1,6 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const DefaultStyledInput = styled.div`
+export const StyledInput = styled.div<{
+  unit?: string;
+}>`
   display: flex;
   border-radius: 0.8rem;
   box-shadow: inset 4px 4px 6px rgb(var(--color-beta)),
@@ -25,8 +27,8 @@ const DefaultStyledInput = styled.div`
     border-bottom-left-radius: 0.8rem;
     background-color: transparent;
     color: rgba(var(--color-font), 0.8);
-    border-top-right-radius: ${(props) => !props.unit && css`.8rem`};
-    border-bottom-right-radius: ${(props) => !props.unit && css`.8rem`};
+    border-top-right-radius: ${(props) => !props.unit && ".8rem"};
+    border-bottom-right-radius: ${(props) => !props.unit && ".8rem"};
     font-size: 1.4rem;
   }
 
@@ -42,6 +44,3 @@ const DefaultStyledInput = styled.div`
     -webkit-text-fill-color: rgb(var(--color-font)) !important;
   }
 `;
-const StyledInput = styled(DefaultStyledInput)((props) => props.style);
-
-export default StyledInput;

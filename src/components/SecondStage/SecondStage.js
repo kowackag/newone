@@ -4,10 +4,10 @@ import Subtitle from "./../Subtitle/Subtitle";
 import Box from "./../Box/Box";
 import ButtonBox from "./../ButtonBox/ButtonBox";
 import Button from "./../Button/Button";
-import Input from "./../Input/Input";
-import Label from "./../Label/Label";
-import Radio from "./../Radio/Radio";
-import Error from "./../Error/Error";
+import { Input } from "common/components/Input/Input";
+import { Label } from "common/components/Label/Label";
+import { Radio } from "../../common/components/Radio/Radio";
+import Error from "../../common/components/Error/Error";
 import Column from "./../Column/Column";
 import BMI from "./BMI/BMI";
 

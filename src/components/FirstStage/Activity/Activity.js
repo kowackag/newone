@@ -1,8 +1,8 @@
 import React from "react";
 import StyledActivity from "./Activity.styled";
 import Subtitle from "../../Subtitle/Subtitle";
-import Radio from "../../Radio/Radio";
-import Error from "./../../Error/Error";
+import Radio from "../../../common/components/Radio/Radio";
+import Error from "../../../common/components/Error/Error";
 
 const Activity = ({ onClick, activity, error }) => {
   const fields = [

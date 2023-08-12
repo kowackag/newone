@@ -1,6 +1,8 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const DefaultStyledRadio = styled.label`
+export const StyledRadio = styled.label<{
+  active: boolean;
+}>`
   display: inline-block;
   width: 100%;
   margin-bottom: 2rem;
@@ -50,7 +52,3 @@ const DefaultStyledRadio = styled.label`
     color: rgba(var(--color-font), 0.5);
   }
 `;
-
-const StyledRadio = styled(DefaultStyledRadio)((props) => props.style);
-
-export default StyledRadio;

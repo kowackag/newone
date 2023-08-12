@@ -1,5 +1,4 @@
 import React, { useState, useEffect} from 'react';
-import {ThemeProvider} from 'styled-components';
 
 import FirstStage from './FirstStage/FirstStage';
 import SecondStage from './SecondStage/SecondStage';
@@ -11,10 +10,8 @@ import validateData from './validateData';
 import DataAPI from './DataAPI';
 import {useHandler} from './reducer';
 
-import themeSettings from '../styled/theme';
-import ResetStyle from '../styled/Reset';
-import GlobalStyle from '../styled/Global';
-import StyledApp from './../components/App.styled';
+
+import StyledApp from './App.styled';
 
 const App = () => {
     const [state, dispatch] = useHandler();
@@ -69,9 +66,7 @@ const App = () => {
     }
 
     return (
-        <ThemeProvider theme = {themeSettings.variant.light}> 
-            <ResetStyle/>
-            <GlobalStyle/>
+
             <StyledApp className="diet-app"> 
                 <h2 className="diet-app__title">Konfigurator diety</h2>
                 <FirstStage state={state} active={stage===1} onSubmit={(e)=> handleForm(e)} onChange={changeValue} onChoose={e=>dispatch({type:'choose', element: e.target })} errors={err}/>
@@ -81,7 +76,6 @@ const App = () => {
                 <Complete active={stage===5} reset={reset}/> 
                 <ProgressBar progress={getProgress(stage)} ></ProgressBar>
             </StyledApp>
-        </ThemeProvider>
     )
 }
 

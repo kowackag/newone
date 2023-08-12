@@ -1,14 +1,14 @@
 import React from "react";
 import StyledThirdStage from "./ThirdStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
-import Radio from "./../Radio/Radio";
+import Radio from "../../common/components/Radio/Radio";
 import Column from "./../Column/Column";
 import ButtonBox from "./../ButtonBox/ButtonBox";
 import Button from "./../Button/Button";
 import Checkbox from "./../Checkbox/Checkbox";
-import Label from "./../Label/Label";
+import Label from "../../common/components/Label/Label";
 import Search from "./../Search/Search";
-import Error from "./../Error/Error";
+import Error from "../../common/components/Error/Error";
 
 const ThirdStage = ({
   state,
