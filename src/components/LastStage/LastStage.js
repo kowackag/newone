@@ -1,11 +1,11 @@
 import React from "react";
 import StyledLastStage from "./LastStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
-import ButtonBox from "./../ButtonBox/ButtonBox";
-import Button from "./../Button/Button";
+import { ButtonBox } from "./../ButtonBox/ButtonBox";
+import { Button } from "common/components/Button/Button";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
-import Error from "../../common/components/Error/Error";
+import { Error } from "common/components/Error/Error";
 
 const LastStage = ({ state, active, back, onSubmit, onChange, errors }) => {
   const { userName, userEmail, userPhone, userInfo } = state.personalData;

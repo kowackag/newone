@@ -2,13 +2,13 @@ import React from "react";
 import StyledSecondStage from "./SecondStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
 import Box from "./../Box/Box";
-import ButtonBox from "./../ButtonBox/ButtonBox";
-import Button from "./../Button/Button";
+import { ButtonBox } from "./../ButtonBox/ButtonBox";
+import { Button } from "common/components/Button/Button";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
-import { Radio } from "../../common/components/Radio/Radio";
-import Error from "../../common/components/Error/Error";
-import Column from "./../Column/Column";
+import { Radio } from "common/components/Radio/Radio";
+import { Error } from "common/components/Error/Error";
+import { Container } from "common/components/Container/Container.styled";
 import BMI from "./BMI/BMI";
 
 const SecondStage = ({
@@ -33,7 +33,7 @@ const SecondStage = ({
     <StyledSecondStage active={active}>
       <form className="form" onSubmit={onSubmit}>
         <Box>
-          <Column>
+          <Container width="45%">
             <Subtitle>Cel diety:</Subtitle>
             {fields.map(({ name, value, desc }) => (
               <Radio
@@ -61,7 +61,7 @@ const SecondStage = ({
                 {errTargetWeight && <Error err={errTargetWeight} />}
               </>
             )}
-          </Column>
+          </Container>
           <BMI className="BMI" bmi={bmi} />
         </Box>
         <ButtonBox>

@@ -1,7 +1,7 @@
 import React from "react";
 import StyledComplete from "./Complete.styled";
-import Button from "./../Button/Button";
-import ButtonBox from "../ButtonBox/ButtonBox";
+import {Button} from "common/components/Button/Button";
+import { ButtonBox} from "../ButtonBox/ButtonBox";
 
 const Complete = ({ active, reset }) => {
   return (

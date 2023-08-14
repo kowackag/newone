@@ -2,7 +2,7 @@ import React from "react";
 import StyledParameters from "./Parameteres.styled";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
-import Error from "../../../common/components/Error/Error";
+import { Error } from "common/components/Error/Error";
 import Search from "../../Search/Search";
 
 const Parameters = ({ param, errors, onChange, onChoose }) => {

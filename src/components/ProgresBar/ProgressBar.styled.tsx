@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const DefaultStyledProgressBar = styled.div`
+export const StyledProgressBar = styled.div<{
+  progress: number;
+}>`
   display: inline-block;
   width: 100%;
   height: 1rem;
@@ -10,7 +12,7 @@ const DefaultStyledProgressBar = styled.div`
     -4px -4px 6px rgb(var(--color-gamma));
   line-height: 1rem;
 
-  & .progress {
+  & span {
     border-radius: 50px;
     width: ${(props) => props.progress}%;
     background-color: rgba(var(--color-contrast), 0.8);
@@ -18,9 +20,3 @@ const DefaultStyledProgressBar = styled.div`
     height: 100%;
   }
 `;
-
-const StyledProgressBar = styled(DefaultStyledProgressBar)(
-  (props) => props.style
-);
-
-export default StyledProgressBar;

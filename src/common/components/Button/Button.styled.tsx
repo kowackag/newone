@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DefaultStyledButton = styled.button`
+export const StyledButton = styled.button`
   display: inline-block;
   padding: 1rem 2rem;
   min-width: 120px;
@@ -24,7 +24,3 @@ const DefaultStyledButton = styled.button`
     cursor: pointer;
   }
 `;
-
-const StyledButton = styled(DefaultStyledButton)((props) => props.style);
-
-export default StyledButton;

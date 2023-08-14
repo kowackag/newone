@@ -1,14 +1,14 @@
 import React from "react";
 import StyledThirdStage from "./ThirdStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
-import Radio from "../../common/components/Radio/Radio";
-import Column from "./../Column/Column";
-import ButtonBox from "./../ButtonBox/ButtonBox";
-import Button from "./../Button/Button";
+import { Radio } from "common/components/Radio/Radio";
+import { Container } from "common/components/Container/Container.styled";
+import { ButtonBox } from "./../ButtonBox/ButtonBox";
+import { Button } from "common/components/Button/Button";
 import Checkbox from "./../Checkbox/Checkbox";
-import Label from "../../common/components/Label/Label";
+import { Label } from "common/components/Label/Label.tsx";
 import Search from "./../Search/Search";
-import Error from "../../common/components/Error/Error";
+import { Error } from "common/components/Error/Error";
 
 const ThirdStage = ({
   state,
@@ -57,7 +57,7 @@ const ThirdStage = ({
   return (
     <StyledThirdStage active={active}>
       <form className="form" onSubmit={onSubmit}>
-        <Column>
+        <Container width="45%">
           {radioFields.map(({ name, value, label, desc }) => (
             <Radio
               key={value}
@@ -71,8 +71,8 @@ const ThirdStage = ({
             </Radio>
           ))}
           <Error err={errDiet} />
-        </Column>
-        <Column>
+        </Container>
+        <Container width="45%">
           <div className="box">
             <Label>Dieta bezglutenowa?</Label>
             <Checkbox name="gluten" onClick={onChange} />
@@ -95,7 +95,7 @@ const ThirdStage = ({
               />
             </React.Fragment>
           ))}
-        </Column>
+        </Container>
         <ButtonBox>
           <Button onClick={back} type="button">
             Wstecz

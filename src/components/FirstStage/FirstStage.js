@@ -1,8 +1,8 @@
 import React from "react";
 import StyledFirstStage from "./FirstStage.styled";
 import Box from "./../Box/Box";
-import ButtonBox from "./../ButtonBox/ButtonBox";
-import Button from "./../Button/Button";
+import { ButtonBox } from "./../ButtonBox/ButtonBox";
+import { Button } from "common/components/Button/Button";
 import Parameters from "./Parameters/Parameters";
 import Activity from "./Activity/Activity";
 
