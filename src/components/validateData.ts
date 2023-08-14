@@ -1,11 +1,36 @@
-const validateData = (stage, data) => {
-  if (stage === 1) return validateDataFirstStage(data);
-  if (stage === 2) return validateDataSecondStage(data);
-  if (stage === 3) return validateDataThirdStage(data);
-  if (stage === 4) return validateDataLastStage(data);
-};
+interface DataFirstStageProps {
+  weight: number;
+  height: number;
+  gender: string;
+  born: string;
+  activity: number;
+}
 
-const validateDataFirstStage = ({ weight, height, gender, born, activity }) => {
+interface DataSecondStageProps {
+  weight: number;
+  targetWeight: number;
+  goal: string;
+}
+
+interface DataThirdStageProps {
+  diet: string;
+}
+
+interface DataLastStageProps {
+  personalData: {
+    userName: string;
+    userEmail: string;
+    userPhone: string;
+  };
+}
+
+export const validateDataFirstStage = ({
+  weight,
+  height,
+  gender,
+  born,
+  activity,
+}: DataFirstStageProps) => {
   let errors = {};
   if (gender == "") {
     const copyErrors = { gender: "Podaj płeć" };
@@ -33,7 +58,11 @@ const validateDataFirstStage = ({ weight, height, gender, born, activity }) => {
   return errors;
 };
 
-const validateDataSecondStage = ({ targetWeight, goal, weight }) => {
+export const validateDataSecondStage = ({
+  targetWeight,
+  goal,
+  weight,
+}: DataSecondStageProps) => {
   let errors = {};
   if (!goal) {
     const copyErrors = { goal: "Uzupełnij cel diety" };
@@ -54,7 +83,7 @@ const validateDataSecondStage = ({ targetWeight, goal, weight }) => {
   return errors;
 };
 
-const validateDataThirdStage = ({ diet }) => {
+export const validateDataThirdStage = ({ diet }: DataThirdStageProps) => {
   let errors = {};
   if (!diet) {
     const copyErrors = { diet: "Wybierz rodzaj diety" };
@@ -63,7 +92,7 @@ const validateDataThirdStage = ({ diet }) => {
   return errors;
 };
 
-const validateDataLastStage = ({ personalData }) => {
+export const validateDataLastStage = ({ personalData }: DataLastStageProps) => {
   const { userName, userEmail, userPhone } = personalData;
   let errors = {};
   if (userName.length < 3) {
@@ -81,5 +110,3 @@ const validateDataLastStage = ({ personalData }) => {
   }
   return errors;
 };
-
-export default validateData;
