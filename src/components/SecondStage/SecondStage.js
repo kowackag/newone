@@ -30,7 +30,7 @@ const SecondStage = ({
   ];
 
   return (
-    <StyledSecondStage active={active}>
+    <StyledSecondStage>
       <form className="form" onSubmit={onSubmit}>
         <Box>
           <Container width="45%">

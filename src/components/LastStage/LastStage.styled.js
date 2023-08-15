@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 const StyledLastStage = styled.div`
-  display: ${(props) => !props.active && css`none`};
 
   & .form__content {
     width: 70%;

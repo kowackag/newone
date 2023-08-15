@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import StyledParameters from "./Parameteres.styled";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
 import { Error } from "common/components/Error/Error";
+import { OrderDataContext } from "components/context";
 import Search from "../../Search/Search";
 
 const Parameters = ({ param, errors, onChange, onChoose }) => {
   const { gender, weight, height, born } = param;
+  const { dispatch } = useContext(OrderDataContext);
+
+  const changeValue = (e) => {
+    e.preventDefault();
+    dispatch({ type: "change", element: e.target });
+  };
+
   const {
     gender: errGender,
     weight: errWeight,
@@ -63,7 +71,7 @@ const Parameters = ({ param, errors, onChange, onChoose }) => {
             unit={unit}
             name={name}
             value={value}
-            onChange={onChange}
+            onChange={changeValue}
           />
           {err && <Error err={err} />}
         </React.Fragment>

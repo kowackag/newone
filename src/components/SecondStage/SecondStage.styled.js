@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 const DefaultStyleSecondStage = styled.div`
-  display: ${(props) => !props.active && css`none`};
+
   color: rgb(var(--color-font));
 
   & .form {

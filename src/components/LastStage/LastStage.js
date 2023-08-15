@@ -50,7 +50,7 @@ const LastStage = ({ state, active, back, onSubmit, onChange, errors }) => {
   ];
 
   return (
-    <StyledLastStage active={active}>
+    <StyledLastStage>
       <Subtitle>Proszę o podanie danych kontaktowych.</Subtitle>
       <form className="form" onSubmit={onSubmit}>
         <div className="form__content">

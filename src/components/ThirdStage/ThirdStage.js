@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import StyledThirdStage from "./ThirdStage.styled";
 import Subtitle from "./../Subtitle/Subtitle";
 import { Radio } from "common/components/Radio/Radio";
@@ -9,11 +9,10 @@ import Checkbox from "./../Checkbox/Checkbox";
 import { Label } from "common/components/Label/Label.tsx";
 import Search from "./../Search/Search";
 import { Error } from "common/components/Error/Error";
+//import { loadProductsAPI } from "../DataAPI";
 
 const ThirdStage = ({
   state,
-  active,
-  prod,
   back,
   onSubmit,
   onChange,
@@ -22,6 +21,16 @@ const ThirdStage = ({
 }) => {
   const { diet, excluded1, excluded2 } = state;
   const { diet: errDiet } = errors;
+  const [products, setProducts] = useState([]);
+
+  // useEffect(() => {
+  //   loadProductsAPI()
+  //     .then((item) => item)
+  //     .then((data) => {
+  //       console.log(data);
+  //       setProducts(data);
+  //     });
+  // }, []);
 
   const radioFields = [
     {
@@ -55,7 +64,7 @@ const ThirdStage = ({
   ];
 
   return (
-    <StyledThirdStage active={active}>
+    <StyledThirdStage>
       <form className="form" onSubmit={onSubmit}>
         <Container width="45%">
           {radioFields.map(({ name, value, label, desc }) => (
@@ -86,7 +95,7 @@ const ThirdStage = ({
             <React.Fragment key={name}>
               <Label>{label}</Label>
               <Search
-                items={prod}
+                items={products}
                 name={name}
                 value={value}
                 onChange={onChange}

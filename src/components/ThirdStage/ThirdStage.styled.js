@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 const DefaultStyleThirdStage = styled.div`
-  display: ${(props) => !props.active && css`none`};
   color: var(--color-font);
 
   & .form {
