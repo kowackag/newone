@@ -15,6 +15,7 @@ export const useHandler = () => {
     gluten: false,
     excluded1: "",
     excluded2: "",
+    bmi: "",
     personalData: {
       userName: "",
       userEmail: "",

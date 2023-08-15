@@ -1,8 +1,4 @@
-import React from "react";
-import StyledBMI from "./BMI.styled";
-import Subtitle from "../../Subtitle/Subtitle";
-
-const BMI = ({ className, bmi }) => {
+export const getBmiInfo = (bmi: number) => {
   const ranges = [
     { min: 0, max: 15.9, desc: "wygłodzenie" },
     { min: 16, max: 16.9, desc: "wychudzenie" },
@@ -16,14 +12,5 @@ const BMI = ({ className, bmi }) => {
 
   const result = ranges.find(({ min, max }) => bmi >= min && bmi <= max);
 
-  return (
-    <StyledBMI className={className}>
-      <Subtitle>Twój wskaźnik masy ciała wynosi:</Subtitle>
-      <p className="bmi-value">{bmi}</p>
-      <p>Twoje BMI wskazuje na:</p>
-      <p className="bmi-description">{result && result.desc}</p>
-    </StyledBMI>
-  );
+  return result.desc;
 };
-
-export default BMI;

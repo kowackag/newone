@@ -7,7 +7,7 @@ interface OrderDataContextValue {
   dispatch: React.Dispatch<any>
 }
 
-const initOrderData = {
+export const initOrderData = {
   gender: "",
   weight: 0,
   height: 0,

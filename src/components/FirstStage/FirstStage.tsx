@@ -5,11 +5,12 @@ import { ButtonBox } from "../ButtonBox/ButtonBox";
 import { Button } from "common/components/Button/Button";
 import Parameters from "./Parameters";
 import { Activity } from "./Activity";
+
 import { validateDataFirstStage } from "components/validateData";
 import { OrderDataContext } from "components/context";
 import { countBMI } from "./helpers";
 
-const FirstStage = () => {
+export const FirstStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
   const navigate = useNavigate();
 
@@ -51,5 +52,3 @@ const FirstStage = () => {
     </div>
   );
 };
-
-export default FirstStage;

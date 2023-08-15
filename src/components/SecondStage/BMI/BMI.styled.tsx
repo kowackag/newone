@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DefaultStyledBMI = styled.section`
+export const StyledBMI = styled.section`
   --color-contrast: ${(props) => props.theme.colorContrast};
 
   width: 45%;
@@ -24,6 +24,3 @@ const DefaultStyledBMI = styled.section`
     font-weight: 600;
   }
 `;
-const StyledBMI = styled(DefaultStyledBMI)((props) => props.style);
-
-export default StyledBMI;

@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import FirstStage from "./FirstStage/FirstStage";
-import SecondStage from "./SecondStage/SecondStage";
+import {FirstStage} from "./FirstStage/FirstStage";
+import {SecondStage} from "./SecondStage/SecondStage";
 import ThirdStage from "./ThirdStage/ThirdStage";
 import LastStage from "./LastStage/LastStage";
 import Complete from "./Complete/Complete";
 import ProgressBar from "./ProgresBar/ProgressBar";
 import { addOrdersAPI } from "./DataAPI";
-import { OrderDataContext } from "./context";
+
+// import { OrderDataTypes } from "./types";
+import { OrderDataContext, initOrderData } from "./context";
 import { useHandler } from "./reducer";
 import {
-  validateDataFirstStage,
   validateDataSecondStage,
   validateDataThirdStage,
   validateDataLastStage,
@@ -22,21 +23,12 @@ import { Wrapper, Title } from "./App.styled";
 const App = () => {
   const [orderData, dispatch] = useHandler();
   const [stage, setStage] = useState(1);
-  const [bmi, setBMI] = useState("");
   const [err, setErr] = useState({});
-
-  const countBMI = (weight: number, height: number) => {
-    const bmi = (weight / Math.pow(height, 2)).toFixed(1);
-    return bmi;
-  };
 
   const handleForm = (e) => {
     e.preventDefault();
     let errors = {};
     switch (stage) {
-      case 1:
-        errors = validateDataFirstStage(orderData);
-        break;
       case 2:
         errors = validateDataSecondStage(orderData);
         break;
@@ -50,11 +42,6 @@ const App = () => {
 
     setErr({ ...errors });
     if (Object.keys(errors).length === 0) {
-      if (stage === 1) {
-        const { weight, height } = orderData;
-        const bmi = countBMI(Number(weight), Number(height) / 100);
-        setBMI(bmi);
-      }
       if (stage === 4) {
         addOrdersAPI(orderData);
       }
@@ -93,28 +80,8 @@ const App = () => {
       <Wrapper>
         <Title>Konfigurator diety</Title>
         <Routes>
-          <Route
-            path={"/1"}
-            element={
-              <FirstStage
-                state={orderData}
-              />
-            }
-          />
-          <Route
-            path={"/2"}
-            element={
-              <SecondStage
-                state={orderData}
-                active={stage === 2}
-                bmi={orderData.bmi}
-                back={prevForm}
-                onSubmit={handleForm}
-                onChange={changeValue}
-                errors={err}
-              />
-            }
-          />
+          <Route path={"/1"} element={<FirstStage />} />
+          <Route path={"/2"} element={<SecondStage />} />
           <Route
             path={"/3"}
             element={
