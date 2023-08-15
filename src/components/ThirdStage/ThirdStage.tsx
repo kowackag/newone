@@ -1,25 +1,28 @@
-import React, { useState, useEffect } from "react";
-import StyledThirdStage from "./ThirdStage.styled";
-import Subtitle from "./../Subtitle/Subtitle";
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
+import Subtitle from "../Subtitle/Subtitle";
 import { Radio } from "common/components/Radio/Radio";
 import { Container } from "common/components/Container/Container.styled";
-import { ButtonBox } from "./../ButtonBox/ButtonBox";
+import { ButtonBox } from "../ButtonBox/ButtonBox";
 import { Button } from "common/components/Button/Button";
-import Checkbox from "./../Checkbox/Checkbox";
-import { Label } from "common/components/Label/Label.tsx";
-import Search from "./../Search/Search";
+import Checkbox from "../Checkbox/Checkbox";
+import { Label } from "common/components/Label/Label";
+import Search from "../Search/Search";
 import { Error } from "common/components/Error/Error";
 //import { loadProductsAPI } from "../DataAPI";
 
-const ThirdStage = ({
-  state,
-  back,
-  onSubmit,
-  onChange,
-  onChoose,
-  errors,
-}) => {
-  const { diet, excluded1, excluded2 } = state;
+import { validateDataThirdStage } from "components/validateData";
+import { OrderDataContext } from "components/context";
+
+import { StyledThirdStage } from "./ThirdStage.styled";
+
+const ThirdStage = ({ onSubmit, onChoose, errors }) => {
+  const { orderData, dispatch } = useContext(OrderDataContext);
+  const navigate = useNavigate();
+
+
+  const { diet, excluded1, excluded2 } = orderData;
   const { diet: errDiet } = errors;
   const [products, setProducts] = useState([]);
 
@@ -31,6 +34,16 @@ const ThirdStage = ({
   //       setProducts(data);
   //     });
   // }, []);
+
+  const changeValue = (
+    e:
+      | React.MouseEvent<HTMLInputElement, MouseEvent>
+
+  ) => {
+    console.log(55555555555555555)
+    e.preventDefault();
+    dispatch({ type: "change", element: e.target });
+  };
 
   const radioFields = [
     {
@@ -72,7 +85,7 @@ const ThirdStage = ({
               key={value}
               name={name}
               value={value}
-              onClick={onChange}
+              onClick={changeValue}
               active={diet === value}
             >
               <p className="radio__name"> {label}</p>
@@ -84,11 +97,11 @@ const ThirdStage = ({
         <Container width="45%">
           <div className="box">
             <Label>Dieta bezglutenowa?</Label>
-            <Checkbox name="gluten" onClick={onChange} />
+            <Checkbox name="gluten" onClick={changeValue} />
           </div>
           <div className="box">
             <Label>Dieta bez laktozy?</Label>
-            <Checkbox name="lactosy" onClick={onChange} />
+            <Checkbox name="lactosy" onClick={changeValue} />
           </div>
           <Subtitle>Wykluczenia z diety:</Subtitle>
           {searchFields.map(({ name, value, label }) => (
@@ -98,7 +111,7 @@ const ThirdStage = ({
                 items={products}
                 name={name}
                 value={value}
-                onChange={onChange}
+                onChange={changeValue}
                 onChoose={onChoose}
                 isMutable={true}
               />
@@ -106,7 +119,7 @@ const ThirdStage = ({
           ))}
         </Container>
         <ButtonBox>
-          <Button onClick={back} type="button">
+          <Button onClick={()=>navigate('/2')} type="button">
             Wstecz
           </Button>
           <Button>Dalej</Button>

@@ -1,6 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const DefaultStyleThirdStage = styled.div`
+export const StyledThirdStage = styled.div`
   color: var(--color-font);
 
   & .form {
@@ -16,6 +16,3 @@ const DefaultStyleThirdStage = styled.div`
   }
 `;
 
-const StyledThirdStage = styled(DefaultStyleThirdStage)((props) => props.style);
-
-export default StyledThirdStage;

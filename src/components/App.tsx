@@ -86,10 +86,7 @@ const App = () => {
             path={"/3"}
             element={
               <ThirdStage
-                state={orderData}
-                back={prevForm}
                 onSubmit={handleForm}
-                onChange={changeValue}
                 errors={err}
                 onChoose={chooseElement}
               />
