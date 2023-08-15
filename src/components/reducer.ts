@@ -1,4 +1,5 @@
 import { useReducer } from "react";
+import { OrderDataTypes } from "./types";
 
 export const useHandler = () => {
   const init = {
@@ -22,7 +23,13 @@ export const useHandler = () => {
     },
   };
 
-  const reducer = (state, { type, element }) => {
+  interface ReducerProps {
+    type: string;
+    element: any;
+  }
+
+  const reducer = (state: OrderDataTypes, { type, element }: ReducerProps) => {
+    console.log(1111, element);
     switch (type) {
       case "reset":
         return init;
@@ -36,6 +43,8 @@ export const useHandler = () => {
       case "choose":
         let nameLi = element.getAttribute("name");
         return { ...state, [nameLi]: element.innerText };
+      case "setBMI":
+        return { ...state, bmi: element };
       default:
         return state;
     }

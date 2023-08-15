@@ -9,7 +9,7 @@ interface InputProps {
   value: string | number;
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  title: string;
+  //title: string;
 }
 
 export const Input = ({
@@ -20,7 +20,7 @@ export const Input = ({
   value,
   name,
   onChange,
-  title,
+ // title,
 }: InputProps) => {
   return (
     <StyledInput unit={unit}>
@@ -29,7 +29,7 @@ export const Input = ({
         id={id}
         type={type}
         name={name}
-        title={title}
+        //title={title}
         value={value}
         onChange={onChange}
       />

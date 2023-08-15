@@ -3,7 +3,7 @@ interface DataFirstStageProps {
   height: number;
   gender: string;
   born: string;
-  activity: number;
+  activity: string;
 }
 
 interface DataSecondStageProps {

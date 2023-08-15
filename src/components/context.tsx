@@ -1,28 +1,10 @@
 import React from "react";
+import { OrderDataTypes } from "./types";
 
-interface OrderDataTypes {
-  gender: string;
-  weight: number;
-  height: number;
-  born: string;
-  activity: string;
-  goal: string;
-  targetWeight: number;
-  diet: string;
-  lactosy: boolean;
-  gluten: boolean;
-  excluded1: string;
-  excluded2: string;
-  personalData: {
-    userName: string;
-    userEmail: string;
-    userPhone: string;
-    userInfo: string;
-  };
-}
 interface OrderDataContextValue {
   orderData: OrderDataTypes;
-  dispatch: (prev: OrderDataTypes) => void;
+  //dispatch: (prev: OrderDataTypes) => void;
+  dispatch: React.Dispatch<any>
 }
 
 const initOrderData = {
@@ -38,6 +20,7 @@ const initOrderData = {
   gluten: false,
   excluded1: "",
   excluded2: "",
+  bmi: 0,
   personalData: {
     userName: "",
     userEmail: "",

@@ -20,7 +20,7 @@ import {
 import { Wrapper, Title } from "./App.styled";
 
 const App = () => {
-  const [state, dispatch] = useHandler();
+  const [orderData, dispatch] = useHandler();
   const [stage, setStage] = useState(1);
   const [bmi, setBMI] = useState("");
   const [err, setErr] = useState({});
@@ -30,33 +30,33 @@ const App = () => {
     return bmi;
   };
 
-  const handleForm = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleForm = (e) => {
     e.preventDefault();
     let errors = {};
     switch (stage) {
       case 1:
-        errors = validateDataFirstStage(state);
+        errors = validateDataFirstStage(orderData);
         break;
       case 2:
-        errors = validateDataSecondStage(state);
+        errors = validateDataSecondStage(orderData);
         break;
       case 3:
-        errors = validateDataThirdStage(state);
+        errors = validateDataThirdStage(orderData);
         break;
       case 4:
-        errors = validateDataLastStage(state);
+        errors = validateDataLastStage(orderData);
         break;
     }
 
     setErr({ ...errors });
     if (Object.keys(errors).length === 0) {
       if (stage === 1) {
-        const { weight, height } = state;
+        const { weight, height } = orderData;
         const bmi = countBMI(Number(weight), Number(height) / 100);
         setBMI(bmi);
       }
       if (stage === 4) {
-        addOrdersAPI(state);
+        addOrdersAPI(orderData);
       }
       setStage((prev) => ++prev);
     }
@@ -87,9 +87,9 @@ const App = () => {
     dispatch({ type: "change", element: e.target });
   };
 
-  console.log(state);
+  console.log(orderData);
   return (
-    <OrderDataContext.Provider value={{ orderData: state, dispatch }}>
+    <OrderDataContext.Provider value={{ orderData, dispatch }}>
       <Wrapper>
         <Title>Konfigurator diety</Title>
         <Routes>
@@ -97,12 +97,7 @@ const App = () => {
             path={"/1"}
             element={
               <FirstStage
-                state={state}
-                active={stage === 1}
-                onSubmit={handleForm}
-                onChange={changeValue}
-                onChoose={chooseElement}
-                errors={err}
+                state={orderData}
               />
             }
           />
@@ -110,9 +105,9 @@ const App = () => {
             path={"/2"}
             element={
               <SecondStage
-                state={state}
+                state={orderData}
                 active={stage === 2}
-                bmi={bmi}
+                bmi={orderData.bmi}
                 back={prevForm}
                 onSubmit={handleForm}
                 onChange={changeValue}
@@ -124,7 +119,7 @@ const App = () => {
             path={"/3"}
             element={
               <ThirdStage
-                state={state}
+                state={orderData}
                 back={prevForm}
                 onSubmit={handleForm}
                 onChange={changeValue}
@@ -137,7 +132,7 @@ const App = () => {
             path={"/4"}
             element={
               <LastStage
-                state={state}
+                state={orderData}
                 active={stage === 4}
                 back={prevForm}
                 onSubmit={handleForm}

@@ -1,58 +1,54 @@
-import React, { useState } from "react";
-import { StyledFirstStage } from "./FirstStage.styled";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import Box from "../Box/Box";
 import { ButtonBox } from "../ButtonBox/ButtonBox";
 import { Button } from "common/components/Button/Button";
-import Parameters from "./Parameters/Parameters";
-import Activity from "./Activity/Activity";
+import Parameters from "./Parameters";
+import { Activity } from "./Activity";
 import { validateDataFirstStage } from "components/validateData";
-const FirstStage = ({
-  state,
-  errors,
-  onChange,
-  onChoose,
-  onSubmit,
-  active,
-}) => {
-  const countBMI = (weight: number, height: number) => {
-    const bmi = (weight / Math.pow(height, 2)).toFixed(1);
-    return bmi;
-  };
-  const [err, setErr] = useState({});
-  // const handleForm = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   e.preventDefault();
-  //   const errors = validateDataFirstStage(state);
-  //   setErr({ ...errors });
-  //   if (Object.keys(errors).length === 0) {
-  //       const { weight, height } = state;
-  //       const bmi = countBMI(Number(weight), Number(height) / 100);
-       
-  //     }
+import { OrderDataContext } from "components/context";
+import { countBMI } from "./helpers";
 
-  //   }
-  // };
+const FirstStage = () => {
+  const { orderData, dispatch } = useContext(OrderDataContext);
+  const navigate = useNavigate();
+
+  const [err, setErr] = useState(null);
+
+  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      weight: orderData.weight,
+      height: orderData.height,
+      gender: orderData.gender,
+      born: orderData.born,
+      activity: orderData.activity,
+    };
+
+    const errors = validateDataFirstStage(data);
+    setErr({ ...errors });
+
+    if (Object.keys(errors).length === 0) {
+      const { weight, height } = orderData;
+      const bmi = countBMI(weight, height);
+      dispatch({ type: "setBMI", element: bmi });
+      navigate("/2");
+    }
+  };
 
   return (
-    <StyledFirstStage active={active}>
-      <form onSubmit={onSubmit}>
+    <div>
+      <form onSubmit={handleForm}>
         <Box>
-          <Parameters
-            param={state}
-            errors={errors}
-            onChange={onChange}
-            onChoose={onChoose}
-          />
-          <Activity
-            activity={state.activity}
-            error={errors.activity}
-            onClick={onChange}
-          />
+          <Parameters errors={err} />
+          <Activity activity={orderData.activity} error={err?.activity} />
         </Box>
         <ButtonBox>
-          <Button type="submit">Dalej</Button>
+          <Button>Dalej</Button>
         </ButtonBox>
       </form>
-    </StyledFirstStage>
+    </div>
   );
 };
 

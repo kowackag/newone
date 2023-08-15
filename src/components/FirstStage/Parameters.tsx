@@ -1,26 +1,25 @@
-import React, { useState, useContext } from "react";
-import StyledParameters from "./Parameteres.styled";
+import React, { useContext } from "react";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
 import { Error } from "common/components/Error/Error";
+import { Container } from "common/components/Container/Container.styled";
+import Search from "../Search/Search";
+
 import { OrderDataContext } from "components/context";
-import Search from "../../Search/Search";
 
-const Parameters = ({ param, errors, onChange, onChoose }) => {
-  const { gender, weight, height, born } = param;
-  const { dispatch } = useContext(OrderDataContext);
+export const Parameters = ({ errors }) => {
+  const { orderData, dispatch } = useContext(OrderDataContext);
+  const { gender, weight, height, born } = orderData;
 
-  const changeValue = (e) => {
+  const changeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     dispatch({ type: "change", element: e.target });
   };
 
-  const {
-    gender: errGender,
-    weight: errWeight,
-    height: errHeight,
-    born: errBorn,
-  } = errors;
+  const chooseElement = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    dispatch({ type: "choose", element: e.target });
+  };
 
   const fields = [
     {
@@ -29,7 +28,7 @@ const Parameters = ({ param, errors, onChange, onChoose }) => {
       unit: "kg",
       name: "weight",
       value: weight,
-      err: errWeight,
+      err: errors?.weight,
     },
     {
       label: "Wzrost",
@@ -37,30 +36,29 @@ const Parameters = ({ param, errors, onChange, onChoose }) => {
       unit: "cm",
       name: "height",
       value: height,
-      err: errHeight,
+      err: errors?.height,
     },
     {
       label: "Data urodzenia",
       type: "date",
       name: "born",
       value: born,
-      err: errBorn,
+      err: errors?.born,
     },
   ];
 
   return (
-    <StyledParameters>
+    <Container width="45%">
       <Label>Płeć</Label>
       <Search
-        className="form__value"
         items={["kobieta", "mężczyzna"]}
         name="gender"
         value={gender}
-        onChange={onChange}
-        onChoose={onChoose}
+        onChange={changeValue}
+        onChoose={chooseElement}
         isMutable={false}
       />
-      {errGender && <Error err={errGender} />}
+      {errors?.gender && <Error err={errors.gender} />}
       {fields.map(({ label, type, unit, name, value, err }) => (
         <React.Fragment key={name}>
           <Label htmlFor={name}>{label}</Label>
@@ -76,7 +74,7 @@ const Parameters = ({ param, errors, onChange, onChoose }) => {
           {err && <Error err={err} />}
         </React.Fragment>
       ))}
-    </StyledParameters>
+    </Container>
   );
 };
 
