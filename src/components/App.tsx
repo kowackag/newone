@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import {FirstStage} from "./FirstStage/FirstStage";
 import {SecondStage} from "./SecondStage/SecondStage";
-import ThirdStage from "./ThirdStage/ThirdStage";
+import { ThirdStage } from "./ThirdStage/ThirdStage";
 import LastStage from "./LastStage/LastStage";
 import Complete from "./Complete/Complete";
 import ProgressBar from "./ProgresBar/ProgressBar";
@@ -82,16 +82,7 @@ const App = () => {
         <Routes>
           <Route path={"/1"} element={<FirstStage />} />
           <Route path={"/2"} element={<SecondStage />} />
-          <Route
-            path={"/3"}
-            element={
-              <ThirdStage
-                onSubmit={handleForm}
-                errors={err}
-                onChoose={chooseElement}
-              />
-            }
-          />
+          <Route path={"/3"} element={<ThirdStage /> } />
           <Route
             path={"/4"}
             element={

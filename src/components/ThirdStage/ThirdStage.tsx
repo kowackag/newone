@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Subtitle from "../Subtitle/Subtitle";
 import { Radio } from "common/components/Radio/Radio";
 import { Container } from "common/components/Container/Container.styled";
 import { ButtonBox } from "../ButtonBox/ButtonBox";
 import { Button } from "common/components/Button/Button";
-import Checkbox from "../Checkbox/Checkbox";
 import { Label } from "common/components/Label/Label";
-import Search from "../Search/Search";
 import { Error } from "common/components/Error/Error";
+import Search from "../Search/Search";
+import Checkbox from "../Checkbox/Checkbox";
+import Subtitle from "../Subtitle/Subtitle";
 //import { loadProductsAPI } from "../DataAPI";
 
 import { validateDataThirdStage } from "components/validateData";
@@ -17,13 +17,13 @@ import { OrderDataContext } from "components/context";
 
 import { StyledThirdStage } from "./ThirdStage.styled";
 
-const ThirdStage = ({ onSubmit, onChoose, errors }) => {
+export const ThirdStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
   const navigate = useNavigate();
 
+  const [err, setErr] = useState(null);
 
   const { diet, excluded1, excluded2 } = orderData;
-  const { diet: errDiet } = errors;
   const [products, setProducts] = useState([]);
 
   // useEffect(() => {
@@ -35,14 +35,28 @@ const ThirdStage = ({ onSubmit, onChoose, errors }) => {
   //     });
   // }, []);
 
-  const changeValue = (
-    e:
-      | React.MouseEvent<HTMLInputElement, MouseEvent>
-
-  ) => {
-    console.log(55555555555555555)
+  const changeValue = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault();
     dispatch({ type: "change", element: e.target });
+  };
+
+  const chooseElement = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    dispatch({ type: "choose", element: e.target });
+  };
+
+  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = {
+      diet: orderData.diet,
+    };
+
+    const errors = validateDataThirdStage(data);
+    setErr({ ...errors });
+    if (Object.keys(errors).length === 0) {
+      navigate("/4");
+    }
   };
 
   const radioFields = [
@@ -75,10 +89,10 @@ const ThirdStage = ({ onSubmit, onChoose, errors }) => {
     { name: "excluded1", value: excluded1, label: "Składnik 1" },
     { name: "excluded2", value: excluded2, label: "Składnik 2" },
   ];
-
+  console.log(5, err);
   return (
     <StyledThirdStage>
-      <form className="form" onSubmit={onSubmit}>
+      <form className="form" onSubmit={handleForm}>
         <Container width="45%">
           {radioFields.map(({ name, value, label, desc }) => (
             <Radio
@@ -92,7 +106,7 @@ const ThirdStage = ({ onSubmit, onChoose, errors }) => {
               <p className="radio__description">{desc}</p>
             </Radio>
           ))}
-          <Error err={errDiet} />
+          {err?.diet && <Error err={err.diet} />}
         </Container>
         <Container width="45%">
           <div className="box">
@@ -112,14 +126,14 @@ const ThirdStage = ({ onSubmit, onChoose, errors }) => {
                 name={name}
                 value={value}
                 onChange={changeValue}
-                onChoose={onChoose}
+                onChoose={chooseElement}
                 isMutable={true}
               />
             </React.Fragment>
           ))}
         </Container>
         <ButtonBox>
-          <Button onClick={()=>navigate('/2')} type="button">
+          <Button onClick={() => navigate("/2")} type="button">
             Wstecz
           </Button>
           <Button>Dalej</Button>
@@ -129,4 +143,3 @@ const ThirdStage = ({ onSubmit, onChoose, errors }) => {
   );
 };
 
-export default ThirdStage;
