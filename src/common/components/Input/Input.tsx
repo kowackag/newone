@@ -5,7 +5,7 @@ interface InputProps {
   id: string;
   className: string;
   type: string;
-  unit: string;
+  unit?: string;
   value: string | number;
   name: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;

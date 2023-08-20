@@ -17,11 +17,9 @@ interface DataThirdStageProps {
 }
 
 interface DataLastStageProps {
-  personalData: {
     userName: string;
     userEmail: string;
     userPhone: string;
-  };
 }
 
 export const validateDataFirstStage = ({
@@ -92,8 +90,7 @@ export const validateDataThirdStage = ({ diet }: DataThirdStageProps) => {
   return errors;
 };
 
-export const validateDataLastStage = ({ personalData }: DataLastStageProps) => {
-  const { userName, userEmail, userPhone } = personalData;
+export const validateDataLastStage = ({ userName, userEmail, userPhone }: DataLastStageProps) => {
   let errors = {};
   if (userName.length < 3) {
     const copyErrors = { userName: "Wpisz poprawnie imię i Nazwisko" };
