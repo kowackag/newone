@@ -15,7 +15,7 @@ import BMI from "./BMI/BMI";
 import { validateDataSecondStage } from "components/validateData";
 import { OrderDataContext } from "components/context";
 
-import { StyledSecondStage } from "./SecondStage.styled";
+import { StyledSecondStage, Form } from "./SecondStage.styled";
 
 export const SecondStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
@@ -57,7 +57,7 @@ export const SecondStage = () => {
 
   return (
     <StyledSecondStage>
-      <form className="form" onSubmit={handleForm}>
+      <Form onSubmit={handleForm}>
         <Box>
           <Container width="45%">
             <Subtitle>Cel diety:</Subtitle>
@@ -78,7 +78,6 @@ export const SecondStage = () => {
                 <Label htmlFor="targetWeight">Docelowa masa ciała</Label>
                 <Input
                   id="targetWeight"
-                  className="form__value"
                   type="number"
                   unit="kg"
                   name="targetWeight"
@@ -100,7 +99,7 @@ export const SecondStage = () => {
           </Button>
           <Button>Dalej</Button>
         </ButtonBox>
-      </form>
+      </Form>
     </StyledSecondStage>
   );
 };

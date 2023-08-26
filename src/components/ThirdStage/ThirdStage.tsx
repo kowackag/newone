@@ -15,7 +15,10 @@ import Subtitle from "../Subtitle/Subtitle";
 import { validateDataThirdStage } from "components/validateData";
 import { OrderDataContext } from "components/context";
 
-import { StyledThirdStage } from "./ThirdStage.styled";
+import { StyledThirdStage, Form } from "./ThirdStage.styled";
+
+import { RadioInfo } from "common/components/Radio/Radio.styled";
+import { Text } from "common/components/Text/Text.styled";
 
 export const ThirdStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
@@ -92,7 +95,7 @@ export const ThirdStage = () => {
 
   return (
     <StyledThirdStage>
-      <form className="form" onSubmit={handleForm}>
+      <Form onSubmit={handleForm}>
         <Container width="45%">
           {radioFields.map(({ name, value, label, desc }) => (
             <Radio
@@ -102,8 +105,8 @@ export const ThirdStage = () => {
               onClick={changeValue}
               active={diet === value}
             >
-              <p className="radio__name"> {label}</p>
-              <p className="radio__description">{desc}</p>
+              <Text weight="bold"> {label}</Text>
+              <RadioInfo>{desc}</RadioInfo>
             </Radio>
           ))}
           {err?.diet && <Error err={err.diet} />}
@@ -141,7 +144,7 @@ export const ThirdStage = () => {
           </Button>
           <Button>Dalej</Button>
         </ButtonBox>
-      </form>
+      </Form>
     </StyledThirdStage>
   );
 };

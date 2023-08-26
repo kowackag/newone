@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import StyledSearch from "./Search.styled";
+import {
+  StyledSearch,
+  SearchInput,
+  Label,
+  List,
+  ListItem,
+} from "./Search.styled";
 
 const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
   const [isActive, setIsActive] = useState(false);
@@ -7,7 +13,7 @@ const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
   const [isOnMouse, setIsOnMouse] = useState(false);
 
   const copyItems = isMutable
-    ? items.filter((el) => el.includes(value))
+    ? items.filter((item: string) => item.includes(value))
     : items;
 
   const handleOnBlur = () => {
@@ -21,9 +27,8 @@ const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
   };
 
   return (
-    <StyledSearch active={isActive} onClick={() => setIsActive(!isActive)}>
-      <input
-        className="form__value"
+    <StyledSearch onClick={() => setIsActive(!isActive)}>
+      <SearchInput
         value={value || ""}
         name={name}
         onFocus={() => {
@@ -33,24 +38,18 @@ const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
         onChange={isMutable ? onChange : null}
         readOnly={isMutable ? false : true}
       />
-      <label className="form__label"></label>
-      <ul
-        className="list"
+      <Label></Label>
+      <List
+        active={isActive}
         onMouseOver={() => setIsOnMouse(true)}
         onMouseLeave={handleOnMouseLeave}
       >
-        {copyItems.map((el) => (
-          <li
-            className="ingred"
-            key={el}
-            onClick={onChoose}
-            value={el}
-            name={name}
-          >
-            {el}
-          </li>
+        {copyItems.map((item: string) => (
+          <ListItem key={item} onClick={onChoose} value={item} name={name}>
+            {item}
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </StyledSearch>
   );
 };

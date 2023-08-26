@@ -1,31 +1,31 @@
 import React from "react";
-import { StyledInput } from "./Input.styled";
+import { StyledInput, Unit, InputContainer } from "./Input.styled";
 
 interface InputProps {
   id: string;
-  className: string;
   type: string;
   unit?: string;
   value: string | number;
   name: string;
+  readonly?: boolean;
+  onFocus?: () => void;
+  onBlur?: () => void;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
   //title: string;
 }
 
 export const Input = ({
   id,
-  className,
   type,
   unit,
   value,
   name,
   onChange,
- // title,
 }: InputProps) => {
   return (
-    <StyledInput unit={unit}>
-      <input
-        className={className}
+    <InputContainer>
+      <StyledInput
+        unit={unit}
         id={id}
         type={type}
         name={name}
@@ -33,7 +33,7 @@ export const Input = ({
         value={value}
         onChange={onChange}
       />
-      {unit ? <span className="form__unit">{unit}</span> : null}
-    </StyledInput>
+      {unit ? <Unit>{unit}</Unit> : null}
+    </InputContainer>
   );
 };

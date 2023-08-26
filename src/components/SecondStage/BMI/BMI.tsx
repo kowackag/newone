@@ -10,7 +10,6 @@ const BMI = ({ bmi }) => {
     <StyledBMI>
       <Subtitle>Twój wskaźnik masy ciała wynosi:</Subtitle>
       <Text
-        className="bmi-value"
         mt="2rem"
         size="5rem"
         weight="200"
@@ -19,7 +18,14 @@ const BMI = ({ bmi }) => {
         {bmi}
       </Text>
       <p>Twoje BMI wskazuje na:</p>
-      <Text className="bmi-description">{bmiInfo}</Text>
+      <Text
+        mt="2rem"
+        weight="600"
+        size="1.8rem"
+        color="rgb(var(--color-contrast))"
+      >
+        {bmiInfo}
+      </Text>
     </StyledBMI>
   );
 };

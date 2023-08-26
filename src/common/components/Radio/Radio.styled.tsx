@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const RadioInfo = styled.p`
+  max-width: 90%;
+  font-size: 1rem;
+  color: rgba(var(--color-font), 0.5);
+`;
+
 export const StyledRadio = styled.label<{
   active: boolean;
 }>`
@@ -16,7 +22,7 @@ export const StyledRadio = styled.label<{
   color: var(--color-font);
   font-size: 1.4rem;
 
-  & ::after {
+  &::after {
     box-sizing: border-box;
     position: absolute;
     top: 50%;
@@ -42,13 +48,5 @@ export const StyledRadio = styled.label<{
   & input[type="radio"] {
     display: none;
   }
-
-  & .radio__name {
-    font-weight: bold;
-  }
-  & .radio__description {
-    max-width: 90%;
-    font-size: 1rem;
-    color: rgba(var(--color-font), 0.5);
-  }
 `;
+

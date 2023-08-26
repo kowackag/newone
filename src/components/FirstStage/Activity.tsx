@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 
 import Subtitle from "../Subtitle/Subtitle";
-import { Radio } from "common/components/Radio/Radio";
+import { Radio} from "common/components/Radio/Radio";
+import { RadioInfo } from "common/components/Radio/Radio.styled";
 import { Error } from "common/components/Error/Error";
 import { Container } from "common/components/Container/Container.styled";
 
 import { OrderDataContext } from "components/context";
+import { Text } from "common/components/Text/Text.styled";
 
 export const Activity = ({ activity, error }) => {
   const { dispatch } = useContext(OrderDataContext);
@@ -53,8 +55,8 @@ export const Activity = ({ activity, error }) => {
           onClick={changeValue}
           active={value === activity}
         >
-          <p className="radio__name"> {label}</p>
-          <p className="radio__description">{desc}</p>
+          <Text weight="bold"> {label}</Text>
+          <RadioInfo>{desc}</RadioInfo>
         </Radio>
       ))}
       <Error err={error} />

@@ -86,7 +86,6 @@ const LastStage = () => {
             <React.Fragment key={key}>
               <Label htmlFor={key}>{label}</Label>
               <Input
-                className="form__value"
                 type={type}
                 id={key}
                 name={name}
