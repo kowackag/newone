@@ -12,6 +12,7 @@ interface TextProps {
   lineHeight?: string;
   display?: string;
   letterSpacing?: string;
+  fontStyle?: string;
 }
 
 const defaultProps: TextProps = {
@@ -24,6 +25,7 @@ const defaultProps: TextProps = {
   weight: "normal",
   color: "inherit",
   lineHeight: "normal",
+  fontStyle: "normal",
 };
 
 export const Text = styled.p<TextProps>`
@@ -38,6 +40,7 @@ export const Text = styled.p<TextProps>`
   color: ${({ color }) => color};
   line-height: ${({ lineHeight }) => lineHeight};
   letter-spacing: ${({ letterSpacing }) => letterSpacing};
+  font-style: ${({ fontStyle }) => fontStyle};
 `;
 
 Text.defaultProps = defaultProps;

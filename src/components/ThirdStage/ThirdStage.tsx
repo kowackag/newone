@@ -55,7 +55,7 @@ export const ThirdStage = () => {
     const errors = validateDataThirdStage(data);
     setErr({ ...errors });
     if (Object.keys(errors).length === 0) {
-      navigate("/4");
+      navigate("/diet-form-and-calc-BMI/4");
     }
   };
 
@@ -89,7 +89,7 @@ export const ThirdStage = () => {
     { name: "excluded1", value: excluded1, label: "Składnik 1" },
     { name: "excluded2", value: excluded2, label: "Składnik 2" },
   ];
-  console.log(5, err);
+
   return (
     <StyledThirdStage>
       <form className="form" onSubmit={handleForm}>
@@ -133,7 +133,10 @@ export const ThirdStage = () => {
           ))}
         </Container>
         <ButtonBox>
-          <Button onClick={() => navigate("/2")} type="button">
+          <Button
+            onClick={() => navigate("/diet-form-and-calc-BMI/2")}
+            type="button"
+          >
             Wstecz
           </Button>
           <Button>Dalej</Button>
@@ -142,4 +145,3 @@ export const ThirdStage = () => {
     </StyledThirdStage>
   );
 };
-

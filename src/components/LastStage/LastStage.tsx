@@ -39,7 +39,7 @@ const LastStage = () => {
     setErr({ ...errors });
 
     if (Object.keys(errors).length === 0) {
-      navigate("/4");
+      navigate("/diet-form-and-calc-BMI/4");
     }
   };
 
@@ -99,7 +99,10 @@ const LastStage = () => {
           ))}
         </div>
         <ButtonBox>
-          <Button onClick={() => navigate("/3")} type="button">
+          <Button
+            onClick={() => navigate("/diet-form-and-calc-BMI/3")}
+            type="button"
+          >
             Wstecz
           </Button>
           <Button>Wyślij</Button>

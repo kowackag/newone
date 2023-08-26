@@ -34,7 +34,7 @@ export const FirstStage = () => {
       const { weight, height } = orderData;
       const bmi = countBMI(weight, height);
       dispatch({ type: "setBMI", element: bmi });
-      navigate("/2");
+      navigate("/diet-form-and-calc-BMI/2");
     }
   };
 

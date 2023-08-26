@@ -45,7 +45,7 @@ export const SecondStage = () => {
     const errors = validateDataSecondStage(data);
     setErr({ ...errors });
     if (Object.keys(errors).length === 0) {
-      navigate("/3");
+      navigate("/diet-form-and-calc-BMI/3");
     }
   };
 
@@ -92,7 +92,10 @@ export const SecondStage = () => {
           <BMI bmi={orderData.bmi} />
         </Box>
         <ButtonBox>
-          <Button onClick={() => navigate("/1")} type="button">
+          <Button
+            onClick={() => navigate("/diet-form-and-calc-BMI/1")}
+            type="button"
+          >
             Wstecz
           </Button>
           <Button>Dalej</Button>

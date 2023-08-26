@@ -15,7 +15,7 @@ export const useHandler = () => {
     gluten: false,
     excluded1: "",
     excluded2: "",
-    bmi: "",
+    bmi: 0,
     personalData: {
       userName: "",
       userEmail: "",
@@ -26,11 +26,16 @@ export const useHandler = () => {
 
   interface ReducerProps {
     type: string;
-    element: any;
+    element: {
+      name?: string;
+      value?: string | number;
+      checked?: boolean;
+      type: string;
+      title?: string;
+    };
   }
 
   const reducer = (state: OrderDataTypes, { type, element }: ReducerProps) => {
-    console.log(1111, element);
     switch (type) {
       case "reset":
         return init;
