@@ -6,12 +6,12 @@ interface InputProps {
   type: string;
   unit?: string;
   value: string | number;
+  title?: string;
   name: string;
   readonly?: boolean;
   onFocus?: () => void;
   onBlur?: () => void;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  //title: string;
 }
 
 export const Input = ({
@@ -20,6 +20,7 @@ export const Input = ({
   unit,
   value,
   name,
+  title,
   onChange,
 }: InputProps) => {
   return (
@@ -29,7 +30,7 @@ export const Input = ({
         id={id}
         type={type}
         name={name}
-        //title={title}
+        title={title}
         value={value}
         onChange={onChange}
       />

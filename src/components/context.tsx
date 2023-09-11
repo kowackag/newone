@@ -1,10 +1,15 @@
 import React from "react";
 import { OrderDataTypes } from "./types";
 
+interface ReducerProps {
+    type: string;
+    element?: any | number;
+  }
+
 interface OrderDataContextValue {
   orderData: OrderDataTypes;
   //dispatch: (prev: OrderDataTypes) => void;
-  dispatch: React.Dispatch<any>
+  dispatch: React.Dispatch<OrderDataTypes>
 }
 
 export const initOrderData = {

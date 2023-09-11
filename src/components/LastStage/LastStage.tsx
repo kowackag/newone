@@ -13,6 +13,7 @@ import { OrderDataContext } from "components/context";
 
 const LastStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
+
   const { personalData } = orderData;
   const navigate = useNavigate();
   const [err, setErr] = useState(null);
@@ -80,7 +81,7 @@ const LastStage = () => {
   return (
     <div>
       <Subtitle>Proszę o podanie danych kontaktowych.</Subtitle>
-      <form className="form" onSubmit={handleForm}>
+      <form onSubmit={handleForm}>
         <div>
           {fields.map(({ label, name, type, value, err, key }) => (
             <React.Fragment key={key}>
@@ -90,7 +91,7 @@ const LastStage = () => {
                 id={key}
                 name={name}
                 value={value}
-                // title={key}
+                title={key}
                 onChange={changeValue}
               />
               {err && <Error err={err} />}

@@ -12,7 +12,6 @@
     "deploy": "gh-pages -d build"
   },
   "keywords": [],
-  "proxy": "http://localhost:3000",
   "author": "",
   "license": "ISC",
   "devDependencies": {

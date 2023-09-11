@@ -64,7 +64,6 @@ export const Parameters = ({ errors }) => {
           <Label htmlFor={name}>{label}</Label>
           <Input
             id={name}
-            className="form__value"
             type={type}
             unit={unit}
             name={name}

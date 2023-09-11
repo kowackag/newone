@@ -24,33 +24,28 @@ export const useHandler = () => {
     },
   };
 
-  interface ReducerProps {
-    type: string;
-    element: {
-      name?: string;
-      value?: string | number;
-      checked?: boolean;
-      type: string;
-      title?: string;
-    };
-  }
+  type OrderAction =
+    | { type: "choose"; element: HTMLInputElement }
+    | { type: "change"; element: HTMLInputElement }
+    | { type: "reset" }
+    | { type: "setBMI"; element: number };
 
-  const reducer = (state: OrderDataTypes, { type, element }: ReducerProps) => {
-    switch (type) {
+  const reducer = (state: OrderDataTypes, action: Readonly<OrderAction>) => {
+    switch (action.type) {
       case "reset":
         return init;
       case "change":
-        const { name, value, checked, type, title } = element;
+        const { name, value, checked, type, title } = action.element;
         const copyValue = type === "checkbox" ? checked : value;
         const result = title
           ? { ...state, [name]: { ...state.personalData, [title]: copyValue } }
           : { ...state, [name]: copyValue };
         return result;
       case "choose":
-        let nameLi = element.getAttribute("name");
-        return { ...state, [nameLi]: element.innerText };
+        let nameLi = action.element && action.element.getAttribute("name");
+        return { ...state, [nameLi]: action.element.innerText };
       case "setBMI":
-        return { ...state, bmi: element };
+        return { ...state, bmi: action.element };
       default:
         return state;
     }
