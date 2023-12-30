@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import Subtitle from "../Subtitle/Subtitle";
+import { Subtitle } from "common/components/Subtitle/Subtitle";
 import { Radio } from "common/components/Radio/Radio";
 import { RadioInfo } from "common/components/Radio/Radio.styled";
 import { Error } from "common/components/Error/Error";
@@ -45,7 +45,7 @@ export const Activity = ({ activity, error }) => {
   };
 
   return (
-    <FlexContainer width="45%">
+    <FlexContainer width="45%" direction="column">
       <Subtitle>Jaka jest twoja aktywność fizyczna?</Subtitle>
       {fields.map(({ name, value, label, desc }) => (
         <Radio
@@ -62,6 +62,6 @@ export const Activity = ({ activity, error }) => {
         </Radio>
       ))}
       <Error err={error} />
-    </FlexContainer>
+    </FlexContainer >
   );
 };

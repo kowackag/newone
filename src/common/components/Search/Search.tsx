@@ -7,7 +7,14 @@ import {
   ListItem,
 } from "./Search.styled";
 
-const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
+export const Search = ({
+  name,
+  value,
+  items,
+  onChoose,
+  onChange,
+  isMutable,
+}) => {
   const [isActive, setIsActive] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const [isOnMouse, setIsOnMouse] = useState(false);
@@ -53,5 +60,3 @@ const Search = ({ name, value, items, onChoose, onChange, isMutable }) => {
     </StyledSearch>
   );
 };
-
-export default Search;

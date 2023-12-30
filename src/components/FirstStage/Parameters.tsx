@@ -3,7 +3,7 @@ import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
 import { Error } from "common/components/Error/Error";
 import { FlexContainer } from "common/components/FlexContainer/FlexContainer.styled";
-import Search from "../Search/Search";
+import { Search } from "common/components/Search/Search";
 
 import { OrderDataContext } from "components/context";
 
@@ -48,7 +48,7 @@ export const Parameters = ({ errors }) => {
   ];
 
   return (
-    <FlexContainer width="45%">
+    <FlexContainer width="45%" direction="column">
       <Label>Płeć</Label>
       <Search
         items={["kobieta", "mężczyzna"]}

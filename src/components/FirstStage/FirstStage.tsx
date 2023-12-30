@@ -10,7 +10,6 @@ import { validateDataFirstStage } from "components/validateData";
 import { OrderDataContext } from "components/context";
 import { countBMI } from "./helpers";
 
-
 export const FirstStage = () => {
   const { orderData, dispatch } = useContext(OrderDataContext);
   const navigate = useNavigate();
@@ -32,13 +31,9 @@ export const FirstStage = () => {
     setErr({ ...errors });
 
     if (Object.keys(errors).length === 0) {
-      const { weight, height } = orderData;
+      const { weight, height } = data;
       const bmi = countBMI(weight, height);
-      const action = {
-        type: "setBMI",
-        element: bmi,
-      };
-      dispatch(action);
+      dispatch({ type: "setBMI", element: bmi });
       navigate("/diet-form-and-calc-BMI/2");
     }
   };

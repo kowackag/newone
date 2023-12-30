@@ -9,7 +9,6 @@ import Complete from "./Complete/Complete";
 import ProgressBar from "./ProgresBar/ProgressBar";
 //import { addOrdersAPI } from "./DataAPI";
 
-// import { OrderDataTypes } from "./types";
 import { OrderDataContext } from "./context";
 import { useHandler } from "./reducer";
 

@@ -32,12 +32,7 @@ export const useHandler = () => {
     | { type: "setBMI"; element: number }
   >;
 
-  const reducer = (
-    state: OrderDataTypes,
-    action: Readonly<OrderAction>
-  ): OrderDataTypes => {
-    console.log(action);
-
+  const reducer = (state: OrderDataTypes, action: Readonly<OrderAction>) => {
     switch (action.type) {
       case "reset":
         return init;
@@ -70,6 +65,5 @@ export const useHandler = () => {
     }
   };
 
-  const [state, dispatch] = useReducer(reducer, init);
-  return [state, dispatch];
+  return useReducer(reducer, init);
 };

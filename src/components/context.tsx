@@ -8,6 +8,7 @@ interface ReducerProps {
 type OrderAction =
   | { type: "choose"; element: HTMLInputElement }
   | { type: "change"; element: HTMLInputElement }
+  | { type: "select"; element: HTMLInputElement }
   | { type: "reset" }
   | { type: "setBMI"; element: number };
 
@@ -38,11 +39,11 @@ export const initOrderData = {
     userInfo: "",
   },
 };
-type dispatchType =
-  | { type: "choose"; element: HTMLInputElement }
-  | { type: "change"; element: HTMLInputElement }
-  | { type: "reset" }
-  | { type: "setBMI"; element: number };
+// type dispatchType =
+//   | { type: "setBMI"; element: number }
+//   | { type: "choose"; element: HTMLInputElement }
+//   | { type: "change"; element: HTMLInputElement }
+//   | { type: "reset" };
 
 const OrderDataContext = React.createContext<OrderDataContextValue>({
   orderData: initOrderData,
