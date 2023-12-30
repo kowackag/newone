@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Input } from "common/components/Input/Input";
 import { Label } from "common/components/Label/Label";
 import { Error } from "common/components/Error/Error";
-import { Container } from "common/components/Container/Container.styled";
+import { FlexContainer } from "common/components/FlexContainer/FlexContainer.styled";
 import Search from "../Search/Search";
 
 import { OrderDataContext } from "components/context";
@@ -48,7 +48,7 @@ export const Parameters = ({ errors }) => {
   ];
 
   return (
-    <Container width="45%">
+    <FlexContainer width="45%">
       <Label>Płeć</Label>
       <Search
         items={["kobieta", "mężczyzna"]}
@@ -73,7 +73,7 @@ export const Parameters = ({ errors }) => {
           {err && <Error err={err} />}
         </React.Fragment>
       ))}
-    </Container>
+    </FlexContainer>
   );
 };
 

@@ -8,9 +8,6 @@ interface InputProps {
   value: string | number;
   title?: string;
   name: string;
-  readonly?: boolean;
-  onFocus?: () => void;
-  onBlur?: () => void;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 

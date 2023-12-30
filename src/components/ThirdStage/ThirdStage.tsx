@@ -40,7 +40,7 @@ export const ThirdStage = () => {
 
   const changeValue = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
     e.preventDefault();
-    dispatch({ type: "change", element: e.target });
+    dispatch({ type: "change", element: e.target as HTMLInputElement});
   };
 
   const chooseElement = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import {StyledRadio} from "./Radio.styled";
+import { StyledRadio } from "./Radio.styled";
 
 interface RadioProps {
   name: string;
@@ -8,7 +8,13 @@ interface RadioProps {
   onClick: React.MouseEventHandler<HTMLInputElement>;
   children: React.ReactNode;
 }
-export const Radio = ({ name, value, active, onClick, children }: RadioProps) => {
+export const Radio = ({
+  name,
+  value,
+  active,
+  onClick,
+  children,
+}: RadioProps) => {
   return (
     <StyledRadio active={active}>
       {children}

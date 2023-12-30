@@ -24,26 +24,45 @@ export const useHandler = () => {
     },
   };
 
-  type OrderAction =
+  type OrderAction = Readonly<
     | { type: "choose"; element: HTMLInputElement }
     | { type: "change"; element: HTMLInputElement }
+    | { type: "select"; element: HTMLInputElement }
     | { type: "reset" }
-    | { type: "setBMI"; element: number };
+    | { type: "setBMI"; element: number }
+  >;
 
-  const reducer = (state: OrderDataTypes, action: Readonly<OrderAction>) => {
+  const reducer = (
+    state: OrderDataTypes,
+    action: Readonly<OrderAction>
+  ): OrderDataTypes => {
+    console.log(action);
+
     switch (action.type) {
       case "reset":
         return init;
       case "change":
-        const { name, value, checked, type, title } = action.element;
-        const copyValue = type === "checkbox" ? checked : value;
+        const { name, value, checked, title } = action.element;
+        const copyValue = value;
         const result = title
           ? { ...state, [name]: { ...state.personalData, [title]: copyValue } }
           : { ...state, [name]: copyValue };
         return result;
+      case "select":
+        const copyCheckbox = checked;
+        const checkResult = title
+          ? {
+              ...state,
+              [name]: { ...state.personalData, [title]: copyCheckbox },
+            }
+          : { ...state, [name]: copyValue };
+        return checkResult;
       case "choose":
-        let nameLi = action.element && action.element.getAttribute("name");
-        return { ...state, [nameLi]: action.element.innerText };
+        if (action.element) {
+          let nameLi = action.element.getAttribute("name");
+          return { ...state, [nameLi]: action.element.innerText };
+        } else return null;
+
       case "setBMI":
         return { ...state, bmi: action.element };
       default:

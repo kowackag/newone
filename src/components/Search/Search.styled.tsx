@@ -17,7 +17,7 @@ export const SearchInput = styled.input`
   color: rgb(var(--color-font));
   color: rgba(var(--color-font), 0.8);
   font-size: 1.4rem;
-  border-radius: 0.8rem;
+  border-radius: 4px;
   box-shadow: inset 4px 4px 6px rgb(var(--color-beta)),
     inset -4px -4px 6px rgb(var(--color-gamma));
   background-color: rgb(var(--color-alfa));
@@ -39,7 +39,7 @@ export const Label = styled.label`
 export const ListItem = styled.li<{
   name: string;
 }>`
-  padding: 0.4rem;
+  padding: 0.8rem;
   border-bottom: 1px solid rgb(var(--color-beta));
   cursor: pointer;
 `;

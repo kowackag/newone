@@ -17,8 +17,8 @@ import { Wrapper, Title } from "./App.styled";
 
 const App = () => {
   const [orderData, dispatch] = useHandler();
-  const [stage, setStage] = useState(1);
-  
+  const [stage] = useState(1);
+
   const getProgress = (stage: number) => {
     const progress = 25 * (stage - 1);
     return progress;
