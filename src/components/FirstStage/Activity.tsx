@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { Subtitle } from "common/components/Subtitle/Subtitle";
 import { Radio } from "common/components/Radio/Radio";
@@ -6,12 +6,10 @@ import { RadioInfo } from "common/components/Radio/Radio.styled";
 import { Error } from "common/components/Error/Error";
 import { FlexContainer } from "common/components/FlexContainer/FlexContainer.styled";
 
-import { OrderDataContext } from "components/context";
 import { Text } from "common/components/Text/Text.styled";
 
-export const Activity = ({ activity, error }) => {
-  const { dispatch } = useContext(OrderDataContext);
-
+export const Activity = ({ error, register }) => {
+  const [activity, setActivity] = useState("");
   const fields = [
     {
       name: "activity",
@@ -39,20 +37,16 @@ export const Activity = ({ activity, error }) => {
     },
   ];
 
-  const changeValue = (e: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-    e.preventDefault();
-    dispatch({ type: "change", element: e.target as HTMLInputElement });
-  };
-
   return (
     <FlexContainer width="45%" direction="column">
       <Subtitle>Jaka jest twoja aktywność fizyczna?</Subtitle>
       {fields.map(({ name, value, label, desc }) => (
         <Radio
+          register={register}
           key={value}
           name={name}
           value={value}
-          onClick={changeValue}
+          onClick={() => setActivity(value)}
           active={value === activity}
         >
           <Text weight="500" mb="6px">
@@ -62,6 +56,6 @@ export const Activity = ({ activity, error }) => {
         </Radio>
       ))}
       <Error err={error} />
-    </FlexContainer >
+    </FlexContainer>
   );
 };

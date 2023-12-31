@@ -19,3 +19,12 @@ export type OrderDataTypes = {
     userInfo: string;
   };
 };
+
+
+export interface DataFirstStageTypes {
+  weight?: number;
+  height?: number;
+  gender?: string;
+  born?: string;
+  activity?: string;
+};

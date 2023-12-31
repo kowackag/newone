@@ -92,6 +92,7 @@ export const SecondStage = () => {
         </FlexContainer>
         <ButtonBox>
           <Button
+            variant="secondary"
             onClick={() => navigate("/diet-form-and-calc-BMI/1")}
             type="button"
           >

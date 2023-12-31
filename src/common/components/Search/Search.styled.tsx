@@ -5,7 +5,7 @@ export const StyledSearch = styled.div`
   position: relative;
 `;
 
-export const SearchInput = styled.input`
+export const SearchInput = styled.select`
   position: relative;
   display: inline-block;
   padding: 1rem 1rem;
@@ -36,10 +36,11 @@ export const Label = styled.label`
   }
 `;
 
-export const ListItem = styled.li<{
-  name: string;
+export const ListItem = styled.option<{
+  value: string;
 }>`
-  padding: 0.8rem;
+  display: inline-block;
+  padding: 2rem;
   border-bottom: 1px solid rgb(var(--color-beta));
   cursor: pointer;
 `;
