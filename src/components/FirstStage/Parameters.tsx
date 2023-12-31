@@ -7,6 +7,15 @@ import { Search } from "common/components/Search/Search";
 
 import { OrderDataContext } from "components/context";
 
+interface FieldsType {
+  label: string;
+  type: string;
+  unit?: string;
+  name: "weight" | "height" | "born";
+  value: number | string;
+  err: string;
+}
+
 export const Parameters = ({
   register,
   genderError,
@@ -27,7 +36,7 @@ export const Parameters = ({
     dispatch({ type: "choose", element: e.target });
   };
 
-  const fields = [
+  const fields: FieldsType[] = [
     {
       label: "Masa ciała",
       type: "number",

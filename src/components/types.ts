@@ -20,11 +20,10 @@ export type OrderDataTypes = {
   };
 };
 
-
 export interface DataFirstStageTypes {
   weight?: number;
   height?: number;
   gender?: string;
-  born?: string;
+  born?: Date;
   activity?: string;
-};
+}

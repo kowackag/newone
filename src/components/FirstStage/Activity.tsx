@@ -12,25 +12,21 @@ export const Activity = ({ error, register }) => {
   const [activity, setActivity] = useState("");
   const fields = [
     {
-      name: "activity",
       value: "none",
       label: "Brak aktywności",
       desc: "Siedzący tryb życia",
     },
     {
-      name: "activity",
       value: "low",
       label: "Mała aktywność",
       desc: "Sporadyczne treningi",
     },
     {
-      name: "activity",
       value: "med",
       label: "Średnia aktywność",
       desc: "1-3 treningi w tygodniu",
     },
     {
-      name: "activity",
       value: "hight",
       label: "Duża aktywność",
       desc: "Conajmniej 4 treningi w tygodniu",
@@ -40,11 +36,11 @@ export const Activity = ({ error, register }) => {
   return (
     <FlexContainer width="45%" direction="column">
       <Subtitle>Jaka jest twoja aktywność fizyczna?</Subtitle>
-      {fields.map(({ name, value, label, desc }) => (
+      {fields.map(({ value, label, desc }) => (
         <Radio
           register={register}
           key={value}
-          name={name}
+          name="activity"
           value={value}
           onClick={() => setActivity(value)}
           active={value === activity}
